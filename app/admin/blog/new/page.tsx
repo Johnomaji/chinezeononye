@@ -1,0 +1,269 @@
+'use client'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
+import { marked } from 'marked'
+
+const categories = ['Mentorship', 'Education', 'Public Speaking', 'Leadership', 'Personal Development', 'Motivation']
+
+export default function NewBlogPage() {
+  const router = useRouter()
+  const [activeTab, setActiveTab] = useState<'write' | 'preview'>('write')
+  const [loading, setLoading] = useState(false)
+  const [form, setForm] = useState({
+    title: '',
+    slug: '',
+    excerpt: '',
+    content: '',
+    coverImage: '',
+    category: '',
+    tags: '',
+    published: false,
+    readTime: 5,
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    setForm(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+      ...(name === 'title' && !prev.slug
+        ? { slug: value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') }
+        : {}),
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!form.title || !form.content || !form.excerpt) {
+      toast.error('Title, excerpt, and content are required.')
+      return
+    }
+    setLoading(true)
+    try {
+      const res = await fetch('/api/blog', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          tags: form.tags.split(',').map(t => t.trim()).filter(Boolean),
+          readTime: Number(form.readTime),
+        }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        toast.success('Blog post created!')
+        router.push('/admin/blog')
+      } else {
+        toast.error(data.error || 'Failed to create post')
+      }
+    } catch {
+      toast.error('Network error')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const previewHtml = marked(form.content || '') as string
+
+  return (
+    <div className="space-y-6 max-w-5xl">
+      <div className="flex items-center justify-between">
+        <div>
+          <button
+            onClick={() => router.back()}
+            className="text-white/40 hover:text-white text-sm flex items-center gap-1 mb-2 transition-colors"
+          >
+            ← Back
+          </button>
+          <h1 className="font-playfair text-3xl font-bold text-white">New Blog Post</h1>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-5">
+            <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-6 space-y-5">
+              <div>
+                <label className="block text-sm font-medium text-white/70 mb-2">
+                  Title <span className="text-gold-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  value={form.title}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your compelling blog title..."
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-gold-400 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-white/70 mb-2">Slug</label>
+                <input
+                  type="text"
+                  name="slug"
+                  value={form.slug}
+                  onChange={handleChange}
+                  placeholder="url-friendly-slug"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white/70 placeholder:text-white/20 focus:outline-none focus:border-gold-400 transition-colors font-mono text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-white/70 mb-2">
+                  Excerpt <span className="text-gold-400">*</span>
+                </label>
+                <textarea
+                  name="excerpt"
+                  value={form.excerpt}
+                  onChange={handleChange}
+                  required
+                  rows={2}
+                  placeholder="A brief description that appears in listings and SEO..."
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-gold-400 transition-colors resize-none"
+                />
+              </div>
+            </div>
+
+            {/* Content Editor */}
+            <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl overflow-hidden">
+              <div className="flex border-b border-white/10">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('write')}
+                  className={`px-6 py-3 text-sm font-medium transition-colors ${activeTab === 'write' ? 'text-gold-400 border-b-2 border-gold-400' : 'text-white/40 hover:text-white/70'}`}
+                >
+                  Write
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('preview')}
+                  className={`px-6 py-3 text-sm font-medium transition-colors ${activeTab === 'preview' ? 'text-gold-400 border-b-2 border-gold-400' : 'text-white/40 hover:text-white/70'}`}
+                >
+                  Preview
+                </button>
+                <div className="ml-auto flex items-center px-4 text-white/20 text-xs">
+                  Markdown supported
+                </div>
+              </div>
+
+              {activeTab === 'write' ? (
+                <textarea
+                  name="content"
+                  value={form.content}
+                  onChange={handleChange}
+                  required
+                  rows={20}
+                  placeholder="Write your blog post in Markdown...&#10;&#10;# Heading&#10;## Subheading&#10;&#10;Your content here..."
+                  className="w-full p-6 bg-transparent text-white/80 placeholder:text-white/20 focus:outline-none resize-none font-mono text-sm leading-relaxed"
+                />
+              ) : (
+                <div
+                  className="p-6 prose prose-invert prose-headings:font-playfair prose-headings:text-white prose-p:text-white/70 prose-strong:text-white max-w-none min-h-[400px]"
+                  dangerouslySetInnerHTML={{ __html: previewHtml || '<p class="text-white/30">Nothing to preview yet...</p>' }}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-5">
+            {/* Publish Card */}
+            <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5">
+              <h3 className="text-white font-medium mb-4">Publish Settings</h3>
+              <label className="flex items-center gap-3 cursor-pointer mb-5">
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    name="published"
+                    checked={form.published}
+                    onChange={handleChange}
+                    className="sr-only"
+                  />
+                  <div className={`w-10 h-6 rounded-full transition-colors ${form.published ? 'bg-gold-400' : 'bg-white/20'}`}>
+                    <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${form.published ? 'left-5' : 'left-1'}`} />
+                  </div>
+                </div>
+                <span className="text-white/70 text-sm">{form.published ? 'Published' : 'Draft'}</span>
+              </label>
+              <div className="flex gap-2">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="flex-1 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 disabled:opacity-70"
+                >
+                  {loading ? 'Saving...' : 'Save Post'}
+                </button>
+              </div>
+            </div>
+
+            {/* Meta */}
+            <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5 space-y-4">
+              <h3 className="text-white font-medium">Post Details</h3>
+              <div>
+                <label className="block text-xs text-white/50 mb-1.5">Category</label>
+                <select
+                  name="category"
+                  value={form.category}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+                >
+                  <option value="">Select category</option>
+                  {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs text-white/50 mb-1.5">Tags (comma separated)</label>
+                <input
+                  type="text"
+                  name="tags"
+                  value={form.tags}
+                  onChange={handleChange}
+                  placeholder="mentorship, growth, leadership"
+                  className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/20"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-white/50 mb-1.5">Read Time (minutes)</label>
+                <input
+                  type="number"
+                  name="readTime"
+                  value={form.readTime}
+                  onChange={handleChange}
+                  min={1}
+                  max={60}
+                  className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* Cover Image */}
+            <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5">
+              <h3 className="text-white font-medium mb-3">Cover Image</h3>
+              <input
+                type="url"
+                name="coverImage"
+                value={form.coverImage}
+                onChange={handleChange}
+                placeholder="https://images.unsplash.com/..."
+                className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/20"
+              />
+              {form.coverImage && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={form.coverImage}
+                  alt="Preview"
+                  className="mt-3 w-full h-32 object-cover rounded-lg"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  )
+}

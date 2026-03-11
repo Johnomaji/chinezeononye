@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "name": "Adaeze Okafor",
+    "role": "CEO",
+    "company": "Innovate Africa",
+    "content": "Chineze completely transformed how I think about leadership and purpose. Her mentorship didn't just advance my career — it changed who I am as a person. I walked away from our sessions with a clarity and confidence I had never experienced before.",
+    "image": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2024-01-20T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Dr. Emeka Nwosu",
+    "role": "Associate Professor",
+    "company": "University of Lagos",
+    "content": "Having Chineze speak at our faculty conference was one of the best decisions we made this year. She has a rare gift for making complex ideas deeply personal. Every educator in that room left feeling renewed in their sense of calling.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2024-02-14T10:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Ngozi Eze",
+    "role": "Secondary School Teacher",
+    "company": "Legacy Academy",
+    "content": "I attended Chineze's teaching masterclass and it was genuinely life-changing. I have been teaching for 12 years and felt burnt out. She reignited my passion and gave me practical tools I am using every single day in my classroom.",
+    "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2024-03-01T10:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "Chukwudi Ibe",
+    "role": "Entrepreneur",
+    "company": "TechBridge Nigeria",
+    "content": "Chineze's keynote at our entrepreneurship summit was the highlight of the entire event. Her ability to weave personal narrative with practical wisdom is extraordinary. Three months later, I still reference lessons from her talk daily.",
+    "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
+    "rating": 5,
+    "featured": false,
+    "createdAt": "2024-03-20T10:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "Amara Obiechina",
+    "role": "Youth Leader",
+    "company": "Future Leaders Initiative",
+    "content": "Chineze spoke at our youth leadership program and the impact was immediate. Young people who had never spoken up were suddenly raising their hands. She has a gift for unlocking potential that people did not know they had.",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    "rating": 5,
+    "featured": false,
+    "createdAt": "2024-04-05T10:00:00.000Z"
+  }
+]
