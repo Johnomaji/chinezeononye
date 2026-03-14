@@ -71,7 +71,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="p-6 border-b border-gold-500/10">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-gold-gradient flex items-center justify-center shrink-0">
-            <span className="text-charcoal font-playfair font-bold text-sm">C</span>
+            <img src="/chinezelogo.png" alt="Chineze Ononye Logo" />
           </div>
           <div>
             <p className="font-playfair text-white font-bold text-sm">Chineze Ononye</p>

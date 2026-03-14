@@ -36,9 +36,14 @@ const timeline = [
     desc: 'Expanded her reach to international audiences, speaking in the UK, US, and across West Africa.',
   },
   {
+    year: '2023',
+    title: 'Founded Sonspiration',
+    desc: 'Launched Sonspiration — a group call community dedicated to equipping the wholesome boy child, championing the emotional, spiritual, and social development of boys.',
+  },
+  {
     year: '2024',
     title: 'Today & Beyond',
-    desc: 'Continuing to impact thousands through speaking, mentorship, and education with greater reach than ever.',
+    desc: 'Continuing to impact thousands through writing, speaking, mentorship, and Sonspiration — with greater reach and deeper purpose than ever.',
   },
 ]
 
@@ -82,7 +87,7 @@ export default function AboutPage() {
               About <span className="gold-text">Chineze</span>
             </h1>
             <p className="text-white/60 text-xl leading-relaxed">
-              Teacher. Mentor. Speaker. But above all — a woman who believes that every human being carries within them the seed of something extraordinary.
+              Writer. Teacher. Mentor. Speaker. Champion of the boy child. But above all — a woman who believes that every human being carries within them the seed of something extraordinary.
             </p>
           </div>
         </div>
@@ -95,7 +100,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                  src="/Chinezered-e1745223506142.jpg"
                   alt="Chineze Ononye"
                   fill
                   className="object-cover"
@@ -128,6 +133,9 @@ export default function AboutPage() {
               </p>
               <p>
                 Her approach is rooted in authenticity, driven by compassion, and focused always on empowerment. She doesn't just motivate people — she equips them with the mindsets, tools, and courage to sustain their own transformation.
+              </p>
+              <p>
+                As a writer and advocate, Chineze also founded <span className="text-gold-600 font-semibold">Sonspiration</span> — a group call community built around her heartfelt tag: <em>&ldquo;Equipping the Wholesome Boy Child.&rdquo;</em> Through Sonspiration, she speaks directly to the often-overlooked needs of boys, bringing together parents, educators, and mentors to champion the next generation of wholesome, purposeful young men.
               </p>
             </div>
             <Link
@@ -247,12 +255,13 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80',
-              'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80',
-              'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80',
-              'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80',
-              'https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=600&q=80',
-              'https://images.unsplash.com/photo-1559223607-180220b63035?w=600&q=80',
+              
+              '/1-1.jpg',
+              '/2-1.jpg',
+              '/Chinezered-e1745223506142.jpg',
+              '/IMG-20250326-WA0008.jpg',
+              '/3-1.jpg',
+              '/3.jpg',
             ].map((src, i) => (
               <div
                 key={i}

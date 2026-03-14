@@ -27,8 +27,8 @@ export default function MaintenancePage() {
       <div className="relative text-center max-w-2xl mx-auto">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-12">
-          <div className="w-14 h-14 rounded-full bg-gold-gradient flex items-center justify-center">
-            <span className="text-charcoal font-playfair font-bold text-xl">C</span>
+          <div className="w-14 h-14 rounded-full  flex items-center justify-center">
+            <img src="/chinezelogo.png" alt="Chineze Ononye Logo" />
           </div>
           <span className="font-playfair font-bold text-2xl text-white">Chineze Ononye</span>
         </div>

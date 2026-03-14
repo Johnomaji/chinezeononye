@@ -36,7 +36,7 @@ export default function HomePage() {
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
-              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Teacher · Mentor · Speaker</span>
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Writer · Teacher · Mentor · Speaker</span>
             </div>
             <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
               Unlocking
@@ -82,7 +82,7 @@ export default function HomePage() {
             <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent z-10 rounded-3xl" />
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                src="/Chinezered-e1745223506142.jpg"
                 alt="Chineze Ononye"
                 fill
                 className="object-cover"
@@ -116,8 +116,13 @@ export default function HomePage() {
       {/* MISSION SECTION */}
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
+              {
+                icon: '✍️',
+                title: 'Writer',
+                desc: 'Crafting words that move hearts and shift perspectives — telling stories that give voice to purpose and truth.',
+              },
               {
                 icon: '📚',
                 title: 'Teacher',
@@ -154,7 +159,7 @@ export default function HomePage() {
           <div className="animate-on-scroll-left relative">
             <div className="relative aspect-square rounded-3xl overflow-hidden max-w-lg">
               <Image
-                src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?w=800&q=80"
+                src="/IMG-20250326-WA0008.jpg"
                 alt="Chineze speaking"
                 fill
                 className="object-cover"
@@ -189,6 +194,79 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SONSPIRATION SECTION */}
+      <section className="py-24 bg-charcoal relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,162,39,0.08),transparent_60%)]" />
+        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="animate-on-scroll-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Community & Advocacy</span>
+            </div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Introducing <span className="gold-text">Sonspiration</span>
+            </h2>
+            <p className="text-gold-400 font-playfair italic text-lg mb-6">
+              &ldquo;Equipping the Wholesome Boy Child&rdquo;
+            </p>
+            <div className="space-y-4 text-white/60 leading-relaxed">
+              <p>
+                Sonspiration is Chineze&apos;s group call community dedicated to raising, championing, and equipping the boy child. In a world that often overlooks the emotional, spiritual, and social needs of boys, Sonspiration creates a space for intentional conversations about nurturing wholesome, grounded, and purposeful young men.
+              </p>
+              <p>
+                Through live group calls, practical insights, and community connection, Sonspiration brings together parents, educators, mentors, and advocates who believe that the future begins with how we raise our sons.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Link
+                href="/contact?subject=Sonspiration+%2F+Boy+Child"
+                className="px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
+              >
+                Join Sonspiration
+              </Link>
+              <Link
+                href="/about"
+                className="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:border-gold-400 hover:text-gold-400 transition-all duration-300"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+
+          <div className="animate-on-scroll-right grid grid-cols-1 gap-4">
+            {[
+              {
+                icon: '👦',
+                title: 'Champion the Boy Child',
+                desc: 'Raising awareness about the unique emotional and developmental needs of boys in today\'s world.',
+              },
+              {
+                icon: '🤝',
+                title: 'Community Conversations',
+                desc: 'Live group calls that bring together parents, educators, and mentors for real, honest dialogue.',
+              },
+              {
+                icon: '🌱',
+                title: 'Wholesome Formation',
+                desc: 'Practical tools and insights for raising sons who are confident, compassionate, and purposeful.',
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className="animate-on-scroll bg-white/5 border border-gold-500/20 rounded-2xl p-6 flex gap-4 items-start hover:bg-white/10 transition-all duration-300"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className="text-3xl shrink-0">{item.icon}</div>
+                <div>
+                  <h3 className="font-playfair text-lg font-bold text-white mb-1">{item.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

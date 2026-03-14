@@ -48,7 +48,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="w-16 h-16 rounded-full bg-gold-gradient flex items-center justify-center mx-auto mb-4">
-            <span className="text-charcoal font-playfair font-bold text-2xl">C</span>
+            <img src="/chinezelogo.png" alt="Chineze Ononye Logo" />
           </div>
           <h1 className="font-playfair text-3xl font-bold text-white">Admin Panel</h1>
           <p className="text-white/40 text-sm mt-2">Chineze Ononye — Content Management</p>
