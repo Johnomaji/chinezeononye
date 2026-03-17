@@ -10,19 +10,19 @@ const faqs = [
   },
   {
     q: 'How far in advance should I book?',
-    a: 'For keynote speaking, we recommend booking at least 8–12 weeks in advance for the best availability. For workshops and mentorship sessions, 4–6 weeks is usually sufficient.',
+    a: 'For keynote speaking, we recommend booking at least 3-4 weeks in advance for the best availability. For workshops and group coaching sessions, 4–6 weeks is usually sufficient.',
   },
   {
     q: 'Does Chineze offer virtual sessions?',
-    a: 'Yes! Chineze is fully equipped and experienced in delivering impactful virtual keynotes, workshops, and mentorship sessions via Zoom, Teams, and other platforms.',
+    a: 'Yes! Chineze is fully equipped and experienced in delivering impactful virtual keynotes, workshops, and group coaching sessions via Zoom, Teams, and other platforms.',
   },
   {
-    q: 'What is the process for beginning mentorship?',
-    a: 'Start by submitting the contact form. We will schedule a 30-minute discovery call to understand your goals, then propose a customized mentorship plan.',
+    q: 'What is the process for initiating group coaching?',
+    a: 'Start by submitting the contact form. We will schedule a 30-minute discovery call to understand your goals, then propose a customized group coaching plan.',
   },
   {
-    q: 'Are there group mentorship options?',
-    a: 'Yes! Chineze offers both individual and group mentorship programs. Group cohorts are a cost-effective way for organizations to develop multiple leaders simultaneously.',
+    q: 'Are there group coaching options?',
+    a: 'Yes! Chineze offers small group, medium group and large group coaching programs. Group cohorts are a cost-effective way for organizations to develop multiple leaders simultaneously.',
   },
 ]
 
@@ -96,15 +96,15 @@ export default function ContactPage() {
             {[
               {
                 title: 'Email',
-                value: 'hello@chinezeonye.com',
+                value: 'Chinezeedenononye@gmail.com',
                 desc: 'Best for general inquiries and mentorship',
-                href: 'mailto:hello@chinezeonye.com',
+                href: 'mailto:Chinezeedenononye@gmail.com',
               },
               {
                 title: 'Speaking Bookings',
-                value: 'bookings@chinezeonye.com',
+                value: 'Chinezeedenononye@gmail.com',
                 desc: 'For event and conference inquiries',
-                href: 'mailto:bookings@chinezeonye.com',
+                href: 'mailto:Chinezeedenononye@gmail.com',
               },
             ].map(contact => (
               <div key={contact.title} className="bg-white rounded-2xl p-6 gold-border">
@@ -219,10 +219,12 @@ export default function ContactPage() {
                   >
                     <option value="">Select a subject</option>
                     <option value="Speaking Engagement">Speaking Engagement</option>
-                    <option value="Mentorship Program">Mentorship Program</option>
+                    <option value="school">School talks on boy child</option>
+                    <option value="Group Coaching">Group Coaching</option>
                     <option value="Workshop / Training">Workshop / Training</option>
                     <option value="Sonspiration / Boy Child">Sonspiration / Boy Child</option>
                     <option value="Media Inquiry">Media Inquiry</option>
+                    <option value="The Unstoppable you">Our Signature Course: The Unstoppable you</option>
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Other">Other</option>
                   </select>
