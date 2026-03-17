@@ -50,17 +50,17 @@ const timeline = [
 const values = [
   {
     title: 'Authenticity',
-    desc: 'Every conversation, every talk, every lesson is grounded in genuine truth — no performance, only presence.',
+    desc: 'Every engagement, regardless of medium is grounded in genuine truth — no performance, only presence.',
     icon: '✦',
   },
   {
     title: 'Excellence',
-    desc: 'A commitment to showing up fully prepared, continuously learning, and delivering the highest quality in all things.',
+    desc: 'A commitment to showing up fully prepared, continuously learning, and delivering value at the highest quality at all times.',
     icon: '◆',
   },
   {
     title: 'Empowerment',
-    desc: 'The goal is never dependency but capability — helping people discover and own their inherent power.',
+    desc: 'The goal is never dependency but capability — helping people discover, own their inherent power and then soar.',
     icon: '▲',
   },
   {
@@ -213,7 +213,7 @@ export default function AboutPage() {
       </section>
 
       {/* ACHIEVEMENTS GRID */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="font-playfair text-4xl font-bold text-charcoal">
@@ -242,7 +242,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* PHOTO GALLERY */}
       <section className="py-24 bg-cream">

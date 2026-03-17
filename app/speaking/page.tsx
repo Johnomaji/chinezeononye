@@ -86,7 +86,7 @@ export default function SpeakingPage() {
               <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Speaking</span>
             </div>
             <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Words That <span className="gold-text">Move</span> People
+              Words That <span className="gold-text">Inspire</span> People
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-8">
               Chineze brings a rare combination of educator's wisdom, mentor's empathy, and speaker's fire to every stage she stands on. The result? Audiences that don't just leave inspired — they leave transformed.

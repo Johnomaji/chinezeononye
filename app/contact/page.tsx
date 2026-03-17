@@ -80,7 +80,7 @@ export default function ContactPage() {
             Let&apos;s <span className="gold-text">Connect</span>
           </h1>
           <p className="text-white/60 text-xl max-w-2xl mx-auto leading-relaxed">
-            Whether you want to book a speaking engagement, explore mentorship, or just say hello — the door is always open.
+            Do you desire to book a speaking schedule, explore coaching, training, have us engage the Boys or just say hello — the door is always open.
           </p>
         </div>
       </section>
@@ -168,7 +168,7 @@ export default function ContactPage() {
             <div className="bg-gold-50 rounded-2xl p-6 border border-gold-200">
               <p className="font-playfair text-charcoal font-bold mb-2">Response Time</p>
               <p className="text-charcoal/60 text-sm">
-                All messages are personally reviewed. Expect a response within 1–2 business days.
+                All messages are personally reviewed. Expect a response within 24hours on business days. 24-48 hours on non-business days. We appreciate your patience and look forward to connecting with you!
               </p>
             </div>
           </div>
@@ -218,14 +218,13 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 border border-charcoal/20 rounded-xl focus:outline-none focus:border-gold-400 transition-colors text-sm bg-cream"
                   >
                     <option value="">Select a subject</option>
+                    <option value="The Unstoppable you">Our Signature Course: The Unstoppable you</option>
                     <option value="Speaking Engagement">Speaking Engagement</option>
-                    <option value="school">School talks on boy child</option>
+                    <option value="school">Engaging boys in schools</option>
                     <option value="Group Coaching">Group Coaching</option>
                     <option value="Workshop / Training">Workshop / Training</option>
                     <option value="Sonspiration / Boy Child">Sonspiration / Boy Child</option>
                     <option value="Media Inquiry">Media Inquiry</option>
-                    <option value="The Unstoppable you">Our Signature Course: The Unstoppable you</option>
-                    <option value="General Inquiry">General Inquiry</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
