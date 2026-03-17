@@ -340,7 +340,7 @@ export default function HomePage() {
       )}
 
       {/* NEWSLETTER */}
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-cream">

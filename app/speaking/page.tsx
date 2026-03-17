@@ -252,7 +252,7 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
     </PublicLayout>
   )
 }

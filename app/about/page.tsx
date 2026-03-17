@@ -281,7 +281,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
     </PublicLayout>
   )
 }
