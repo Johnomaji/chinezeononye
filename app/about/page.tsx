@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
-import NewsletterSection from '@/components/NewsletterSection'
 
 export const metadata = {
   title: 'About Chineze Ononye | Teacher, Mentor & Motivational Speaker',
@@ -281,7 +280,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* <NewsletterSection /> */}
     </PublicLayout>
   )
 }

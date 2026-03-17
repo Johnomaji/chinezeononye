@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
-import NewsletterSection from '@/components/NewsletterSection'
 
 export const metadata = {
   title: 'Speaking | Chineze Ononye',
@@ -252,7 +251,6 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* <NewsletterSection /> */}
     </PublicLayout>
   )
 }

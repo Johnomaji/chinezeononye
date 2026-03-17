@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { marked } from 'marked'
 import PublicLayout from '@/components/PublicLayout'
-import NewsletterSection from '@/components/NewsletterSection'
 import BlogCard from '@/components/BlogCard'
 import { getBlogBySlug, getBlogs } from '@/lib/data'
 
@@ -157,7 +156,6 @@ export default function BlogPostPage({ params }: Props) {
         </section>
       )}
 
-      <NewsletterSection />
     </PublicLayout>
   )
 }

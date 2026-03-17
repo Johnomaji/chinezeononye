@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
-import NewsletterSection from '@/components/NewsletterSection'
 import { getTestimonials } from '@/lib/data'
 
 export const metadata = {
@@ -157,7 +156,6 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      <NewsletterSection />
     </PublicLayout>
   )
 }

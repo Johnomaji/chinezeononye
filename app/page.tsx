@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
-import NewsletterSection from '@/components/NewsletterSection'
 import BlogCard from '@/components/BlogCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import ScrollAnimator from '@/components/ScrollAnimator'
@@ -338,9 +337,6 @@ export default function HomePage() {
           </div>
         </section>
       )}
-
-      {/* NEWSLETTER */}
-      {/* <NewsletterSection /> */}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-cream">
