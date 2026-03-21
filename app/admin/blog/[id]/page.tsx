@@ -3,9 +3,22 @@ import { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { marked } from 'marked'
-import { BlogPost } from '@/lib/types'
+import Link from 'next/link'
+import { BlogPost, BlogMeta } from '@/lib/types'
+import ImageUploadField from '@/components/admin/ImageUploadField'
 
-const categories = ['Mentorship', 'Education', 'Public Speaking', 'Leadership', 'Personal Development', 'Motivation']
+const defaultCategories = ['Mentorship', 'Education', 'Public Speaking', 'Leadership', 'Personal Development', 'Motivation']
+const emptyForm = {
+  title: '',
+  slug: '',
+  excerpt: '',
+  content: '',
+  coverImage: '',
+  category: '',
+  tags: '',
+  published: false,
+  readTime: 5,
+}
 
 export default function EditBlogPage() {
   const router = useRouter()
@@ -15,29 +28,26 @@ export default function EditBlogPage() {
   const [activeTab, setActiveTab] = useState<'write' | 'preview'>('write')
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
-  const [form, setForm] = useState({
-    title: '',
-    slug: '',
-    excerpt: '',
-    content: '',
-    coverImage: '',
-    category: '',
-    tags: '',
-    published: false,
-    readTime: 5,
-  })
+  const [meta, setMeta] = useState<BlogMeta | null>(null)
+  const [initialForm, setInitialForm] = useState<typeof emptyForm | null>(null)
+  const [form, setForm] = useState(emptyForm)
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const res = await fetch(`/api/blog/${id}`)
+        if (res.status === 401) {
+          toast.error('Session expired. Please sign in again.')
+          router.push('/admin/login')
+          return
+        }
         if (!res.ok) {
           toast.error('Post not found')
           router.push('/admin/blog')
           return
         }
         const post: BlogPost = await res.json()
-        setForm({
+        const nextForm = {
           title: post.title,
           slug: post.slug,
           excerpt: post.excerpt,
@@ -47,7 +57,9 @@ export default function EditBlogPage() {
           tags: post.tags.join(', '),
           published: post.published,
           readTime: post.readTime,
-        })
+        }
+        setForm(nextForm)
+        setInitialForm(nextForm)
       } catch {
         toast.error('Failed to load post')
       } finally {
@@ -56,6 +68,24 @@ export default function EditBlogPage() {
     }
     fetchPost()
   }, [id, router])
+
+  useEffect(() => {
+    const fetchMeta = async () => {
+      try {
+        const res = await fetch('/api/blog/meta')
+        if (res.status === 401) {
+          toast.error('Session expired. Please sign in again.')
+          router.push('/admin/login')
+          return
+        }
+        const data = await res.json()
+        setMeta(data)
+      } catch {
+        toast.error('Failed to load blog settings')
+      }
+    }
+    fetchMeta()
+  }, [router])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -82,6 +112,11 @@ export default function EditBlogPage() {
           readTime: Number(form.readTime),
         }),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       const data = await res.json()
       if (res.ok) {
         toast.success('Post updated!')
@@ -97,6 +132,15 @@ export default function EditBlogPage() {
   }
 
   const previewHtml = marked(form.content || '') as string
+  const categories = meta?.categories?.length ? meta.categories : defaultCategories
+  const tagSuggestions = meta?.tags || []
+
+  const addTag = (tag: string) => {
+    const current = form.tags.split(',').map(t => t.trim()).filter(Boolean)
+    if (current.includes(tag)) return
+    setForm(prev => ({ ...prev, tags: [...current, tag].join(', ') }))
+  }
+
 
   if (fetching) {
     return (
@@ -230,12 +274,24 @@ export default function EditBlogPage() {
               >
                 {loading ? 'Saving...' : 'Save Changes'}
               </button>
+              <button
+                type="button"
+                onClick={() => { if (initialForm) setForm(initialForm) }}
+                className="w-full mt-2 py-2.5 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-colors"
+              >
+                Revert Changes
+              </button>
             </div>
 
             <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5 space-y-4">
               <h3 className="text-white font-medium">Post Details</h3>
               <div>
-                <label className="block text-xs text-white/50 mb-1.5">Category</label>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="block text-xs text-white/50">Category</label>
+                  <Link href="/admin/blog/meta" className="text-gold-400 text-[11px] hover:text-gold-300">
+                    Manage
+                  </Link>
+                </div>
                 <select
                   name="category"
                   value={form.category}
@@ -247,7 +303,12 @@ export default function EditBlogPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs text-white/50 mb-1.5">Tags (comma separated)</label>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="block text-xs text-white/50">Tags (comma separated)</label>
+                  <Link href="/admin/blog/meta" className="text-gold-400 text-[11px] hover:text-gold-300">
+                    Manage
+                  </Link>
+                </div>
                 <input
                   type="text"
                   name="tags"
@@ -255,6 +316,20 @@ export default function EditBlogPage() {
                   onChange={handleChange}
                   className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
                 />
+                {tagSuggestions.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {tagSuggestions.map(tag => (
+                      <button
+                        key={tag}
+                        type="button"
+                        onClick={() => addTag(tag)}
+                        className="px-2.5 py-1 text-xs bg-white/5 text-white/60 rounded-full border border-gold-500/10 hover:border-gold-500/30"
+                      >
+                        + {tag}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
               <div>
                 <label className="block text-xs text-white/50 mb-1.5">Read Time (minutes)</label>
@@ -270,24 +345,14 @@ export default function EditBlogPage() {
             </div>
 
             <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5">
-              <h3 className="text-white font-medium mb-3">Cover Image</h3>
-              <input
-                type="url"
-                name="coverImage"
+              <ImageUploadField
+                label="Cover Image"
                 value={form.coverImage}
-                onChange={handleChange}
-                placeholder="https://..."
-                className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/20"
+                onChange={(url) => setForm(prev => ({ ...prev, coverImage: url }))}
+                aspect={16 / 9}
+                helper="This image appears on the blog listing and post header."
+                onUnauthorized={() => router.push('/admin/login')}
               />
-              {form.coverImage && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={form.coverImage}
-                  alt="Preview"
-                  className="mt-3 w-full h-32 object-cover rounded-lg"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                />
-              )}
             </div>
           </div>
         </div>

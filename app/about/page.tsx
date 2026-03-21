@@ -261,6 +261,10 @@ export default function AboutPage() {
               '/IMG-20250326-WA0008.jpg',
               '/3-1.jpg',
               '/3.jpg',
+              '/new1.jpeg',
+              '/new2.jpeg',
+              '/new3.jpeg',
+              '/new4.jpeg',
             ].map((src, i) => (
               <div
                 key={i}

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import clsx from 'clsx'
@@ -25,11 +25,29 @@ const navItems = [
     ),
   },
   {
+    href: '/admin/blog/meta',
+    label: 'Blog Settings',
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.25 6.75h1.5M6.75 12h1.5m7.5 0h1.5M9.75 17.25h4.5M4.5 6.75h3M4.5 12h3M16.5 6.75h3M16.5 12h3M4.5 17.25h3M16.5 17.25h3" />
+      </svg>
+    ),
+  },
+  {
     href: '/admin/testimonials',
     label: 'Testimonials',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    ),
+  },
+  {
+    href: '/admin/messages',
+    label: 'Messages',
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 8h10M7 12h6m-6 4h8M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H7l-4 4V6a2 2 0 012-2z" />
       </svg>
     ),
   },
@@ -49,6 +67,33 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname()
   const router = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [authChecked, setAuthChecked] = useState(false)
+  const [authOk, setAuthOk] = useState(false)
+
+  useEffect(() => {
+    if (pathname === '/admin/login') {
+      setAuthChecked(true)
+      setAuthOk(true)
+      return
+    }
+    const verify = async () => {
+      try {
+        const res = await fetch('/api/auth/verify')
+        if (res.ok) {
+          setAuthOk(true)
+        } else {
+          setAuthOk(false)
+          router.replace('/admin/login')
+        }
+      } catch {
+        setAuthOk(false)
+        router.replace('/admin/login')
+      } finally {
+        setAuthChecked(true)
+      }
+    }
+    verify()
+  }, [pathname, router])
 
   const handleLogout = async () => {
     try {
@@ -62,6 +107,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const isActive = (href: string) => {
     if (href === '/admin') return pathname === '/admin'
+    if (href === '/admin/blog') {
+      return pathname === '/admin/blog' || (pathname.startsWith('/admin/blog/') && !pathname.startsWith('/admin/blog/meta'))
+    }
+    if (href === '/admin/blog/meta') return pathname.startsWith('/admin/blog/meta')
     return pathname.startsWith(href)
   }
 
@@ -124,6 +173,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </div>
     </div>
   )
+
+  if (pathname === '/admin/login') {
+    return <>{children}</>
+  }
+
+  if (!authChecked) {
+    return (
+      <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center">
+        <div className="text-white/60 text-sm">Checking access...</div>
+      </div>
+    )
+  }
+
+  if (!authOk) {
+    return null
+  }
 
   return (
     <div className="min-h-screen bg-[#0F0F0F] flex">

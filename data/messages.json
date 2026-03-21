@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "ba78c1ff-8e1c-41e6-b0e4-2b80a7e1140e",
+    "name": "John Omaji",
+    "email": "johnomaji9@gmail.com",
+    "subject": "Other",
+    "message": "test",
+    "createdAt": "2026-03-17T17:14:00.614Z",
+    "read": false
+  }
+]

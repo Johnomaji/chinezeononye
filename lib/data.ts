@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { BlogPost, Testimonial, SiteSettings, ContactMessage } from './types'
+import { BlogPost, Testimonial, SiteSettings, ContactMessage, BlogMeta } from './types'
 
 const dataDir = path.join(process.cwd(), 'data')
 
@@ -25,6 +25,27 @@ export const getBlogs = (): BlogPost[] => readJSON<BlogPost[]>('blogs.json')
 export const getBlog = (id: string): BlogPost | undefined => getBlogs().find(b => b.id === id)
 export const getBlogBySlug = (slug: string): BlogPost | undefined => getBlogs().find(b => b.slug === slug)
 export const saveBlogs = (blogs: BlogPost[]) => writeJSON('blogs.json', blogs)
+
+export const getBlogMeta = (): BlogMeta => {
+  const defaults: BlogMeta = {
+    categories: ['Mentorship', 'Education', 'Public Speaking', 'Leadership', 'Personal Development', 'Motivation'],
+    tags: [],
+  }
+  const stored = readJSON<Partial<BlogMeta>>('blog-meta.json')
+  return {
+    categories: stored.categories && stored.categories.length ? stored.categories : defaults.categories,
+    tags: stored.tags || defaults.tags,
+  }
+}
+
+export const updateBlogMeta = (updates: BlogMeta): BlogMeta => {
+  const cleaned: BlogMeta = {
+    categories: updates.categories.map(c => c.trim()).filter(Boolean),
+    tags: updates.tags.map(t => t.trim()).filter(Boolean),
+  }
+  writeJSON('blog-meta.json', cleaned)
+  return cleaned
+}
 
 export const createBlog = (blog: BlogPost): BlogPost => {
   const blogs = getBlogs()
@@ -106,11 +127,26 @@ export const saveMessage = (msg: ContactMessage): ContactMessage => {
   writeJSON('messages.json', messages)
   return msg
 }
+export const updateMessage = (id: string, updates: Partial<ContactMessage>): ContactMessage | null => {
+  const messages = getMessages()
+  const idx = messages.findIndex(m => m.id === id)
+  if (idx === -1) return null
+  messages[idx] = { ...messages[idx], ...updates }
+  writeJSON('messages.json', messages)
+  return messages[idx]
+}
 export const markMessageRead = (id: string): boolean => {
   const messages = getMessages()
   const idx = messages.findIndex(m => m.id === id)
   if (idx === -1) return false
   messages[idx].read = true
   writeJSON('messages.json', messages)
+  return true
+}
+export const deleteMessage = (id: string): boolean => {
+  const messages = getMessages()
+  const filtered = messages.filter(m => m.id !== id)
+  if (filtered.length === messages.length) return false
+  writeJSON('messages.json', filtered)
   return true
 }

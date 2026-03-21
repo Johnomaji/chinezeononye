@@ -1,18 +1,27 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { SiteSettings } from '@/lib/types'
 
 export default function AdminSettingsPage() {
+  const router = useRouter()
   const [settings, setSettings] = useState<SiteSettings | null>(null)
+  const [savedSettings, setSavedSettings] = useState<SiteSettings | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   const fetchSettings = async () => {
     try {
       const res = await fetch('/api/settings')
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       const data = await res.json()
       setSettings(data)
+      setSavedSettings(data)
     } catch {
       toast.error('Failed to load settings')
     } finally {
@@ -41,8 +50,14 @@ export default function AdminSettingsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(settings),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success('Settings saved!')
+        setSavedSettings(settings)
       } else {
         toast.error('Failed to save settings')
       }
@@ -63,6 +78,11 @@ export default function AdminSettingsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...settings, maintenanceMode: newMode }),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         setSettings(prev => prev ? { ...prev, maintenanceMode: newMode } : null)
         toast.success(newMode ? 'Maintenance mode enabled' : 'Site is now live!')
@@ -84,6 +104,7 @@ export default function AdminSettingsPage() {
   }
 
   if (!settings) return null
+  const hasChanges = JSON.stringify(settings) !== JSON.stringify(savedSettings)
 
   return (
     <div className="space-y-6 max-w-2xl">
@@ -176,13 +197,23 @@ export default function AdminSettingsPage() {
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={saving}
-          className="w-full py-3 bg-gold-gradient text-charcoal font-semibold rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 disabled:opacity-70"
-        >
-          {saving ? 'Saving...' : 'Save All Settings'}
-        </button>
+        <div className="flex gap-3">
+          <button
+            type="submit"
+            disabled={saving}
+            className="flex-1 py-3 bg-gold-gradient text-charcoal font-semibold rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 disabled:opacity-70"
+          >
+            {saving ? 'Saving...' : 'Save All Settings'}
+          </button>
+          <button
+            type="button"
+            disabled={!hasChanges}
+            onClick={() => { if (savedSettings) setSettings(savedSettings) }}
+            className="px-5 py-3 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-colors disabled:opacity-50"
+          >
+            Revert Changes
+          </button>
+        </div>
       </form>
     </div>
   )

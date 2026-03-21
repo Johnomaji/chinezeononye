@@ -1,8 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { Testimonial } from '@/lib/types'
+import ImageUploadField from '@/components/admin/ImageUploadField'
 
 const emptyForm = {
   name: '',
@@ -15,17 +17,24 @@ const emptyForm = {
 }
 
 export default function AdminTestimonialsPage() {
+  const router = useRouter()
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [form, setForm] = useState(emptyForm)
+  const [editSnapshot, setEditSnapshot] = useState<typeof emptyForm | null>(null)
   const [saving, setSaving] = useState(false)
   const [deleting, setDeleting] = useState<string | null>(null)
 
   const fetchTestimonials = async () => {
     try {
       const res = await fetch('/api/testimonials')
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       const data = await res.json()
       setTestimonials(data)
     } catch {
@@ -47,7 +56,7 @@ export default function AdminTestimonialsPage() {
 
   const handleEdit = (t: Testimonial) => {
     setEditingId(t.id)
-    setForm({
+    const nextForm = {
       name: t.name,
       role: t.role,
       company: t.company,
@@ -55,7 +64,9 @@ export default function AdminTestimonialsPage() {
       image: t.image,
       rating: t.rating,
       featured: t.featured,
-    })
+    }
+    setForm(nextForm)
+    setEditSnapshot(nextForm)
     setShowForm(true)
   }
 
@@ -74,11 +85,17 @@ export default function AdminTestimonialsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, rating: Number(form.rating) }),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success(editingId ? 'Testimonial updated!' : 'Testimonial added!')
         setShowForm(false)
         setEditingId(null)
         setForm(emptyForm)
+        setEditSnapshot(null)
         fetchTestimonials()
       } else {
         const data = await res.json()
@@ -98,6 +115,11 @@ export default function AdminTestimonialsPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ featured: !t.featured }),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success(t.featured ? 'Removed from featured' : 'Added to featured!')
         fetchTestimonials()
@@ -112,6 +134,11 @@ export default function AdminTestimonialsPage() {
     setDeleting(id)
     try {
       const res = await fetch(`/api/testimonials/${id}`, { method: 'DELETE' })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success('Testimonial deleted')
         fetchTestimonials()
@@ -203,17 +230,14 @@ export default function AdminTestimonialsPage() {
                 />
               </div>
             </div>
-            <div>
-              <label className="block text-xs text-white/50 mb-1.5">Photo URL</label>
-              <input
-                type="url"
-                name="image"
-                value={form.image}
-                onChange={handleChange}
-                placeholder="https://images.unsplash.com/..."
-                className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/20"
-              />
-            </div>
+            <ImageUploadField
+              label="Photo"
+              value={form.image}
+              onChange={(url) => setForm(prev => ({ ...prev, image: url }))}
+              aspect={1}
+              helper="Square images look best for testimonials."
+              onUnauthorized={() => router.push('/admin/login')}
+            />
             <div>
               <label className="block text-xs text-white/50 mb-1.5">Testimonial <span className="text-gold-400">*</span></label>
               <textarea
@@ -249,9 +273,18 @@ export default function AdminTestimonialsPage() {
               >
                 {saving ? 'Saving...' : (editingId ? 'Save Changes' : 'Add Testimonial')}
               </button>
+              {editingId && (
+                <button
+                  type="button"
+                  onClick={() => { if (editSnapshot) setForm(editSnapshot) }}
+                  className="px-6 py-2.5 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-colors"
+                >
+                  Revert
+                </button>
+              )}
               <button
                 type="button"
-                onClick={() => { setShowForm(false); setEditingId(null); setForm(emptyForm) }}
+                onClick={() => { setShowForm(false); setEditingId(null); setForm(emptyForm); setEditSnapshot(null) }}
                 className="px-6 py-2.5 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-colors"
               >
                 Cancel

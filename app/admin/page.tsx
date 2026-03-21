@@ -42,7 +42,7 @@ export default function AdminDashboard() {
       label: 'Messages',
       value: messages.length,
       sub: `${unreadMessages} unread`,
-      href: '/admin',
+      href: '/admin/messages',
       color: 'from-gold-600 to-gold-700',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +115,9 @@ export default function AdminDashboard() {
           <div className="space-y-3">
             {[
               { label: 'Write New Blog Post', href: '/admin/blog/new', desc: 'Create and publish a new article' },
+              { label: 'Blog Categories & Tags', href: '/admin/blog/meta', desc: 'Manage blog categories and tags' },
               { label: 'Add Testimonial', href: '/admin/testimonials', desc: 'Add a new client testimonial' },
+              { label: 'Review Messages', href: '/admin/messages', desc: 'Read and manage contact inquiries' },
               { label: 'Toggle Maintenance', href: '/admin/settings', desc: 'Enable or disable maintenance mode' },
             ].map(action => (
               <Link
@@ -137,7 +139,12 @@ export default function AdminDashboard() {
 
         {/* Recent Messages */}
         <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-6">
-          <h2 className="font-playfair text-lg font-bold text-white mb-4">Recent Messages</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-playfair text-lg font-bold text-white">Recent Messages</h2>
+            <Link href="/admin/messages" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
+              View all â†’
+            </Link>
+          </div>
           {messages.length === 0 ? (
             <div className="text-center py-8 text-white/30 text-sm">
               No messages yet

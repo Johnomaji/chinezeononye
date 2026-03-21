@@ -88,7 +88,10 @@ export default function SpeakingPage() {
               Words That <span className="gold-text">Inspire</span> People
             </h1>
             <p className="text-white/60 text-xl leading-relaxed mb-8">
-              Chineze brings a rare combination of educator's wisdom, mentor's empathy, and speaker's fire to every stage she stands on. The result? Audiences that don't just leave inspired — they leave transformed.
+              Chineze brings to every stage she stands on, a rare, authentic combination of an educator's wisdom, a people's empathy, insightful experiences and a speaker's fire!
+            </p>
+            <p className="text-white/60 text-xl leading-relaxed mb-8">    
+              The result? Audiences that don't just leave inspired - they leave transformed, alongside strategies, resources to birth even deeper levels of transformation!
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

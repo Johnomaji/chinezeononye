@@ -13,6 +13,11 @@ export interface BlogPost {
   readTime: number
 }
 
+export interface BlogMeta {
+  categories: string[]
+  tags: string[]
+}
+
 export interface Testimonial {
   id: string
   name: string

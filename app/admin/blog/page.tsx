@@ -1,10 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { BlogPost } from '@/lib/types'
 
 export default function AdminBlogPage() {
+  const router = useRouter()
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
@@ -13,6 +15,11 @@ export default function AdminBlogPage() {
   const fetchPosts = async () => {
     try {
       const res = await fetch('/api/blog')
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       const data = await res.json()
       setPosts(data)
     } catch {
@@ -32,6 +39,11 @@ export default function AdminBlogPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ published: !post.published }),
       })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success(post.published ? 'Post unpublished' : 'Post published!')
         fetchPosts()
@@ -50,6 +62,11 @@ export default function AdminBlogPage() {
     setDeleting(id)
     try {
       const res = await fetch(`/api/blog/${id}`, { method: 'DELETE' })
+      if (res.status === 401) {
+        toast.error('Session expired. Please sign in again.')
+        router.push('/admin/login')
+        return
+      }
       if (res.ok) {
         toast.success('Post deleted')
         fetchPosts()
@@ -70,12 +87,20 @@ export default function AdminBlogPage() {
           <h1 className="font-playfair text-3xl font-bold text-white">Blog Posts</h1>
           <p className="text-white/40 text-sm mt-1">{posts.length} total posts</p>
         </div>
-        <Link
-          href="/admin/blog/new"
-          className="px-5 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300"
-        >
-          + New Post
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/admin/blog/meta"
+            className="px-4 py-2.5 text-xs text-white/70 border border-white/20 rounded-xl hover:bg-white/10 transition-colors"
+          >
+            Manage Categories & Tags
+          </Link>
+          <Link
+            href="/admin/blog/new"
+            className="px-5 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300"
+          >
+            + New Post
+          </Link>
+        </div>
       </div>
 
       {loading ? (
