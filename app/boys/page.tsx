@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
 
 export const metadata = {
   title: 'Boys / Sonspiration | Chineze Ononye',
@@ -47,48 +48,82 @@ const taglines = [
   'Wholesome men don\'t happen by accident. They are intentionally raised.',
 ]
 
-const pastEvents = [
+const pastEvents: BoysEvent[] = [
   {
     title: 'A 5-Part Series on Self Identity with the Boys',
     year: '',
     type: 'Workshop Series',
     desc: 'A deep-dive five-session journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
+    images: [
+      '/boys-session-1.jpeg',
+      '/boys-worship-2.jpeg',
+    ],
   },
   {
     title: 'Sons Worshipping The Father 1.0',
     year: '',
     type: 'Worship Experience',
     desc: 'A pure, powerful worship experience designed exclusively for preteen and teenage boys — creating a sacred space for them to encounter God and discover who they are in Him.',
+    images: [
+      '/boys-worship-1.jpeg',
+      '/boys-worship-2.jpeg',
+    ],
   },
   {
     title: 'Celebration of The International Day of The Boy Child',
     year: '2022',
     type: 'Special Celebration',
     desc: 'A landmark event honouring the boy child — championing his worth, celebrating his potential, and affirming the investment he deserves.',
+    images: [
+      '/boys-intl-day-1.jpeg',
+      '/boys-intl-day-2.jpeg',
+      '/boys-intl-day-3.jpeg',
+      '/boys-intl-day-4.jpeg',
+    ],
   },
   {
     title: 'Celebration of The International Day of The Boy Child — Milestone Academy',
     year: '2023',
     type: 'School Event',
     desc: 'A vibrant in-school celebration at Milestone Academy marking the International Day of the Boy Child, featuring talks, activities, and affirmations for the boys.',
+    images: [
+      '/boys-milestone-flyer.jpeg',
+      '/boys-milestone-1.jpeg',
+      '/boys-celebration-1.jpeg',
+      '/boys-celebration-2.jpeg',
+    ],
   },
   {
     title: 'Celebration of The International Day of The Boy Child — DeRegnant School',
     year: '2023',
     type: 'School Event',
     desc: 'Bringing the Sonspiration message to DeRegnant School — spotlighting the value of every boy and the vision of wholesome manhood.',
+    images: [
+      '/boys-deregnant-flyer.jpeg',
+      '/boys-session-1.jpeg',
+    ],
   },
   {
     title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
     year: '2024',
     type: 'Worship & Celebration',
     desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
+    images: [
+      '/boys-kiss-fm-solo.jpeg',
+      '/boys-kiss-fm-team.jpeg',
+      '/boys-radio-flyer.jpeg',
+    ],
   },
   {
     title: '3-Day Boys Bootcamp — The Edge & Edges',
     year: '',
     type: 'Bootcamp',
     desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them to thrive in every dimension of life.',
+    images: [
+      '/boys-fatherhood-gist-flyer.jpeg',
+      '/boys-fida-flyer.jpeg',
+      '/boys-kingsville-flyer.jpeg',
+    ],
   },
 ]
 
@@ -106,7 +141,6 @@ export default function BoysPage() {
 
       {/* ─── HERO ─── */}
       <section className="relative min-h-screen flex flex-col justify-center bg-[#0A0A0A] overflow-hidden">
-        {/* Giant ghost word */}
         <div
           aria-hidden
           className="pointer-events-none select-none absolute inset-0 flex items-center justify-center"
@@ -119,21 +153,19 @@ export default function BoysPage() {
           </span>
         </div>
 
-        {/* Diagonal gold beam */}
         <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-gold-500/40 to-transparent" />
         <div className="absolute top-1/4 right-0 w-64 h-px bg-gradient-to-l from-gold-500/30 to-transparent" />
         <div className="absolute top-2/3 right-0 w-40 h-px bg-gradient-to-l from-gold-500/20 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
-          {/* Label */}
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
             <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Sonspiration</span>
           </div>
 
-          {/* Headline */}
           <div className="animate-on-scroll">
-            <h1 className="font-playfair font-bold text-white leading-[0.9] mb-10"
+            <h1
+              className="font-playfair font-bold text-white leading-[0.9] mb-10"
               style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
             >
               Raising<br />
@@ -142,7 +174,6 @@ export default function BoysPage() {
             </h1>
           </div>
 
-          {/* Sub + CTA row */}
           <div className="flex flex-col lg:flex-row gap-10 lg:items-end animate-on-scroll">
             <p className="text-white/50 text-lg leading-relaxed max-w-md">
               Boys are not broken. They are a generation waiting to be equipped,
@@ -165,7 +196,6 @@ export default function BoysPage() {
           </div>
         </div>
 
-        {/* Scroll cue */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
           <div className="w-px h-14 bg-gradient-to-b from-gold-400/60 to-transparent" />
         </div>
@@ -202,14 +232,16 @@ export default function BoysPage() {
 
       {/* ─── THE WHY ─── */}
       <section className="py-32 bg-[#0D0D0D] relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none select-none absolute -left-8 top-1/2 -translate-y-1/2 font-playfair font-bold text-white leading-none" style={{ fontSize: '22vw', opacity: 0.025 }}>
+        <div
+          aria-hidden
+          className="pointer-events-none select-none absolute -left-8 top-1/2 -translate-y-1/2 font-playfair font-bold text-white leading-none"
+          style={{ fontSize: '22vw', opacity: 0.025 }}
+        >
           WHY
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-
-            {/* Left: sticky label */}
             <div className="lg:col-span-4 lg:sticky lg:top-32 animate-on-scroll-left">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-gold-500" />
@@ -221,8 +253,7 @@ export default function BoysPage() {
               </h2>
             </div>
 
-            {/* Right: content */}
-            <div className="lg:col-span-8 space-y-0 animate-on-scroll-right">
+            <div className="lg:col-span-8 animate-on-scroll-right">
               {[
                 {
                   heading: 'A generation left without language.',
@@ -237,10 +268,7 @@ export default function BoysPage() {
                   body: 'Sonspiration is not about producing soft boys or hard men. It is about raising whole ones — anchored, purposeful, and emotionally capable of carrying the weight of the lives they will one day lead.',
                 },
               ].map((block, i) => (
-                <div
-                  key={i}
-                  className="border-t border-white/10 py-10 group"
-                >
+                <div key={i} className="border-t border-white/10 py-10 group">
                   <div className="flex gap-6 items-start">
                     <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 group-hover:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
                       {String(i + 1).padStart(2, '0')}
@@ -262,9 +290,8 @@ export default function BoysPage() {
 
       {/* ─── FOCUS AREAS ─── */}
       <section className="bg-cream relative overflow-hidden">
-        {/* Section label */}
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-16">
-          <div className="flex flex-col md:flex-row md:items-end gap-6 mb-0 animate-on-scroll">
+          <div className="flex flex-col md:flex-row md:items-end gap-6 animate-on-scroll">
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-gold-500" />
@@ -280,7 +307,6 @@ export default function BoysPage() {
           </div>
         </div>
 
-        {/* Grid that inverts on hover */}
         <div className="border-t border-charcoal/10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {focusAreas.map((area, i) => (
@@ -289,7 +315,6 @@ export default function BoysPage() {
                 className="animate-on-scroll group relative border-b border-r border-charcoal/10 p-10 bg-cream hover:bg-charcoal transition-all duration-500 cursor-default overflow-hidden"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                {/* Ghost number bg */}
                 <span
                   aria-hidden
                   className="pointer-events-none select-none absolute right-4 bottom-2 font-playfair font-bold text-charcoal/5 group-hover:text-white/5 leading-none transition-colors duration-500"
@@ -316,13 +341,13 @@ export default function BoysPage() {
         </div>
       </section>
 
-      {/* ─── TAGLINES ─── Full-bleed cinematic quotes */}
+      {/* ─── TAGLINES ─── */}
       <section className="bg-[#0A0A0A]">
         {taglines.map((quote, i) => (
           <div
             key={i}
             className={`animate-on-scroll border-b border-white/8 group hover:bg-white/[0.02] transition-colors duration-500 ${
-              i % 2 === 0 ? '' : 'bg-[#0D0D0D]'
+              i % 2 !== 0 ? 'bg-[#0D0D0D]' : ''
             }`}
           >
             <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
@@ -332,7 +357,7 @@ export default function BoysPage() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <div className={`w-px h-16 bg-gold-500/20 shrink-0 hidden md:block group-hover:bg-gold-500/50 transition-colors duration-300`} />
+                <div className="w-px h-16 bg-gold-500/20 shrink-0 hidden md:block group-hover:bg-gold-500/50 transition-colors duration-300" />
                 <blockquote
                   className={`font-playfair font-bold text-white/80 group-hover:text-white leading-tight transition-colors duration-300 ${
                     i % 2 !== 0 ? 'md:text-right' : ''
@@ -347,14 +372,17 @@ export default function BoysPage() {
         ))}
       </section>
 
-      {/* ─── PAST EVENTS ─── Timeline list, not cards */}
+      {/* ─── PAST EVENTS ─── */}
       <section id="events" className="py-32 bg-cream relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none select-none absolute right-0 top-1/2 -translate-y-1/2 font-playfair font-bold text-charcoal leading-none" style={{ fontSize: '18vw', opacity: 0.03 }}>
+        <div
+          aria-hidden
+          className="pointer-events-none select-none absolute right-0 top-1/2 -translate-y-1/2 font-playfair font-bold text-charcoal leading-none"
+          style={{ fontSize: '18vw', opacity: 0.03 }}
+        >
           EVENTS
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          {/* Header */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20 animate-on-scroll">
             <div className="lg:col-span-5">
               <div className="flex items-center gap-4 mb-6">
@@ -367,55 +395,17 @@ export default function BoysPage() {
             </div>
             <div className="lg:col-span-7 lg:pt-8 flex items-end">
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                From worship experiences and identity bootcamps to school celebrations and group series — here is Sonspiration on the ground.
+                From worship experiences and identity bootcamps to school celebrations and group series — click any event to see photos.
               </p>
             </div>
           </div>
 
-          {/* Event list */}
-          <div className="space-y-0">
-            {pastEvents.map((event, i) => (
-              <div
-                key={i}
-                className="animate-on-scroll group border-t border-charcoal/10 py-8 md:py-10 grid grid-cols-12 gap-6 items-start hover:bg-charcoal/[0.03] transition-colors duration-300 -mx-6 px-6"
-                style={{ transitionDelay: `${i * 50}ms` }}
-              >
-                {/* Number */}
-                <div className="col-span-2 md:col-span-1">
-                  <span className="font-playfair text-3xl md:text-4xl font-bold text-charcoal/15 group-hover:text-gold-500/40 transition-colors duration-300 leading-none">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-
-                {/* Title + desc */}
-                <div className="col-span-10 md:col-span-8">
-                  <h3 className="font-playfair text-xl md:text-2xl font-bold text-charcoal group-hover:text-gold-700 transition-colors duration-300 mb-2 leading-snug">
-                    {event.title}
-                  </h3>
-                  <p className="text-charcoal/50 text-sm leading-relaxed">{event.desc}</p>
-                </div>
-
-                {/* Meta */}
-                <div className="col-span-12 md:col-span-3 flex md:flex-col gap-3 md:items-end md:justify-start pt-1">
-                  <span className="inline-block px-3 py-1 border border-charcoal/15 text-charcoal/50 text-xs rounded-full group-hover:border-gold-400/40 group-hover:text-gold-600 transition-colors duration-300">
-                    {event.type}
-                  </span>
-                  {event.year && (
-                    <span className="font-playfair font-bold text-gold-500 text-xl">
-                      {event.year}
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-            <div className="border-t border-charcoal/10" />
-          </div>
+          <BoysEventGallery events={pastEvents} />
         </div>
       </section>
 
-      {/* ─── CTA ─── Split, bold */}
+      {/* ─── CTA ─── */}
       <section className="bg-[#0A0A0A] relative overflow-hidden">
-        {/* Gold vertical bar */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold-gradient" />
 
         <div className="max-w-7xl mx-auto px-6 py-32">
@@ -425,7 +415,8 @@ export default function BoysPage() {
                 <div className="w-8 h-px bg-gold-500" />
                 <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Get Involved</span>
               </div>
-              <h2 className="font-playfair font-bold text-white leading-tight mb-8"
+              <h2
+                className="font-playfair font-bold text-white leading-tight mb-8"
                 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
               >
                 Champion a<br />
@@ -443,7 +434,10 @@ export default function BoysPage() {
                 { label: 'Bring Sonspiration to your school', desc: 'Host an event, workshop, or bootcamp for the boys in your community.' },
                 { label: 'Share the message', desc: 'Champion a boy in your life and help spread the Sonspiration vision.' },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-5 p-6 border border-white/8 rounded-2xl hover:border-gold-500/30 hover:bg-white/3 transition-all duration-300 group">
+                <div
+                  key={i}
+                  className="flex items-start gap-5 p-6 border border-white/8 rounded-2xl hover:border-gold-500/30 hover:bg-white/3 transition-all duration-300 group"
+                >
                   <div className="w-6 h-6 rounded-full border border-gold-500/40 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-gold-500/20 transition-colors">
                     <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
                   </div>
