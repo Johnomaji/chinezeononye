@@ -1,4 +1,4 @@
-mport Link from 'next/link'
+import Link from 'next/link'
 import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
