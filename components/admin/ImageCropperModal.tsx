@@ -127,7 +127,7 @@ export default function ImageCropperModal({ imageSrc, aspect, onCancel, onConfir
       <div className="w-full max-w-3xl bg-[#111111] border border-gold-500/20 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-white font-medium">Crop Image</h3>
-          <button onClick={onCancel} className="text-white/40 hover:text-white">âœ•</button>
+          <button onClick={onCancel} className="text-white/40 hover:text-white">x</button>
         </div>
 
         <div

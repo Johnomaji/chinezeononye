@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { marked } from 'marked'
+import sanitizeHtml from 'sanitize-html'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
 import { getBlogBySlug, getBlogs } from '@/lib/data'
@@ -35,7 +36,26 @@ export default function BlogPostPage({ params }: Props) {
   const others = allPosts.filter(b => b.category !== post.category).slice(0, 3 - related.length)
   const relatedPosts = [...related, ...others]
 
-  const htmlContent = marked(post.content) as string
+  const htmlContent = sanitizeHtml(marked(post.content) as string, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      'img',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'span',
+    ]),
+    allowedAttributes: {
+      a: ['href', 'name', 'target', 'rel'],
+      img: ['src', 'alt', 'title'],
+      code: ['class'],
+      pre: ['class'],
+      span: ['class'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto'],
+  })
 
   return (
     <PublicLayout>
@@ -45,9 +65,9 @@ export default function BlogPostPage({ params }: Props) {
         <div className="relative max-w-4xl mx-auto px-6 pb-16 text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Link href="/blog" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-              ← Blog
+              <- Blog
             </Link>
-            <span className="text-white/30">·</span>
+            <span className="text-white/30">-</span>
             <span className="px-3 py-1 bg-gold-500 text-charcoal text-xs font-semibold rounded-full">
               {post.category}
             </span>
@@ -60,7 +80,7 @@ export default function BlogPostPage({ params }: Props) {
             <time dateTime={post.createdAt}>
               {new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
-            <span>·</span>
+            <span>-</span>
             <span>{post.readTime} min read</span>
           </div>
         </div>
@@ -131,9 +151,9 @@ export default function BlogPostPage({ params }: Props) {
             </div>
             <div>
               <p className="font-playfair text-white font-bold text-lg">Chineze Ononye</p>
-              <p className="text-white/50 text-sm mb-3">Teacher · Mentor · Motivational Speaker</p>
+              <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Motivational Speaker</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-                Learn more about Chineze →
+                Learn more about Chineze ->
               </Link>
             </div>
           </div>

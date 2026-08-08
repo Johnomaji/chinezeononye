@@ -11,6 +11,10 @@ export default function AdminBlogPage() {
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
   const [toggling, setToggling] = useState<string | null>(null)
+  const [query, setQuery] = useState('')
+  const [statusFilter, setStatusFilter] = useState<'all' | 'published' | 'draft'>('all')
+  const [page, setPage] = useState(1)
+  const pageSize = 10
 
   const fetchPosts = async () => {
     try {
@@ -30,6 +34,10 @@ export default function AdminBlogPage() {
   }
 
   useEffect(() => { fetchPosts() }, [])
+
+  useEffect(() => {
+    setPage(1)
+  }, [query, statusFilter])
 
   const handleTogglePublish = async (post: BlogPost) => {
     setToggling(post.id)
@@ -80,12 +88,36 @@ export default function AdminBlogPage() {
     }
   }
 
+  const normalizedQuery = query.trim().toLowerCase()
+  const filtered = posts.filter(post => {
+    if (statusFilter === 'published' && !post.published) return false
+    if (statusFilter === 'draft' && post.published) return false
+    if (!normalizedQuery) return true
+    const haystack = [
+      post.title,
+      post.excerpt,
+      post.category,
+      post.tags?.join(' ') || '',
+    ].join(' ').toLowerCase()
+    return haystack.includes(normalizedQuery)
+  })
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize))
+  const safePage = Math.min(page, totalPages)
+  const paged = filtered.slice((safePage - 1) * pageSize, safePage * pageSize)
+
+  useEffect(() => {
+    setPage(p => Math.min(p, totalPages))
+  }, [totalPages])
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-playfair text-3xl font-bold text-white">Blog Posts</h1>
-          <p className="text-white/40 text-sm mt-1">{posts.length} total posts</p>
+          <p className="text-white/40 text-sm mt-1">
+            {filtered.length} shown - {posts.length} total
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <Link
@@ -103,6 +135,27 @@ export default function AdminBlogPage() {
         </div>
       </div>
 
+      <div className="flex flex-col md:flex-row md:items-center gap-3">
+        <div className="flex-1">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by title, excerpt, category, or tag..."
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/30"
+          />
+        </div>
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value as 'all' | 'published' | 'draft')}
+          className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+        >
+          <option value="all">All statuses</option>
+          <option value="published">Published</option>
+          <option value="draft">Drafts</option>
+        </select>
+      </div>
+
       {loading ? (
         <div className="space-y-3">
           {[1, 2, 3].map(i => (
@@ -116,9 +169,13 @@ export default function AdminBlogPage() {
             Create Your First Post
           </Link>
         </div>
+      ) : filtered.length === 0 ? (
+        <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-16 text-center">
+          <p className="text-white/40">No posts match your filters.</p>
+        </div>
       ) : (
         <div className="space-y-3">
-          {posts.map(post => (
+          {paged.map(post => (
             <div
               key={post.id}
               className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-5 flex items-start gap-4 hover:border-gold-500/30 transition-all duration-200"
@@ -166,6 +223,30 @@ export default function AdminBlogPage() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {filtered.length > pageSize && (
+        <div className="flex items-center justify-between">
+          <p className="text-white/40 text-xs">
+            Page {safePage} of {totalPages}
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={safePage === 1}
+              className="px-3 py-1.5 text-xs text-white/60 border border-white/20 rounded-lg hover:bg-white/10 transition-colors disabled:opacity-50"
+            >
+              Prev
+            </button>
+            <button
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={safePage === totalPages}
+              className="px-3 py-1.5 text-xs text-white/60 border border-white/20 rounded-lg hover:bg-white/10 transition-colors disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>

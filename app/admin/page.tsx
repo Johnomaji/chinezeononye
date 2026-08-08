@@ -118,6 +118,7 @@ export default function AdminDashboard() {
               { label: 'Blog Categories & Tags', href: '/admin/blog/meta', desc: 'Manage blog categories and tags' },
               { label: 'Add Testimonial', href: '/admin/testimonials', desc: 'Add a new client testimonial' },
               { label: 'Review Messages', href: '/admin/messages', desc: 'Read and manage contact inquiries' },
+              { label: 'Media Library', href: '/admin/media', desc: 'Manage uploaded images' },
               { label: 'Toggle Maintenance', href: '/admin/settings', desc: 'Enable or disable maintenance mode' },
             ].map(action => (
               <Link
@@ -142,7 +143,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-playfair text-lg font-bold text-white">Recent Messages</h2>
             <Link href="/admin/messages" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-              View all â†’
+              View all ->
             </Link>
           </div>
           {messages.length === 0 ? (
@@ -173,7 +174,7 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-playfair text-lg font-bold text-white">Recent Blog Posts</h2>
           <Link href="/admin/blog" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-            View all →
+            View all ->
           </Link>
         </div>
         {blogs.length === 0 ? (

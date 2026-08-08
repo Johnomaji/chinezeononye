@@ -10,6 +10,10 @@ export default function AdminMessagesPage() {
   const [loading, setLoading] = useState(true)
   const [updatingId, setUpdatingId] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
+  const [query, setQuery] = useState('')
+  const [statusFilter, setStatusFilter] = useState<'all' | 'unread' | 'read'>('all')
+  const [page, setPage] = useState(1)
+  const pageSize = 10
 
   const fetchMessages = async () => {
     try {
@@ -29,6 +33,10 @@ export default function AdminMessagesPage() {
   }
 
   useEffect(() => { fetchMessages() }, [])
+
+  useEffect(() => {
+    setPage(1)
+  }, [query, statusFilter])
 
   const toggleRead = async (msg: ContactMessage) => {
     setUpdatingId(msg.id)
@@ -69,15 +77,59 @@ export default function AdminMessagesPage() {
     }
   }
 
+  const normalizedQuery = query.trim().toLowerCase()
+  const filtered = messages.filter(msg => {
+    if (statusFilter === 'unread' && msg.read) return false
+    if (statusFilter === 'read' && !msg.read) return false
+    if (!normalizedQuery) return true
+    const haystack = [
+      msg.name,
+      msg.email,
+      msg.subject || '',
+      msg.message,
+    ].join(' ').toLowerCase()
+    return haystack.includes(normalizedQuery)
+  })
+
   const unread = messages.filter(m => !m.read).length
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize))
+  const safePage = Math.min(page, totalPages)
+  const paged = filtered.slice((safePage - 1) * pageSize, safePage * pageSize)
+
+  useEffect(() => {
+    setPage(p => Math.min(p, totalPages))
+  }, [totalPages])
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-playfair text-3xl font-bold text-white">Messages</h1>
-          <p className="text-white/40 text-sm mt-1">{messages.length} total · {unread} unread</p>
+          <p className="text-white/40 text-sm mt-1">
+            {filtered.length} shown - {messages.length} total - {unread} unread
+          </p>
         </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center gap-3">
+        <div className="flex-1">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by name, email, subject, or message..."
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-gold-400 transition-colors placeholder:text-white/30"
+          />
+        </div>
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value as 'all' | 'unread' | 'read')}
+          className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+        >
+          <option value="all">All messages</option>
+          <option value="unread">Unread</option>
+          <option value="read">Read</option>
+        </select>
       </div>
 
       {loading ? (
@@ -90,9 +142,13 @@ export default function AdminMessagesPage() {
         <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-16 text-center">
           <p className="text-white/40">No messages yet</p>
         </div>
+      ) : filtered.length === 0 ? (
+        <div className="bg-[#1A1A1A] border border-gold-500/10 rounded-2xl p-16 text-center">
+          <p className="text-white/40">No messages match your filters.</p>
+        </div>
       ) : (
         <div className="space-y-3">
-          {messages.map(msg => (
+          {paged.map(msg => (
             <div
               key={msg.id}
               className={`bg-[#1A1A1A] border rounded-2xl p-5 flex gap-4 items-start transition-all duration-200 ${
@@ -106,7 +162,7 @@ export default function AdminMessagesPage() {
                 </div>
                 <p className="text-white/40 text-xs">{msg.email}</p>
                 <p className="text-white/50 text-xs mt-1">
-                  {msg.subject || 'No subject'} · {new Date(msg.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {msg.subject || 'No subject'} - {new Date(msg.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </p>
                 <p className="text-white/70 text-sm mt-3 whitespace-pre-line">{msg.message}</p>
               </div>
@@ -132,6 +188,30 @@ export default function AdminMessagesPage() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {filtered.length > pageSize && (
+        <div className="flex items-center justify-between">
+          <p className="text-white/40 text-xs">
+            Page {safePage} of {totalPages}
+          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={safePage === 1}
+              className="px-3 py-1.5 text-xs text-white/60 border border-white/20 rounded-lg hover:bg-white/10 transition-colors disabled:opacity-50"
+            >
+              Prev
+            </button>
+            <button
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={safePage === totalPages}
+              className="px-3 py-1.5 text-xs text-white/60 border border-white/20 rounded-lg hover:bg-white/10 transition-colors disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>

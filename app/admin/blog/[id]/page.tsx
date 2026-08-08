@@ -159,7 +159,7 @@ export default function EditBlogPage() {
             onClick={() => router.back()}
             className="text-white/40 hover:text-white text-sm flex items-center gap-1 mb-2 transition-colors"
           >
-            ← Back
+            <- Back
           </button>
           <h1 className="font-playfair text-3xl font-bold text-white">Edit Blog Post</h1>
         </div>

@@ -73,8 +73,8 @@ export default function Footer() {
                 { href: '/about', label: 'About Chineze' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/speaking', label: 'Speaking Topics' },
+                { href: '/boys', label: 'Boys / Sonspiration' },
                 { href: '/testimonials', label: 'Testimonials' },
-                { href: '/contact?subject=Sonspiration+%2F+Boy+Child', label: 'Sonspiration' },
                 { href: '/contact', label: 'Contact' },
               ].map((link) => (
                 <li key={link.href}>

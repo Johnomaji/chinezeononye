@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'How far in advance should I book?',
-    a: 'For keynote speaking, we recommend booking at least 3-4 weeks in advance for the best availability. For workshops and group coaching sessions, 4–6 weeks is usually sufficient.',
+    a: 'For keynote speaking, we recommend booking at least 3-4 weeks in advance for the best availability. For workshops and group coaching sessions, 4-6 weeks is usually sufficient.',
   },
   {
     q: 'Does Chineze offer virtual sessions?',
@@ -32,6 +32,7 @@ export default function ContactPage() {
     email: '',
     subject: '',
     message: '',
+    website: '',
   })
   const [loading, setLoading] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -56,7 +57,7 @@ export default function ContactPage() {
       const data = await res.json()
       if (res.ok) {
         toast.success('Message sent! Chineze will be in touch soon.')
-        setForm({ name: '', email: '', subject: '', message: '' })
+        setForm({ name: '', email: '', subject: '', message: '', website: '' })
       } else {
         toast.error(data.error || 'Something went wrong. Please try again.')
       }
@@ -80,7 +81,7 @@ export default function ContactPage() {
             Let&apos;s <span className="gold-text">Connect</span>
           </h1>
           <p className="text-white/60 text-xl max-w-2xl mx-auto leading-relaxed">
-            Do you desire to book a speaking schedule, explore coaching, training, have us engage the Boys or just say hello — the door is always open.
+            Do you desire to book a speaking schedule, explore coaching, training, have us engage the Boys or just say hello - the door is always open.
           </p>
         </div>
       </section>
@@ -207,6 +208,21 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-charcoal/20 rounded-xl focus:outline-none focus:border-gold-400 transition-colors text-sm bg-cream"
                     />
                   </div>
+                </div>
+
+                <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
+                  <label className="block text-sm font-medium text-charcoal mb-2">
+                    Website
+                  </label>
+                  <input
+                    type="text"
+                    name="website"
+                    value={form.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="w-full px-4 py-3 border border-charcoal/20 rounded-xl text-sm bg-cream"
+                  />
                 </div>
 
                 <div>

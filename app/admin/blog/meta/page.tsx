@@ -136,7 +136,7 @@ export default function AdminBlogMetaPage() {
               <span key={c} className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 text-white/80 text-xs rounded-full border border-gold-500/20">
                 {c}
                 <button onClick={() => handleRemoveCategory(c)} className="text-white/40 hover:text-white">
-                  âœ•
+                  x
                 </button>
               </span>
             ))}
@@ -165,7 +165,7 @@ export default function AdminBlogMetaPage() {
               <span key={t} className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 text-white/80 text-xs rounded-full border border-gold-500/20">
                 {t}
                 <button onClick={() => handleRemoveTag(t)} className="text-white/40 hover:text-white">
-                  âœ•
+                  x
                 </button>
               </span>
             ))}

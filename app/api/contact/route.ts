@@ -6,7 +6,14 @@ import { ContactMessage } from '@/lib/types'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, subject, message } = body
+    const { name, email, subject, message, website } = body
+
+    if (website && String(website).trim().length > 0) {
+      return NextResponse.json({
+        success: true,
+        message: 'Message received! Chineze will be in touch soon.',
+      }, { status: 200 })
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email, and message are required' }, { status: 400 })

@@ -21,12 +21,54 @@ function getExtension(filename: string, type: string) {
   return fromType[type] || ''
 }
 
+async function requireAdmin(request: NextRequest) {
+  const token = request.cookies.get('admin_token')?.value
+  if (!token) return { ok: false, response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) }
+  const payload = await verifyToken(token)
+  if (!payload) return { ok: false, response: NextResponse.json({ error: 'Invalid token' }, { status: 401 }) }
+  return { ok: true }
+}
+
+export async function GET(request: NextRequest) {
+  const auth = await requireAdmin(request)
+  if (!auth.ok) return auth.response
+
+  try {
+    const uploadsDir = path.join(process.cwd(), 'public', 'uploads')
+    try {
+      await fs.access(uploadsDir)
+    } catch {
+      return NextResponse.json([])
+    }
+
+    const entries = await fs.readdir(uploadsDir, { withFileTypes: true })
+    const files = await Promise.all(
+      entries
+        .filter(entry => entry.isFile() && ALLOWED_EXT.has(path.extname(entry.name).toLowerCase()))
+        .map(async entry => {
+          const filePath = path.join(uploadsDir, entry.name)
+          const stat = await fs.stat(filePath)
+          return {
+            name: entry.name,
+            url: `/uploads/${entry.name}`,
+            size: stat.size,
+            updatedAt: stat.mtime.toISOString(),
+          }
+        })
+    )
+
+    files.sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
+    return NextResponse.json(files)
+  } catch (err) {
+    console.error('GET /api/uploads error:', err)
+    return NextResponse.json({ error: 'Failed to list uploads' }, { status: 500 })
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const token = request.cookies.get('admin_token')?.value
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    const payload = await verifyToken(token)
-    if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
+    const auth = await requireAdmin(request)
+    if (!auth.ok) return auth.response
 
     const formData = await request.formData()
     const file = formData.get('file')

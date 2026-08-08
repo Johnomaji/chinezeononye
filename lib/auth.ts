@@ -22,8 +22,10 @@ export async function verifyToken(token: string): Promise<Record<string, unknown
 }
 
 export async function verifyAdmin(username: string, password: string): Promise<boolean> {
-  const adminUser = process.env.ADMIN_USERNAME || 'admin'
-  const adminPass = process.env.ADMIN_PASSWORD || 'ChinezeAdmin2024!'
-  if (username !== adminUser) return false
-  return password === adminPass
+  const adminUser = (process.env.ADMIN_USERNAME || 'admin').trim()
+  const adminPass = (process.env.ADMIN_PASSWORD || 'ChinezeAdmin2024!').trim()
+  const inputUser = String(username || '').trim()
+  const inputPass = String(password || '').trim()
+  if (inputUser !== adminUser) return false
+  return inputPass === adminPass
 }

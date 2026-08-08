@@ -16,6 +16,7 @@
     "bcryptjs": "^2.4.3",
     "uuid": "^9.0.0",
     "marked": "^11.1.0",
+    "sanitize-html": "^2.13.0",
     "react-hot-toast": "^2.4.1",
     "clsx": "^2.1.0"
   },
@@ -25,6 +26,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/bcryptjs": "^2.4.6",
+    "@types/sanitize-html": "^2.11.6",
     "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
