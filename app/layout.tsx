@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+mport type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'

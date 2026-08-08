@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+mport Link from 'next/link'
 import { getSettings } from '@/lib/data'
 
 export const metadata = {

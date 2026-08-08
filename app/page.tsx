@@ -1,4 +1,4 @@
-﻿import Image from 'next/image'
+mport Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'

@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+mport Link from 'next/link'
 
 export default function Footer() {
   const year = new Date().getFullYear()
