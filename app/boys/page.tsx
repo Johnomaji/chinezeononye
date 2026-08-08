@@ -61,48 +61,54 @@ const focusAreas = [
 
 const pastEvents = [
   {
-    title: 'Sonspiration Group Call — Season 1',
+    title: 'A 5-Part Series on Self Identity with the Boys',
+    year: '',
+    type: 'Workshop Series',
+    desc: 'A deep-dive five-session journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
+  },
+  {
+    title: 'Sons Worshipping The Father 1.0',
+    year: '',
+    type: 'Worship Experience',
+    desc: 'A pure, powerful worship experience designed exclusively for preteen and teenage boys — creating a sacred space for them to encounter God and discover who they are in Him.',
+  },
+  {
+    title: 'Celebration of The International Day of The Boy Child',
+    year: '2022',
+    type: 'Special Celebration',
+    desc: 'A landmark event honouring the boy child — championing his worth, celebrating his potential, and affirming the investment he deserves from family and community.',
+  },
+  {
+    title: 'Celebration of The International Day of The Boy Child — Milestone Academy',
     year: '2023',
-    type: 'Virtual Group Call',
-    desc: 'A recurring monthly call gathering parents, educators, and mentors around the theme of raising wholesome boys.',
+    type: 'School Event',
+    desc: 'A vibrant in-school celebration at Milestone Academy marking the International Day of the Boy Child, featuring talks, activities, and affirmations for the boys.',
   },
   {
-    title: 'Boy Child Forum — Lagos',
+    title: 'Celebration of The International Day of The Boy Child — DeRegnant School',
     year: '2023',
-    type: 'Community Workshop',
-    desc: 'An intimate in-person workshop equipping parents with practical tools for nurturing emotionally intelligent sons.',
+    type: 'School Event',
+    desc: 'Bringing the Sonspiration message to DeRegnant School — a special celebration spotlighting the value of every boy and the vision of wholesome manhood.',
   },
   {
-    title: 'Sonspiration Group Call — Season 2',
+    title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
     year: '2024',
-    type: 'Virtual Group Call',
-    desc: 'Expanded audience, deeper conversations — focusing on identity, peer pressure, and faith in the life of a boy.',
+    type: 'Worship & Celebration',
+    desc: 'The second instalment of the worship experience — bigger, deeper, and paired with a Purpose-Day party to celebrate boys stepping into their God-given identity and calling.',
   },
   {
-    title: 'Raising Sons Summit',
-    year: '2024',
-    type: 'Virtual Summit',
-    desc: 'A full-day online summit featuring conversations on mentorship, manhood, and the spiritual development of boys.',
-  },
-  {
-    title: 'School Outreach Program',
-    year: '2024',
-    type: 'In-Person Outreach',
-    desc: 'Direct engagement with boys in secondary schools — speaking to their identity, purpose, and emotional health.',
-  },
-  {
-    title: 'Sonspiration Group Call — Season 3',
-    year: '2025',
-    type: 'Virtual Group Call',
-    desc: 'Ongoing series now reaching hundreds of families, with rich conversations and practical takeaways each session.',
+    title: '3-Day Boys Bootcamp — The Edge & Edges',
+    year: '',
+    type: 'Bootcamp',
+    desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them with the tools to thrive in every dimension of life.',
   },
 ]
 
 const stats = [
-  { value: '3+', label: 'Sonspiration Seasons' },
+  { value: '7+', label: 'Events Hosted' },
   { value: '500+', label: 'Boys Reached' },
-  { value: '100+', label: 'Families Engaged' },
-  { value: '6+', label: 'Events Hosted' },
+  { value: '2', label: 'Schools Visited' },
+  { value: '2', label: 'Worship Experiences' },
 ]
 
 export default function BoysPage() {
@@ -307,7 +313,7 @@ export default function BoysPage() {
               Past <span className="text-gold-600">Events</span>
             </h2>
             <p className="text-charcoal/60 mt-4 max-w-xl mx-auto">
-              From group calls to in-person workshops, here is a glimpse of what Sonspiration has looked like on the ground.
+              From worship experiences and school celebrations to bootcamps and identity series — here is what Sonspiration has looked like on the ground.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -323,7 +329,9 @@ export default function BoysPage() {
                     <span className="inline-block px-3 py-1 bg-gold-50 text-gold-700 text-xs font-medium rounded-full border border-gold-200">
                       {event.type}
                     </span>
-                    <span className="text-gold-500 font-bold text-sm shrink-0">{event.year}</span>
+                    {event.year && (
+                      <span className="text-gold-500 font-bold text-sm shrink-0">{event.year}</span>
+                    )}
                   </div>
                   <h3 className="font-playfair text-lg font-bold text-charcoal mb-3 leading-snug group-hover:text-gold-600 transition-colors">
                     {event.title}
