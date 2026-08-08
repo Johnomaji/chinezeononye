@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center">
                 <span className="text-charcoal font-playfair font-bold">C</span>
               </div>
-              <span className="font-playfair font-bold text-2xl">Chineze Ononye</span>
+              <span className="font-playfair font-bold text-2xl">Chineze Eden</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               Writer, educator, mentor, and speaker — empowering individuals to discover their purpose and championing the wholesome boy child through <span className="text-gold-400 font-medium">Sonspiration</span>.
@@ -107,7 +107,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            &copy; {year} Chineze Ononye. All rights reserved.
+            &copy; {year} Chineze Eden. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/40">
             <Link href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>

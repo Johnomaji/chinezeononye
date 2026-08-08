@@ -1,12 +1,12 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import { getTestimonials } from '@/lib/data'
 
 export const metadata = {
-  title: 'Testimonials | Chineze Ononye',
-  description: 'Read what clients, students, and event organizers say about working with Chineze Ononye.',
+  title: 'Testimonials | Chineze Eden',
+  description: 'Read what clients, students, and event organizers say about working with Chineze Eden.',
 }
 
 export const revalidate = 60

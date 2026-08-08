@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -39,7 +39,7 @@ export default function Navigation() {
             <span className="text-charcoal font-playfair font-bold text-sm">C</span>
           </div>
           <span className="font-playfair font-bold text-xl text-white group-hover:text-gold-400 transition-colors">
-            Chineze Ononye
+            Chineze Eden
           </span>
         </Link>
 

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   const post = getBlogBySlug(params.slug)
   if (!post) return {}
   return {
-    title: `${post.title} | Chineze Ononye Blog`,
+    title: `${post.title} | Chineze Eden Blog`,
     description: post.excerpt,
   }
 }
@@ -144,13 +144,13 @@ export default function BlogPostPage({ params }: Props) {
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gold-400 shrink-0">
               <Image
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80"
-                alt="Chineze Ononye"
+                alt="Chineze Eden"
                 fill
                 className="object-cover"
               />
             </div>
             <div>
-              <p className="font-playfair text-white font-bold text-lg">Chineze Ononye</p>
+              <p className="font-playfair text-white font-bold text-lg">Chineze Eden</p>
               <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Motivational Speaker</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
                 Learn more about Chineze &rarr;

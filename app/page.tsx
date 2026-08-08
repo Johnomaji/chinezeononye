@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
@@ -45,7 +45,7 @@ export default function HomePage() {
               Potential
             </h1>
             <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-lg">
-              I am Chineze Ononye — educator, mentor, and motivational speaker committed to helping individuals and organizations discover their purpose and rise to their highest potential.
+              I am Chineze Eden — educator, mentor, and motivational speaker committed to helping individuals and organizations discover their purpose and rise to their highest potential.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -82,7 +82,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent z-10 rounded-3xl" />
               <Image
                 src="/Chinezered-e1745223506142.jpg"
-                alt="Chineze Ononye"
+                alt="Chineze Eden"
                 fill
                 className="object-cover"
                 priority
@@ -179,7 +179,7 @@ export default function HomePage() {
               A Life Dedicated to <span className="text-gold-600">Elevating Others</span>
             </h2>
             <p className="text-charcoal/60 leading-relaxed mb-6">
-              With over a decade of experience in education and personal development, Chineze Ononye has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
+              With over a decade of experience in education and personal development, Chineze Eden has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
             </p>
             <p className="text-charcoal/60 leading-relaxed mb-8">
               From classrooms to conference halls, her message is consistent: your story has power, your purpose has value, and your potential is limitless.

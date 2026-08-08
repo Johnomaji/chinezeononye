@@ -1,11 +1,11 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
 
 export const metadata = {
-  title: 'Boys / Sonspiration | Chineze Ononye',
-  description: 'Equipping the wholesome boy child — Chineze Ononye\'s Sonspiration movement champions the emotional, spiritual, and social development of boys.',
+  title: 'Boys / Sonspiration | Chineze Eden',
+  description: 'Equipping the wholesome boy child — Chineze Eden\'s Sonspiration movement champions the emotional, spiritual, and social development of boys.',
 }
 
 const focusAreas = [

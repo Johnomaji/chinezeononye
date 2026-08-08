@@ -1,4 +1,4 @@
-import fs from 'fs'
+﻿import fs from 'fs'
 import path from 'path'
 import { BlogPost, Testimonial, SiteSettings, ContactMessage, BlogMeta } from './types'
 
@@ -105,7 +105,7 @@ export const getSettings = (): SiteSettings => {
     maintenanceMode: false,
     maintenanceMessage: 'We are currently undergoing scheduled maintenance. We will be back shortly.',
     maintenanceEstimate: 'Back in a few hours',
-    siteTitle: 'Chineze Ononye',
+    siteTitle: 'Chineze Eden',
     siteDescription: 'Teacher | Mentor | Motivational Speaker',
   }
   const stored = readJSON<Partial<SiteSettings>>('settings.json')

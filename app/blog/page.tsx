@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
@@ -6,7 +6,7 @@ import BlogCard from '@/components/BlogCard'
 import { getBlogs } from '@/lib/data'
 
 export const metadata = {
-  title: 'Blog | Chineze Ononye',
+  title: 'Blog | Chineze Eden',
   description: 'Insights on teaching, mentorship, personal development, and living with purpose.',
 }
 

@@ -1,11 +1,11 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 
 export const metadata = {
-  title: 'About Chineze Ononye | Teacher, Mentor & Motivational Speaker',
-  description: 'Learn about Chineze Ononye — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
+  title: 'About Chineze Eden | Teacher, Mentor & Motivational Speaker',
+  description: 'Learn about Chineze Eden — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
 }
 
 const timeline = [
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
                 <Image
                   src="/Chinezered-e1745223506142.jpg"
-                  alt="Chineze Ononye"
+                  alt="Chineze Eden"
                   fill
                   className="object-cover"
                 />
@@ -122,7 +122,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-charcoal/70 leading-relaxed">
               <p>
-                Chineze Ononye's journey began in a modest classroom in Nigeria, where she quickly discovered something that would define her entire career: the moment a student's eyes light up with understanding is one of the most profound experiences a human being can have.
+                Chineze Eden's journey began in a modest classroom in Nigeria, where she quickly discovered something that would define her entire career: the moment a student's eyes light up with understanding is one of the most profound experiences a human being can have.
               </p>
               <p>
                 That discovery didn't just make her a better teacher — it ignited a mission. A mission to create more of those moments. Not just in classrooms, but in boardrooms, conference halls, community centers, and one-on-one conversations that change the trajectory of a life.
