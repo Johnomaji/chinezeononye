@@ -143,7 +143,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-playfair text-lg font-bold text-white">Recent Messages</h2>
             <Link href="/admin/messages" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-              View all ->
+              View all &rarr;
             </Link>
           </div>
           {messages.length === 0 ? (
@@ -174,7 +174,7 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-playfair text-lg font-bold text-white">Recent Blog Posts</h2>
           <Link href="/admin/blog" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-            View all ->
+            View all &rarr;
           </Link>
         </div>
         {blogs.length === 0 ? (

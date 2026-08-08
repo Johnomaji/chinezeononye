@@ -65,7 +65,7 @@ export default function BlogPostPage({ params }: Props) {
         <div className="relative max-w-4xl mx-auto px-6 pb-16 text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Link href="/blog" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-              <- Blog
+              &larr; Blog
             </Link>
             <span className="text-white/30">-</span>
             <span className="px-3 py-1 bg-gold-500 text-charcoal text-xs font-semibold rounded-full">
@@ -153,7 +153,7 @@ export default function BlogPostPage({ params }: Props) {
               <p className="font-playfair text-white font-bold text-lg">Chineze Ononye</p>
               <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Motivational Speaker</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-                Learn more about Chineze ->
+                Learn more about Chineze &rarr;
               </Link>
             </div>
           </div>

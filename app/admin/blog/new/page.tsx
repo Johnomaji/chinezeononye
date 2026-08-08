@@ -112,7 +112,7 @@ export default function NewBlogPage() {
             onClick={() => router.back()}
             className="text-white/40 hover:text-white text-sm flex items-center gap-1 mb-2 transition-colors"
           >
-            <- Back
+            &larr; Back
           </button>
           <h1 className="font-playfair text-3xl font-bold text-white">New Blog Post</h1>
         </div>
