@@ -8,14 +8,15 @@ export const metadata = {
   description: 'Book Chineze Eden for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
 }
 
+const signatureTopic = {
+  title: 'The Unstoppable You Signature Course Experience',
+  desc: 'This is more than a talk — it\'s a full transformational experience. Drawing from years of coaching, education, and personal breakthroughs, Chineze takes your audience on a journey from limitation to limitless. Participants leave with a renewed identity, a clear vision, and the tools to pursue it relentlessly.',
+  audience: 'All audiences',
+  duration: '90–120 min',
+  highlights: ['Identity Breakthrough', 'Vision Mapping', 'Limitless Mindset', 'Action Blueprint'],
+}
+
 const topics = [
-  {
-    title: 'Unlocking Extraordinary Potential',
-    desc: 'A powerful exploration of how every person carries untapped greatness — and the practical steps to release it. Perfect for corporate teams, student bodies, and community organizations.',
-    audience: 'All audiences',
-    duration: '45–60 min',
-    icon: '✦',
-  },
   {
     title: 'Teaching with Purpose',
     desc: 'A masterclass for educators on the difference between instructing and transforming. Packed with frameworks, case studies, and actionable strategies for the modern classroom.',
@@ -50,6 +51,13 @@ const topics = [
     audience: 'Executives & Managers',
     duration: '60–90 min',
     icon: '◇',
+  },
+  {
+    title: 'Raising The Wholesome Boy',
+    desc: 'A passionate call to action for parents, educators, and communities to intentionally invest in the boy child. Chineze unpacks the emotional, spiritual, and identity needs of boys growing up today — and the practical steps to raise whole, grounded, purposeful young men.',
+    audience: 'Parents, Educators, Communities',
+    duration: '45–60 min',
+    icon: '♙',
   },
 ]
 
@@ -98,7 +106,7 @@ export default function SpeakingPage() {
                 href="/contact"
                 className="px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Book Chineze to Speak
+                Book Chineze Eden to Speak
               </Link>
               <a
                 href="#topics"
@@ -143,6 +151,60 @@ export default function SpeakingPage() {
               Each talk is customized to fit your event's theme, audience, and objectives. All are available as keynotes or extended workshops.
             </p>
           </div>
+          {/* SIGNATURE FEATURED CARD */}
+          <div className="animate-on-scroll mb-8">
+            <div className="relative bg-charcoal rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(201,162,39,0.18),transparent_60%)]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 rounded-full blur-3xl" />
+              <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-gradient mb-6">
+                    <span className="text-charcoal text-xs font-bold tracking-widest uppercase">Signature Experience</span>
+                  </div>
+                  <h3 className="font-playfair text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                    {signatureTopic.title}
+                  </h3>
+                  <p className="text-white/60 text-base leading-relaxed mb-6">
+                    {signatureTopic.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="px-4 py-1.5 border border-gold-500/40 text-gold-400 text-xs rounded-full">
+                      {signatureTopic.audience}
+                    </span>
+                    <span className="px-4 py-1.5 border border-white/20 text-white/50 text-xs rounded-full">
+                      {signatureTopic.duration}
+                    </span>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1 text-sm"
+                  >
+                    Enquire About This Experience
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {signatureTopic.highlights.map((h, i) => (
+                    <div
+                      key={h}
+                      className="rounded-2xl border border-gold-500/20 bg-white/5 p-5 flex flex-col gap-3"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-gold-gradient flex items-center justify-center shrink-0">
+                        <svg className="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-white font-semibold text-sm leading-snug">{h}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* OTHER TOPIC CARDS */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {topics.map((topic, i) => (
               <div
@@ -222,7 +284,7 @@ export default function SpeakingPage() {
             <div className="animate-on-scroll-right">
               <div className="bg-cream rounded-3xl p-8 gold-border">
                 <h3 className="font-playfair text-2xl font-bold text-charcoal mb-6">
-                  Book Chineze for Your Event
+                  Book Chineze Eden for Your Event
                 </h3>
                 <div className="space-y-4 mb-8">
                   {[

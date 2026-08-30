@@ -67,7 +67,7 @@ export default function Navigation() {
             href="/contact"
             className="px-5 py-2 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
           >
-            Book Chineze
+            Book Chineze Eden
           </Link>
         </div>
 
@@ -109,7 +109,7 @@ export default function Navigation() {
             onClick={() => setMenuOpen(false)}
             className="px-5 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full text-center mt-2"
           >
-            Book Chineze
+            Book Chineze Eden
           </Link>
         </div>
       </div>

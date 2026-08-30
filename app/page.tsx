@@ -350,7 +350,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="px-10 py-4 bg-charcoal text-white font-semibold rounded-full hover:bg-gold-600 transition-colors duration-300">
-              Book Chineze
+              Book Chineze Eden
             </Link>
             <Link href="/speaking" className="px-10 py-4 border-2 border-charcoal text-charcoal font-semibold rounded-full hover:border-gold-600 hover:text-gold-600 transition-colors duration-300">
               View Speaking Topics
