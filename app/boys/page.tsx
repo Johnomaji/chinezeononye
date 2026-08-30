@@ -82,24 +82,17 @@ const pastEvents: BoysEvent[] = [
     ],
   },
   {
-    title: 'Celebration of The International Day of The Boy Child — Milestone Academy',
-    year: '2023',
-    type: 'School Event',
-    desc: 'A vibrant in-school celebration at Milestone Academy marking the International Day of the Boy Child, featuring talks, activities, and affirmations for the boys.',
+    title: 'Celebration of The International Day of The Boy Child',
+    year: '2025',
+    type: 'School Events',
+    desc: 'Sonspiration took the celebration of the International Day of the Boy Child into two schools — affirming the worth of every boy, speaking to identity, and bringing the message of wholesome manhood directly to them.',
+    schools: ['Milestone Academy', 'DeRegnant Star Academy'],
     images: [
       '/boys-milestone-flyer.jpeg',
       '/boys-milestone-1.jpeg',
+      '/boys-deregnant-flyer.jpeg',
       '/boys-celebration-1.jpeg',
       '/boys-celebration-2.jpeg',
-    ],
-  },
-  {
-    title: 'Celebration of The International Day of The Boy Child — DeRegnant School',
-    year: '2023',
-    type: 'School Event',
-    desc: 'Bringing the Sonspiration message to DeRegnant School — spotlighting the value of every boy and the vision of wholesome manhood.',
-    images: [
-      '/boys-deregnant-flyer.jpeg',
       '/boys-session-1.jpeg',
     ],
   },
@@ -128,7 +121,7 @@ const pastEvents: BoysEvent[] = [
 ]
 
 const stats = [
-  { value: '7+', label: 'Events Hosted' },
+  { value: '6+', label: 'Events Hosted' },
   { value: '500+', label: 'Boys Reached' },
   { value: '2', label: 'Schools Visited' },
   { value: '2', label: 'Worship Experiences' },

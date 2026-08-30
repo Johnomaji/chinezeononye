@@ -9,6 +9,7 @@ export interface BoysEvent {
   type: string
   desc: string
   images: string[]
+  schools?: string[]
 }
 
 function CloseIcon() {
@@ -199,6 +200,16 @@ function EventGalleryModal({
             </div>
             <h3 className="font-playfair text-white font-bold text-xl leading-snug">{event.title}</h3>
             <p className="text-white/40 text-sm mt-1.5 leading-relaxed">{event.desc}</p>
+            {event.schools && event.schools.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {event.schools.map((school) => (
+                  <span key={school} className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-gold-500/20 text-gold-400 text-xs rounded-full">
+                    <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {school}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           <button
             onClick={onClose}
@@ -277,6 +288,17 @@ export default function BoysEventGallery({ events }: { events: BoysEvent[] }) {
                 {event.title}
               </h3>
               <p className="text-charcoal/50 text-sm leading-relaxed">{event.desc}</p>
+
+              {event.schools && event.schools.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {event.schools.map((school) => (
+                    <span key={school} className="inline-flex items-center gap-1.5 px-3 py-1 bg-gold-50 border border-gold-200 text-gold-700 text-xs rounded-full font-medium">
+                      <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      {school}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               {event.images.length > 0 && (
                 <button
