@@ -12,7 +12,6 @@ const signatureTopic = {
   title: 'The Unstoppable You Signature Course Experience',
   desc: 'This is more than a talk — it\'s a full transformational experience. Drawing from years of coaching, education, and personal breakthroughs, Chineze takes your audience on a journey from limitation to limitless. Participants leave with a renewed identity, a clear vision, and the tools to pursue it relentlessly.',
   audience: 'All audiences',
-  duration: '90–120 min',
   highlights: ['Identity Breakthrough', 'Vision Mapping', 'Limitless Mindset', 'Action Blueprint'],
 }
 
@@ -21,42 +20,36 @@ const topics = [
     title: 'Teaching with Purpose',
     desc: 'A masterclass for educators on the difference between instructing and transforming. Packed with frameworks, case studies, and actionable strategies for the modern classroom.',
     audience: 'Educators & Schools',
-    duration: '60–90 min',
     icon: '◆',
   },
   {
     title: 'The Mentorship Multiplier',
     desc: 'How intentional mentorship creates exponential impact in organizations, communities, and families. Includes frameworks for both mentors and mentees.',
     audience: 'Organizations & Leaders',
-    duration: '45–75 min',
     icon: '▲',
   },
   {
     title: 'Finding Your Authentic Voice',
     desc: 'A transformative talk on the power of speaking your truth — professionally and personally. Particularly impactful for women in leadership and young professionals.',
     audience: 'Professional Women, Youth',
-    duration: '45–60 min',
     icon: '♦',
   },
   {
     title: 'Rising from Rejection',
     desc: 'A raw, honest exploration of how setbacks and failures become the foundation for extraordinary comebacks. Vulnerable, inspiring, and deeply practical.',
     audience: 'All audiences',
-    duration: '30–60 min',
     icon: '★',
   },
   {
     title: 'Purpose-Driven Leadership',
     desc: 'For executives and managers who want to lead from a place of values and vision rather than just strategy. Integrates emotional intelligence, storytelling, and servant leadership principles.',
     audience: 'Executives & Managers',
-    duration: '60–90 min',
     icon: '◇',
   },
   {
     title: 'Raising The Wholesome Boy',
     desc: 'A passionate call to action for parents, educators, and communities to intentionally invest in the boy child. Chineze unpacks the emotional, spiritual, and identity needs of boys growing up today — and the practical steps to raise whole, grounded, purposeful young men.',
     audience: 'Parents, Educators, Communities',
-    duration: '45–60 min',
     icon: '♙',
   },
 ]
@@ -171,9 +164,6 @@ export default function SpeakingPage() {
                     <span className="px-4 py-1.5 border border-gold-500/40 text-gold-400 text-xs rounded-full">
                       {signatureTopic.audience}
                     </span>
-                    <span className="px-4 py-1.5 border border-white/20 text-white/50 text-xs rounded-full">
-                      {signatureTopic.duration}
-                    </span>
                   </div>
                   <Link
                     href="/contact"
@@ -220,9 +210,6 @@ export default function SpeakingPage() {
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-gold-50 text-gold-700 text-xs rounded-full border border-gold-200">
                     {topic.audience}
-                  </span>
-                  <span className="px-3 py-1 bg-charcoal/5 text-charcoal/60 text-xs rounded-full">
-                    {topic.duration}
                   </span>
                 </div>
               </div>
