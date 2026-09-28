@@ -382,7 +382,7 @@ export default function BoysPage() {
             </div>
             <div className="lg:col-span-7 lg:pt-8 flex items-end">
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                From worship experiences and identity bootcamps to school celebrations and group series — click any event to see photos.
+                From Identity bootcamps, to lovingly celebrating boys on International Day of The Boychild, to empowering Conferences, to Christian faith based experiences for boys, to advocacy and awareness, please click to see more.
               </p>
             </div>
           </div>
