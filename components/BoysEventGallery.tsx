@@ -11,6 +11,7 @@ export interface BoysEvent {
   images: string[]
   schools?: string[]
   topic?: string
+  link?: { href: string; label: string }
 }
 
 function CloseIcon() {
@@ -305,6 +306,18 @@ export default function BoysEventGallery({ events }: { events: BoysEvent[] }) {
                     </span>
                   ))}
                 </div>
+              )}
+
+              {event.link && (
+                <a
+                  href={event.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 mr-6 text-xs font-semibold text-gold-600 hover:text-gold-700 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                  <span className="underline underline-offset-2 hover:no-underline">{event.link.label}</span>
+                </a>
               )}
 
               {event.images.length > 0 && (
