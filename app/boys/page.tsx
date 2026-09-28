@@ -66,6 +66,14 @@ const pastEvents: BoysEvent[] = [
     images: ['/boys-kiss-fm-flyer.jpeg'],
   },
   {
+    title: 'Impactfully Engaging the Boys at Kingsville College, Abuja',
+    year: 'June 2025',
+    type: 'School Visit',
+    desc: 'Engaging the boys on the occasion of their Humanities Week — Empowered Voices, Informed Choices.',
+    topic: 'Options beyond the obvious.',
+    images: ['/boys-kingsville-flyer.jpeg'],
+  },
+  {
     title: 'A 5-Part Series on Self Identity with the Boys',
     year: '',
     type: 'Workshop Series',
