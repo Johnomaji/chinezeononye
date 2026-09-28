@@ -50,7 +50,7 @@ const taglines = [
 
 const pastEvents: BoysEvent[] = [
   {
-    title: 'Guest Speaker at International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
+    title: 'Guest Speaker at the International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
     year: 'July 2025',
     type: 'Guest Speaker',
     desc: 'Chineze spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
@@ -74,14 +74,11 @@ const pastEvents: BoysEvent[] = [
     images: ['/boys-kingsville-flyer.jpeg'],
   },
   {
-    title: 'A 5-Part Series on Self Identity with the Boys',
-    year: '',
-    type: 'Workshop Series',
-    desc: 'A deep-dive five-session journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
-    images: [
-      '/boys-session-1.jpeg',
-      '/boys-worship-2.jpeg',
-    ],
+    title: 'Sharing Moments — Celebrating and Equipping the Boys at Milestone Academy, Abuja',
+    year: 'May 2025',
+    type: 'School Visit',
+    desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
+    images: ['/boys-milestone-2.jpeg'],
   },
   {
     title: 'Sons Worshipping The Father 1.0',
@@ -132,7 +129,7 @@ const pastEvents: BoysEvent[] = [
     ],
   },
   {
-    title: '3-Day Boys Bootcamp — The Edge & Edges',
+    title: '3-Day Boys Bootcamp',
     year: '',
     type: 'Bootcamp',
     desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them to thrive in every dimension of life.',
@@ -141,6 +138,13 @@ const pastEvents: BoysEvent[] = [
       '/boys-fida-flyer.jpeg',
       '/boys-kingsville-flyer.jpeg',
     ],
+  },
+  {
+    title: 'A 5-Part Series on Self Identity with the Boys',
+    year: 'October 2023',
+    type: 'Virtual Workshop Series',
+    desc: 'A deep-dive five-session virtual journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
+    images: [],
   },
 ]
 
