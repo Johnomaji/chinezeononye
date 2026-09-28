@@ -4,8 +4,8 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
 
 export const metadata = {
-  title: 'Boys / Sonspiration | Chineze Eden',
-  description: 'Equipping the wholesome boy child — Chineze Eden\'s Sonspiration movement champions the emotional, spiritual, and social development of boys.',
+  title: 'Boys / Boyspiration | Chineze Eden',
+  description: 'Equipping the wholesome boy — Chineze Eden\'s Boyspiration movement champions the emotional, spiritual, and social development of boys.',
 }
 
 const focusAreas = [
@@ -85,7 +85,7 @@ const pastEvents: BoysEvent[] = [
     title: 'Celebration of The International Day of The Boy Child',
     year: '2025',
     type: 'School Events',
-    desc: 'Sonspiration took the celebration of the International Day of the Boy Child into two schools — affirming the worth of every boy, speaking to identity, and bringing the message of wholesome manhood directly to them.',
+    desc: 'Boyspiration took the celebration of the International Day of the Boy Child into two schools — affirming the worth of every boy, speaking to identity, and bringing the message of wholesome manhood directly to them.',
     schools: ['Milestone Academy', 'DeRegnant Star Academy'],
     images: [
       '/boys-milestone-flyer.jpeg',
@@ -142,7 +142,7 @@ export default function BoysPage() {
             className="font-playfair font-bold text-white leading-none"
             style={{ fontSize: 'clamp(8rem, 30vw, 26rem)', opacity: 0.03, letterSpacing: '-0.04em' }}
           >
-            SONS
+            BOYS
           </span>
         </div>
 
@@ -153,7 +153,7 @@ export default function BoysPage() {
         <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
-            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Sonspiration</span>
+            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Boyspiration</span>
           </div>
 
           <div className="animate-on-scroll">
@@ -163,27 +163,21 @@ export default function BoysPage() {
             >
               Raising<br />
               <em className="not-italic text-gold-400">Wholesome</em><br />
-              Sons.
+              Boys.
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-10 lg:items-end animate-on-scroll">
             <p className="text-white/50 text-lg leading-relaxed max-w-md">
-              Boys are not broken. They are a generation waiting to be equipped,
-              championed, and loved with intention.
+              Boys are not broken. They are becoming. Our responsibility is to equip,
+              champion and nurture them intentionally as they grow into wholesome men.
             </p>
             <div className="flex flex-wrap gap-4 lg:ml-auto shrink-0">
-              <Link
-                href="/contact?subject=Sonspiration+%2F+Boy+Child"
-                className="px-8 py-3.5 bg-gold-gradient text-charcoal font-bold text-sm rounded-full hover:shadow-2xl hover:shadow-gold-500/40 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Join Sonspiration
-              </Link>
               <a
                 href="#events"
                 className="px-8 py-3.5 border border-white/15 text-white text-sm font-medium rounded-full hover:border-gold-500/60 hover:text-gold-400 transition-all duration-300"
               >
-                See Events ↓
+                Our Engagements ↓
               </a>
             </div>
           </div>
@@ -199,10 +193,10 @@ export default function BoysPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="w-1 h-16 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
           <p className="font-playfair text-2xl md:text-4xl font-bold text-charcoal text-center md:text-left leading-snug">
-            &ldquo;Equipping the Wholesome Boy Child.&rdquo;
+            &ldquo;Equipping The Wholesome Boy.&rdquo;
           </p>
           <div className="md:ml-auto shrink-0">
-            <span className="text-charcoal/50 text-sm tracking-widest uppercase">The Sonspiration Mission</span>
+            <span className="text-charcoal/50 text-sm tracking-widest uppercase">The Boyspiration Mission</span>
           </div>
         </div>
       </section>
@@ -241,8 +235,8 @@ export default function BoysPage() {
                 <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">The Why</span>
               </div>
               <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white leading-tight">
-                Why the<br />Boy Child<br />
-                <span className="text-gold-400">Matters.</span>
+                Why the<br />
+                <span className="text-gold-400">Boys?</span>
               </h2>
             </div>
 
@@ -258,7 +252,7 @@ export default function BoysPage() {
                 },
                 {
                   heading: 'Wholeness, not softness or hardness.',
-                  body: 'Sonspiration is not about producing soft boys or hard men. It is about raising whole ones — anchored, purposeful, and emotionally capable of carrying the weight of the lives they will one day lead.',
+                  body: 'Boyspiration is not about producing soft boys or hard men. It is about raising whole ones — anchored, purposeful, and emotionally capable of carrying the weight of the lives they will one day lead.',
                 },
               ].map((block, i) => (
                 <div key={i} className="border-t border-white/10 py-10 group">
@@ -295,7 +289,7 @@ export default function BoysPage() {
               </h2>
             </div>
             <p className="md:ml-auto md:max-w-xs text-charcoal/55 text-sm leading-relaxed">
-              Sonspiration works on six pillars that produce wholesome, grounded, purposeful young men.
+              Boyspiration works on six pillars that produce wholesome, grounded, purposeful young men.
             </p>
           </div>
         </div>
@@ -417,15 +411,15 @@ export default function BoysPage() {
                 Today.
               </h2>
               <p className="text-white/50 text-lg leading-relaxed max-w-md">
-                Whether you&apos;re a parent, educator, mentor, or someone who cares about the next generation of men — there&apos;s a place for you in Sonspiration.
+                Whether you&apos;re a parent, educator, mentor, or someone who cares about the next generation of men — there&apos;s a place for you in Boyspiration.
               </p>
             </div>
 
             <div className="animate-on-scroll-right space-y-5">
               {[
-                { label: 'Join the group calls', desc: 'Be part of the ongoing Sonspiration community conversations.' },
-                { label: 'Bring Sonspiration to your school', desc: 'Host an event, workshop, or bootcamp for the boys in your community.' },
-                { label: 'Share the message', desc: 'Champion a boy in your life and help spread the Sonspiration vision.' },
+                { label: 'Join the group calls', desc: 'Be part of the ongoing Boyspiration community conversations.' },
+                { label: 'Bring Boyspiration to your school', desc: 'Host an event, workshop, or bootcamp for the boys in your community.' },
+                { label: 'Share the message', desc: 'Champion a boy in your life and help spread the Boyspiration vision.' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -442,12 +436,6 @@ export default function BoysPage() {
               ))}
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Link
-                  href="/contact?subject=Sonspiration+%2F+Boy+Child"
-                  className="px-8 py-4 bg-gold-gradient text-charcoal font-bold rounded-full hover:shadow-2xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Join Sonspiration
-                </Link>
                 <Link
                   href="/about"
                   className="px-8 py-4 border border-white/15 text-white font-medium rounded-full hover:border-gold-500/40 hover:text-gold-400 transition-all duration-300"
