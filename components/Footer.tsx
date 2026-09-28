@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="font-playfair font-bold text-2xl">Chineze Eden</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Writer, educator, mentor, and speaker — empowering individuals to discover their purpose and championing the wholesome boy child through <span className="text-gold-400 font-medium">Sonspiration</span>.
+              Writer, educator, mentor, and speaker — empowering individuals to discover their purpose and championing the wholesome boy child through <span className="text-gold-400 font-medium">Boyspiration</span>.
             </p>
             <div className="flex gap-4 mt-6">
               {[
@@ -73,7 +73,7 @@ export default function Footer() {
                 { href: '/about', label: 'About Chineze' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/speaking', label: 'Speaking Topics' },
-                { href: '/boys', label: 'Boys / Sonspiration' },
+                { href: '/boys', label: 'Boys / Boyspiration' },
                 { href: '/testimonials', label: 'Testimonials' },
               ].map((link) => (
                 <li key={link.href}>
@@ -90,11 +90,11 @@ export default function Footer() {
             <h4 className="font-playfair text-gold-400 font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li>
-                <a href="mailto:hello@chinezeonye.com" className="hover:text-gold-400 transition-colors">
-                  hello@chinezeonye.com
+                <a href="mailto:chinezeedenononye@gmail.com" className="hover:text-gold-400 transition-colors">
+                  chinezeedenononye@gmail.com
                 </a>
               </li>
-              <li>Available for speaking engagements, workshops, mentorship, and Sonspiration group calls</li>
+              <li>Available for speaking engagements, workshops, mentorship, and Boyspiration group calls</li>
             </ul>
             <Link
               href="/contact"

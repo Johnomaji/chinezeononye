@@ -42,10 +42,38 @@ const focusAreas = [
 ]
 
 const taglines = [
-  'Equipping the Wholesome Boy Child.',
-  'A boy well-raised is a nation well-built.',
-  'Boys don\'t need less — they need better.',
-  'Wholesome men don\'t happen by accident. They are intentionally raised.',
+  'Wholesome Men Do Not Just Happen. They Are Grown Boys Intentionally Equipped.',
+  'The Wholesome Boy = The Wholesome Man = The Wholesome Family = The Wholesome Society',
+]
+
+const whyBlocks = [
+  {
+    heading: 'Because who he becomes, matters',
+    tag: 'Identity',
+    body: [
+      'The boy is growing up without the emotional language, identity anchors, and safe spaces he needs to understand who he is and who he is becoming.',
+      'Many boys are left feeling lost, struggling with their sense of identity and significance, and pressured to perform a version of masculinity that earns acceptance at the expense of their inner well-being.',
+      'The boy needs more than instruction; he needs understanding, belonging, and intentional guidance. He deserves safe spaces to find his voice, embrace his identity, and grow into an emotionally healthy, confident, and purpose-driven young man.',
+    ],
+  },
+  {
+    heading: 'Equip the Boy, Shape the Man',
+    tag: 'The Investment',
+    body: [
+      'Investing in a boy is not coddling him; it is equipping him.',
+      'When a boy is seen, heard, guided, and intentionally built, he develops the confidence, character, and capacity to become a man who can lead, love, and serve without losing himself in the process.',
+      'The goal is not to shield the boy from the realities of life, but to truly prepare him to navigate those realities with identity, courage, emotional strength, and purpose.',
+    ],
+  },
+  {
+    heading: 'Wholeness, Not Softness or Hardness',
+    tag: 'Formation',
+    body: [
+      'This is not about producing soft boys or hard men.',
+      'It is about raising whole ones — anchored in identity, grounded in purpose, and emotionally capable of carrying the weight of the lives they will one day lead.',
+      'We want boys who can be strong without becoming hardened, vulnerable without becoming fragile, and confident without losing compassion. Boys who can grow into men with the inner strength to lead, love, and live fully.',
+    ],
+  },
 ]
 
 const pastEvents: BoysEvent[] = [
@@ -63,7 +91,11 @@ const pastEvents: BoysEvent[] = [
     type: 'Radio Interview',
     desc: 'A live radio conversation hosted by Primorg to mark the 2025 International Day of The Boychild.',
     topic: 'The boychild in today\'s dynamic world.',
-    images: ['/boys-kiss-fm-flyer.jpeg'],
+    images: [
+      '/boys-kiss-fm-flyer.jpeg',
+      '/boys-kiss-fm-team.jpeg',
+      '/boys-kiss-fm-solo.jpeg',
+    ],
   },
   {
     title: 'Impactfully Engaging the Boys at Kingsville College, Abuja',
@@ -78,13 +110,35 @@ const pastEvents: BoysEvent[] = [
     year: 'May 2025',
     type: 'School Visit',
     desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
-    images: ['/boys-milestone-2.jpeg'],
+    images: [
+      '/boys-session-1.jpeg',
+      '/boys-milestone-flyer.jpeg',
+      '/boys-milestone-1.jpeg',
+      '/boys-celebration-1.jpeg',
+      '/boys-celebration-2.jpeg',
+    ],
+  },
+  {
+    title: 'Sharing Moments — Celebrating and Equipping the Boys at De Regnant Star Academy, Abuja',
+    year: 'May 2025',
+    type: 'School Visit',
+    desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
+    images: ['/boys-radio-flyer.jpeg'],
+  },
+  {
+    title: 'Guest Speaker at Tenderthots Podcast',
+    year: 'May 2025',
+    type: 'Podcast',
+    desc: 'A podcast conversation on raising boys into wholesome men.',
+    topic: 'From Boys to Men: Nurturing The Right Mindset.',
+    link: { href: 'https://youtu.be/kuVqW3kU5G4', label: 'Watch on YouTube' },
+    images: [],
   },
   {
     title: 'Sons Worshipping The Father 1.0',
-    year: '',
+    year: 'May 2023',
     type: 'Worship Experience',
-    desc: 'A pure, powerful worship experience designed exclusively for preteen and teenage boys — creating a sacred space for them to encounter God and discover who they are in Him.',
+    desc: 'A pure worship experience for preteen and teenage boys at Tigris Studios, Abuja. This was in commemoration of The 2023 International Day of the Boychild.',
     images: [
       '/boys-worship-1.jpeg',
       '/boys-worship-2.jpeg',
@@ -103,41 +157,18 @@ const pastEvents: BoysEvent[] = [
     ],
   },
   {
-    title: 'Celebration of The International Day of The Boy Child',
-    year: '2025',
-    type: 'School Events',
-    desc: 'Boyspiration took the celebration of the International Day of the Boy Child into two schools — affirming the worth of every boy, speaking to identity, and bringing the message of wholesome manhood directly to them.',
-    schools: ['Milestone Academy', 'DeRegnant Star Academy'],
-    images: [
-      '/boys-milestone-flyer.jpeg',
-      '/boys-milestone-1.jpeg',
-      '/boys-deregnant-flyer.jpeg',
-      '/boys-celebration-1.jpeg',
-      '/boys-celebration-2.jpeg',
-      '/boys-session-1.jpeg',
-    ],
-  },
-  {
     title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
     year: '2024',
     type: 'Worship & Celebration',
     desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
-    images: [
-      '/boys-kiss-fm-solo.jpeg',
-      '/boys-kiss-fm-team.jpeg',
-      '/boys-radio-flyer.jpeg',
-    ],
+    images: [],
   },
   {
     title: '3-Day Boys Bootcamp',
     year: '',
     type: 'Bootcamp',
     desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them to thrive in every dimension of life.',
-    images: [
-      '/boys-fatherhood-gist-flyer.jpeg',
-      '/boys-fida-flyer.jpeg',
-      '/boys-kingsville-flyer.jpeg',
-    ],
+    images: ['/boys-fatherhood-gist-flyer.jpeg'],
   },
   {
     title: 'A 5-Part Series on Self Identity with the Boys',
@@ -285,30 +316,22 @@ export default function BoysPage() {
             </div>
 
             <div className="lg:col-span-8 animate-on-scroll-right">
-              {[
-                {
-                  heading: 'A generation left without language.',
-                  body: 'Boys are growing up without the emotional vocabulary, identity anchors, or safe spaces to wrestle with who they are becoming. The result is young men who feel lost — forced to perform a version of themselves that costs everything on the inside.',
-                },
-                {
-                  heading: 'The need is not weakness — it\'s wisdom.',
-                  body: 'Investing in a boy is not coddling him. It is equipping him. A boy who is seen, heard, and intentionally built becomes a man who can lead, love, and serve without losing himself in the process.',
-                },
-                {
-                  heading: 'Wholeness, not softness or hardness.',
-                  body: 'Boyspiration is not about producing soft boys or hard men. It is about raising whole ones — anchored, purposeful, and emotionally capable of carrying the weight of the lives they will one day lead.',
-                },
-              ].map((block, i) => (
+              {whyBlocks.map((block, i) => (
                 <div key={i} className="border-t border-white/10 py-10 group">
                   <div className="flex gap-6 items-start">
                     <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 group-hover:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-gold-300 transition-colors duration-300">
+                      <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-2 block">{block.tag}</span>
+                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-300 transition-colors duration-300">
                         {block.heading}
                       </h3>
-                      <p className="text-white/50 leading-relaxed">{block.body}</p>
+                      <div className="space-y-4">
+                        {block.body.map((para, j) => (
+                          <p key={j} className="text-white/50 leading-relaxed">{para}</p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

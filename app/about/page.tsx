@@ -36,13 +36,13 @@ const timeline = [
   },
   {
     year: '2023',
-    title: 'Founded Sonspiration',
-    desc: 'Launched Sonspiration — a group call community dedicated to equipping the wholesome boy child, championing the emotional, spiritual, and social development of boys.',
+    title: 'Founded Boyspiration',
+    desc: 'Launched Boyspiration — a group call community dedicated to equipping the wholesome boy child, championing the emotional, spiritual, and social development of boys.',
   },
   {
     year: '2024',
     title: 'Today & Beyond',
-    desc: 'Continuing to impact thousands through writing, speaking, mentorship, and Sonspiration — with greater reach and deeper purpose than ever.',
+    desc: 'Continuing to impact thousands through writing, speaking, mentorship, and Boyspiration — with greater reach and deeper purpose than ever.',
   },
 ]
 
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 Her approach is rooted in authenticity, driven by compassion, and focused always on empowerment. She doesn't just motivate people — she equips them with the mindsets, tools, and courage to sustain their own transformation.
               </p>
               <p>
-                As a writer and advocate, Chineze also founded <span className="text-gold-600 font-semibold">Sonspiration</span> — a group call community built around her heartfelt tag: <em>&ldquo;Equipping the Wholesome Boy Child.&rdquo;</em> Through Sonspiration, she speaks directly to the often-overlooked needs of boys, bringing together parents, educators, and mentors to champion the next generation of wholesome, purposeful young men.
+                As a writer and advocate, Chineze also founded <span className="text-gold-600 font-semibold">Boyspiration</span> — a group call community built around her heartfelt tag: <em>&ldquo;Equipping the Wholesome Boy Child.&rdquo;</em> Through Boyspiration, she speaks directly to the often-overlooked needs of boys, bringing together parents, educators, and mentors to champion the next generation of wholesome, purposeful young men.
               </p>
             </div>
             <Link

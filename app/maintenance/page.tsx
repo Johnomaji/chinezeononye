@@ -65,7 +65,7 @@ export default function MaintenancePage() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
           <a
-            href="mailto:hello@chinezeonye.com"
+            href="mailto:chinezeedenononye@gmail.com"
             className="px-8 py-3.5 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300"
           >
             Email Us Directly
