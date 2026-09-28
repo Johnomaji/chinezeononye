@@ -196,9 +196,9 @@ const instruments = [
 ]
 
 const stats = [
-  { value: '6+', label: 'Events Hosted' },
+  { value: '11', label: 'Events Hosted' },
   { value: '500+', label: 'Boys Reached' },
-  { value: '2', label: 'Schools Visited' },
+  { value: '4', label: 'Schools Visited' },
   { value: '2', label: 'Worship Experiences' },
 ]
 
@@ -236,7 +236,7 @@ export default function BoysPage() {
               className="font-playfair font-bold text-white leading-[0.9] mb-10"
               style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
             >
-              Raising<br />
+              Equipping<br />
               <em className="not-italic text-gold-400">Wholesome</em><br />
               Boys.
             </h1>
