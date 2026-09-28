@@ -10,6 +10,7 @@ export interface BoysEvent {
   desc: string
   images: string[]
   schools?: string[]
+  topic?: string
 }
 
 function CloseIcon() {
@@ -200,6 +201,9 @@ function EventGalleryModal({
             </div>
             <h3 className="font-playfair text-white font-bold text-xl leading-snug">{event.title}</h3>
             <p className="text-white/40 text-sm mt-1.5 leading-relaxed">{event.desc}</p>
+            {event.topic && (
+              <p className="text-gold-400 text-sm mt-2 leading-relaxed"><span className="font-semibold">Topic:</span> {event.topic}</p>
+            )}
             {event.schools && event.schools.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {event.schools.map((school) => (
@@ -288,6 +292,9 @@ export default function BoysEventGallery({ events }: { events: BoysEvent[] }) {
                 {event.title}
               </h3>
               <p className="text-charcoal/50 text-sm leading-relaxed">{event.desc}</p>
+              {event.topic && (
+                <p className="text-charcoal/80 text-sm leading-relaxed mt-2"><span className="font-semibold text-gold-600">Topic:</span> {event.topic}</p>
+              )}
 
               {event.schools && event.schools.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-3">

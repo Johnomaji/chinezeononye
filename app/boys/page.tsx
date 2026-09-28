@@ -50,6 +50,22 @@ const taglines = [
 
 const pastEvents: BoysEvent[] = [
   {
+    title: 'Guest Speaker at International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
+    year: 'July 2025',
+    type: 'Guest Speaker',
+    desc: 'Chineze spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
+    topic: 'Who is raising the boychild? Navigating identity, expectations and neglect.',
+    images: ['/boys-fida-flyer.jpeg'],
+  },
+  {
+    title: 'Guest Speaker, Politics Extra Radio Show on Kiss FM Abuja',
+    year: 'May 2025',
+    type: 'Radio Interview',
+    desc: 'A live radio conversation hosted by Primorg to mark the 2025 International Day of The Boychild.',
+    topic: 'The boychild in today\'s dynamic world.',
+    images: ['/boys-kiss-fm-flyer.jpeg'],
+  },
+  {
     title: 'A 5-Part Series on Self Identity with the Boys',
     year: '',
     type: 'Workshop Series',
