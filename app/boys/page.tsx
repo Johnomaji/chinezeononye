@@ -120,6 +120,22 @@ const pastEvents: BoysEvent[] = [
   },
 ]
 
+const workFolds = [
+  'Directly engaging and equipping the boys.',
+  'Advocacy and awareness on the critical need of intentionally equipping the boys.',
+]
+
+const instruments = [
+  {
+    title: 'Group Coaching Series',
+    desc: 'Structured personal growth layered on identity and value system.',
+  },
+  { title: 'Structured Mentorships' },
+  { title: 'Leadership & Mentoring Conferences' },
+  { title: 'School Visits' },
+  { title: 'Excursions' },
+]
+
 const stats = [
   { value: '6+', label: 'Events Hosted' },
   { value: '500+', label: 'Boys Reached' },
@@ -384,6 +400,49 @@ export default function BoysPage() {
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
                 From Identity bootcamps, to lovingly celebrating boys on International Day of The Boychild, to empowering Conferences, to Christian faith based experiences for boys, to advocacy and awareness, please click to see more.
               </p>
+            </div>
+          </div>
+
+          {/* Our Work */}
+          <div className="mb-20 animate-on-scroll">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-8 h-px bg-gold-500" />
+              <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Our Work</span>
+            </div>
+
+            <h3 className="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-8">
+              Our work is <span className="text-gold-600">two-fold.</span>
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+              {workFolds.map((fold, i) => (
+                <div key={i} className="flex gap-5 items-start p-8 bg-white/60 border border-charcoal/10 rounded-2xl">
+                  <span className="font-playfair text-gold-600 text-3xl font-bold leading-none shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-charcoal/80 text-lg leading-relaxed">{fold}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-charcoal rounded-2xl p-8 md:p-12">
+              <p className="font-playfair text-xl md:text-2xl text-white leading-snug mb-10">
+                The core of our work is equipping <span className="text-gold-400">The Wholesome Boy</span> through
+                direct engagements — physical, virtual or hybrid.
+              </p>
+
+              <p className="text-gold-400 text-xs tracking-[0.35em] uppercase mb-6">Our Primary Instruments of Engagement</p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+                {instruments.map((item) => (
+                  <li key={item.title} className="flex gap-4 items-start border-t border-white/10 py-5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 mt-2.5" />
+                    <div>
+                      <p className="text-white font-semibold">{item.title}</p>
+                      {item.desc && <p className="text-white/50 text-sm leading-relaxed mt-1">{item.desc}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
