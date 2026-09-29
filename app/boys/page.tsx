@@ -114,8 +114,6 @@ const pastEvents: BoysEvent[] = [
       '/boys-session-1.jpeg',
       '/boys-milestone-flyer.jpeg',
       '/boys-milestone-1.jpeg',
-      '/boys-celebration-1.jpeg',
-      '/boys-celebration-2.jpeg',
     ],
   },
   {
@@ -139,10 +137,7 @@ const pastEvents: BoysEvent[] = [
     year: 'May 2023',
     type: 'Worship Experience',
     desc: 'A pure worship experience for preteen and teenage boys at Tigris Studios, Abuja. This was in commemoration of The 2023 International Day of the Boychild.',
-    images: [
-      '/boys-worship-1.jpeg',
-      '/boys-worship-2.jpeg',
-    ],
+    images: [],
   },
   {
     title: 'Celebration of The International Day of The Boy Child',
@@ -243,7 +238,7 @@ export default function BoysPage() {
             >
               Equipping<br />
               <em className="not-italic text-gold-400">Wholesome</em><br />
-              Boys.
+              Boys
             </h1>
           </div>
 
