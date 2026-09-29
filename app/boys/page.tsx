@@ -322,24 +322,33 @@ export default function BoysPage() {
 
             <div className="lg:col-span-8 animate-on-scroll-right">
               {whyBlocks.map((block, i) => (
-                <div key={i} className="border-t border-white/10 py-10 group">
-                  <div className="flex gap-6 items-start">
-                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 group-hover:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
+                <details key={i} className="border-t border-white/10 group/why">
+                  <summary className="flex gap-6 items-start py-10 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded">
+                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 w-14 group-hover/why:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <div>
+                    <div className="flex-1">
                       <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-2 block">{block.tag}</span>
-                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-300 transition-colors duration-300">
+                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white group-hover/why:text-gold-300 transition-colors duration-300">
                         {block.heading}
                       </h3>
-                      <div className="space-y-4">
-                        {block.body.map((para, j) => (
-                          <p key={j} className="text-white/50 leading-relaxed">{para}</p>
-                        ))}
-                      </div>
                     </div>
+                    <svg
+                      className="w-6 h-6 shrink-0 mt-2 text-gold-400/60 group-hover/why:text-gold-400 group-open/why:rotate-180 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="pl-20 pb-10 pr-10 space-y-4">
+                    {block.body.map((para, j) => (
+                      <p key={j} className="text-white/50 leading-relaxed">{para}</p>
+                    ))}
                   </div>
-                </div>
+                </details>
               ))}
               <div className="border-t border-white/10" />
             </div>
