@@ -81,7 +81,7 @@ const pastEvents: BoysEvent[] = [
     title: 'Guest Speaker at the International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
     year: 'July 2025',
     type: 'Guest Speaker',
-    desc: 'Chineze spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
+    desc: 'Chineze Eden spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
     topic: 'Who is raising the boychild? Navigating identity, expectations and neglect.',
     images: ['/boys-fida-flyer.jpeg'],
   },
@@ -167,8 +167,13 @@ const pastEvents: BoysEvent[] = [
     title: '3-Day Boys Bootcamp',
     year: '',
     type: 'Bootcamp',
-    desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them to thrive in every dimension of life.',
-    images: ['/boys-fatherhood-gist-flyer.jpeg'],
+    desc: 'A 3-Day engaging Bootcamp experience with the boys — building resilience, sharpening character and equipping the boys.',
+    images: [
+      '/boys-bootcamp-1.jpeg',
+      '/boys-bootcamp-2.jpeg',
+      '/boys-bootcamp-3.jpeg',
+      '/boys-fatherhood-gist-flyer.jpeg',
+    ],
   },
   {
     title: 'A 5-Part Series on Self Identity with the Boys',
@@ -317,24 +322,33 @@ export default function BoysPage() {
 
             <div className="lg:col-span-8 animate-on-scroll-right">
               {whyBlocks.map((block, i) => (
-                <div key={i} className="border-t border-white/10 py-10 group">
-                  <div className="flex gap-6 items-start">
-                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 group-hover:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
+                <details key={i} className="border-t border-white/10 group/why">
+                  <summary className="flex gap-6 items-start py-10 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded">
+                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 w-14 group-hover/why:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <div>
+                    <div className="flex-1">
                       <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-2 block">{block.tag}</span>
-                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-300 transition-colors duration-300">
+                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white group-hover/why:text-gold-300 transition-colors duration-300">
                         {block.heading}
                       </h3>
-                      <div className="space-y-4">
-                        {block.body.map((para, j) => (
-                          <p key={j} className="text-white/50 leading-relaxed">{para}</p>
-                        ))}
-                      </div>
                     </div>
+                    <svg
+                      className="w-6 h-6 shrink-0 mt-2 text-gold-400/60 group-hover/why:text-gold-400 group-open/why:rotate-180 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="pl-20 pb-10 pr-10 space-y-4">
+                    {block.body.map((para, j) => (
+                      <p key={j} className="text-white/50 leading-relaxed">{para}</p>
+                    ))}
                   </div>
-                </div>
+                </details>
               ))}
               <div className="border-t border-white/10" />
             </div>
@@ -349,15 +363,12 @@ export default function BoysPage() {
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-gold-500" />
-                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">What We Build</span>
+                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">How We Build</span>
               </div>
               <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
-                Built<br /><span className="text-gold-600">Inside</span> Out.
+                Building from the<br /><span className="text-gold-600">Inside</span> Out.
               </h2>
             </div>
-            <p className="md:ml-auto md:max-w-xs text-charcoal/55 text-sm leading-relaxed">
-              Boyspiration works on six pillars that produce wholesome, grounded, purposeful young men.
-            </p>
           </div>
         </div>
 
@@ -449,7 +460,7 @@ export default function BoysPage() {
             </div>
             <div className="lg:col-span-7 lg:pt-8 flex items-end">
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                From Identity bootcamps, to lovingly celebrating boys on International Day of The Boychild, to empowering Conferences, to Christian faith based experiences for boys, to advocacy and awareness, please click to see more.
+                From Identity boot-camps to lovingly celebrating the boys on International Day of The Boychild, empowering Conferences, Christian faith based experiences for boys, to Advocacy and Awareness.
               </p>
             </div>
           </div>

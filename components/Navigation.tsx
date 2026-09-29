@@ -87,8 +87,8 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <div
         className={clsx(
-          'md:hidden absolute top-full left-0 right-0 bg-charcoal/98 backdrop-blur-md transition-all duration-300 overflow-hidden',
-          menuOpen ? 'max-h-96 border-t border-gold-500/20' : 'max-h-0'
+          'md:hidden absolute top-full left-0 right-0 bg-charcoal shadow-lg shadow-black/30 transition-all duration-300 overflow-hidden',
+          menuOpen ? 'max-h-[32rem] border-t border-gold-500/20' : 'max-h-0'
         )}
       >
         <div className="px-6 py-4 flex flex-col gap-4">
