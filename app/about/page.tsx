@@ -85,8 +85,14 @@ export default function AboutPage() {
             <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               About <span className="gold-text">Chineze</span>
             </h1>
-            <p className="text-white/60 text-xl leading-relaxed">
-              Writer. Teacher. Mentor. Speaker. Champion of the boy child. But above all — a woman who believes that every human being carries within them the seed of something extraordinary.
+            <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-5">
+              Equipper. Speaker. Trainer. Writer. Champion of the Boy.
+            </p>
+            <p className="text-white/60 text-xl leading-relaxed mb-5">
+              One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
+            </p>
+            <p className="font-playfair italic text-gold-400 text-xl md:text-2xl leading-relaxed">
+              &ldquo;The UNSTOPPABLE You is the GROWING You&rdquo;.
             </p>
           </div>
         </div>
@@ -118,7 +124,7 @@ export default function AboutPage() {
 
           <div className="animate-on-scroll-right">
             <h2 className="font-playfair text-4xl font-bold text-charcoal mb-6 leading-tight">
-              From the Classroom to the World Stage
+              A life of intentional Growth. A Mandate to Equip. A Passion to transform.
             </h2>
             <blockquote className="border-l-4 border-gold-500 pl-5 mb-8 font-playfair italic text-xl text-charcoal leading-relaxed">
               No matter how audacious the goals of an organisation or a nation may be, they can only be fully realised by individuals committed to their own personal growth.
@@ -205,7 +211,7 @@ export default function AboutPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="py-24 bg-cream">
+      {/* <section className="py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16 animate-on-scroll">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-50 mb-4">
@@ -238,7 +244,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ACHIEVEMENTS GRID */}
       {/* <section className="py-24 bg-white">
