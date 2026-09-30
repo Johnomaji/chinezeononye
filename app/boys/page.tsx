@@ -106,6 +106,15 @@ const pastEvents: BoysEvent[] = [
     images: ['/boys-kingsville-flyer.jpeg'],
   },
   {
+    title: 'Guest on the Fatherhood Gist With Favour Podcast',
+    year: 'June 2025',
+    type: 'Podcast',
+    desc: 'A podcast conversation hosted by Fatherhood Gist With Favour.',
+    topic: 'The role of fathers in molding boys into wholesome men.',
+    link: { href: 'https://youtu.be/POKsy6uNxHY?si=4wUYmPRO-VEQRSqq', label: 'Watch on YouTube' },
+    images: ['/boys-fatherhood-gist-flyer.jpeg'],
+  },
+  {
     title: 'Sharing Moments — Celebrating and Equipping the Boys at Milestone Academy, Abuja',
     year: 'May 2025',
     type: 'School Visit',
@@ -161,10 +170,16 @@ const pastEvents: BoysEvent[] = [
   },
   {
     title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
-    year: '2024',
+    year: 'November 2025',
     type: 'Worship & Celebration',
     desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
-    images: [],
+    images: [
+      '/boys-swf2-1.jpeg',
+      '/boys-swf2-2.jpeg',
+      '/boys-swf2-3.jpeg',
+      '/boys-swf2-4.jpeg',
+      '/boys-swf2-5.jpeg',
+    ],
   },
   {
     title: '3-Day Boys Bootcamp',
