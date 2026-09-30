@@ -141,7 +141,13 @@ const pastEvents: BoysEvent[] = [
     year: 'May 2023',
     type: 'Worship Experience',
     desc: 'A pure worship experience for preteen and teenage boys at Tigris Studios, Abuja. This was in commemoration of The 2023 International Day of the Boychild.',
-    images: [],
+    link: { href: 'https://www.facebook.com/share/v/1EJ5fRcrjm/?mibextid=wwXIfr', label: 'Watch on Facebook' },
+    images: [
+      '/boys-swf1-1.jpeg',
+      '/boys-swf1-2.jpeg',
+      '/boys-swf1-3.jpeg',
+      '/boys-swf1-4.jpeg',
+    ],
   },
   {
     title: 'Celebration of The International Day of The Boy Child',
@@ -169,7 +175,6 @@ const pastEvents: BoysEvent[] = [
       '/boys-bootcamp-1.jpeg',
       '/boys-bootcamp-2.jpeg',
       '/boys-bootcamp-3.jpeg',
-      '/boys-fatherhood-gist-flyer.jpeg',
     ],
   },
   {
