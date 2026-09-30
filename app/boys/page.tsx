@@ -121,7 +121,11 @@ const pastEvents: BoysEvent[] = [
     year: 'May 2025',
     type: 'School Visit',
     desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
-    images: ['/boys-radio-flyer.jpeg'],
+    images: [
+      '/boys-radio-flyer.jpeg',
+      '/boys-intl-day-1.jpeg',
+      '/boys-intl-day-2.jpeg',
+    ],
   },
   {
     title: 'Guest Speaker at Tenderthots Podcast',
@@ -141,12 +145,10 @@ const pastEvents: BoysEvent[] = [
   },
   {
     title: 'Celebration of The International Day of The Boy Child',
-    year: '2022',
+    year: '2026',
     type: 'Special Celebration',
     desc: 'A landmark event honouring the boy child — championing his worth, celebrating his potential, and affirming the investment he deserves.',
     images: [
-      '/boys-intl-day-1.jpeg',
-      '/boys-intl-day-2.jpeg',
       '/boys-intl-day-3.jpeg',
       '/boys-intl-day-4.jpeg',
     ],
@@ -367,37 +369,30 @@ export default function BoysPage() {
           </div>
         </div>
 
-        <div className="border-t border-charcoal/10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {focusAreas.map((area, i) => (
-              <div
-                key={area.num}
-                className="animate-on-scroll group relative border-b border-r border-charcoal/10 p-10 bg-cream hover:bg-charcoal transition-all duration-500 cursor-default overflow-hidden"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none select-none absolute right-4 bottom-2 font-playfair font-bold text-charcoal/5 group-hover:text-white/5 leading-none transition-colors duration-500"
-                  style={{ fontSize: '6rem' }}
-                >
+        <div className="max-w-7xl mx-auto px-6 pb-24">
+          {focusAreas.map((area) => (
+            <details key={area.num} className="animate-on-scroll border-t border-charcoal/10 group/focus">
+              <summary className="flex gap-6 items-center py-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded">
+                <span className="font-playfair text-gold-600/50 group-hover/focus:text-gold-600 text-3xl font-bold shrink-0 w-14 leading-none transition-colors duration-300">
                   {area.num}
                 </span>
-
-                <div className="relative">
-                  <span className="font-playfair text-xs text-gold-600 group-hover:text-gold-400 font-bold tracking-widest uppercase mb-5 block transition-colors duration-300">
-                    {area.num}
-                  </span>
-                  <div className="w-8 h-0.5 bg-gold-gradient rounded-full mb-6" />
-                  <h3 className="font-playfair text-2xl font-bold text-charcoal group-hover:text-white mb-4 leading-snug transition-colors duration-300">
-                    {area.title}
-                  </h3>
-                  <p className="text-charcoal/55 group-hover:text-white/55 text-sm leading-relaxed transition-colors duration-300">
-                    {area.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+                <h3 className="flex-1 font-playfair text-2xl md:text-3xl font-bold text-charcoal group-hover/focus:text-gold-700 leading-snug transition-colors duration-300">
+                  {area.title}
+                </h3>
+                <svg
+                  className="w-6 h-6 shrink-0 text-gold-600/60 group-hover/focus:text-gold-600 group-open/focus:rotate-180 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="pl-20 pr-10 pb-8 text-charcoal/60 leading-relaxed max-w-3xl">{area.desc}</p>
+            </details>
+          ))}
+          <div className="border-t border-charcoal/10" />
         </div>
       </section>
 
@@ -443,23 +438,6 @@ export default function BoysPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20 animate-on-scroll">
-            <div className="lg:col-span-5">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-px bg-gold-500" />
-                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Track Record</span>
-              </div>
-              <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
-                What<br />We&apos;ve<br /><span className="text-gold-600">Done.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-7 lg:pt-8 flex items-end">
-              <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                From Identity boot-camps to lovingly celebrating the boys on International Day of The Boychild, empowering Conferences, Christian faith based experiences for boys, to Advocacy and Awareness.
-              </p>
-            </div>
-          </div>
-
           {/* Our Work */}
           <div className="mb-20 animate-on-scroll">
             <div className="flex items-center gap-4 mb-8">
@@ -500,6 +478,23 @@ export default function BoysPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20 animate-on-scroll">
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-gold-500" />
+                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Track Record</span>
+              </div>
+              <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
+                What<br />We&apos;ve<br /><span className="text-gold-600">Done.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-7 lg:pt-8 flex items-end">
+              <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
+                From Identity boot-camps to lovingly celebrating the boys on International Day of The Boychild, empowering Conferences, Christian faith based experiences for boys, to Advocacy and Awareness.
+              </p>
             </div>
           </div>
 
