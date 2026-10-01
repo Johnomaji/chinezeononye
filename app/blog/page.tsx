@@ -42,7 +42,15 @@ export default function BlogPage({
             The <span className="gold-text">Blog</span>
           </h1>
           <p className="text-white/60 text-xl max-w-2xl mx-auto leading-relaxed">
-            Thoughts on teaching, mentorship, personal growth, and the courage it takes to live a purposeful life.
+            There’s always something here to lift your Soul!
+            <br />
+            Everyday inspiration on living life fully and present.
+            <br />
+            Conversations on equipping The Wholesome Boy.
+            <br />
+            Inspirations on relatable, actionable steps that make for desired outcomes in your life.
+            <br />
+            It’s one life — Live fully. Live boldly. This itself is gratitude to The Giver of life.
           </p>
         </div>
       </section>

@@ -265,6 +265,7 @@ export default function AboutPage() {
               '/new2.jpeg',
               '/new3.jpeg',
               '/new4.jpeg',
+              '/new5.png',
             ].map((src, i) => (
               <div
                 key={i}

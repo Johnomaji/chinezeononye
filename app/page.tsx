@@ -44,8 +44,14 @@ export default function HomePage() {
               <br />
               Potential
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-lg">
-              I am Chineze Eden — educator, mentor, and motivational speaker committed to helping individuals and organizations discover their purpose and rise to their highest potential.
+            <p className="text-white/80 text-lg leading-relaxed mb-5 max-w-lg">
+              Equipper. Speaker. Trainer. Writer. Champion of the Boy.
+            </p>
+            <p className="text-white/60 text-lg leading-relaxed mb-6 max-w-lg">
+              One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
+            </p>
+            <p className="font-playfair text-gold-400 text-xl italic leading-relaxed mb-10 max-w-lg">
+              “The UNSTOPPABLE You is the GROWING You”.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
