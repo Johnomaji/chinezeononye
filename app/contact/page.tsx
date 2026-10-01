@@ -97,15 +97,15 @@ export default function ContactPage() {
             {[
               {
                 title: 'Email',
-                value: 'Chinezeedenononye@gmail.com',
+                value: 'chinezeedenononye@gmail.com',
                 desc: 'Best for general inquiries and mentorship',
-                href: 'mailto:Chinezeedenononye@gmail.com',
+                href: 'mailto:chinezeedenononye@gmail.com',
               },
               {
                 title: 'Speaking Bookings',
-                value: 'Chinezeedenononye@gmail.com',
+                value: 'chinezeedenononye@gmail.com',
                 desc: 'For event and conference inquiries',
-                href: 'mailto:Chinezeedenononye@gmail.com',
+                href: 'mailto:chinezeedenononye@gmail.com',
               },
             ].map(contact => (
               <div key={contact.title} className="bg-white rounded-2xl p-6 gold-border">
@@ -239,7 +239,7 @@ export default function ContactPage() {
                     <option value="school">Engaging boys in schools</option>
                     <option value="Group Coaching">Group Coaching</option>
                     <option value="Workshop / Training">Workshop / Training</option>
-                    <option value="Sonspiration / Boy Child">Sonspiration / Boy Child</option>
+                    <option value="Boyspiration / Boy Child">Boyspiration / Boy Child</option>
                     <option value="Media Inquiry">Media Inquiry</option>
                     <option value="Other">Other</option>
                   </select>

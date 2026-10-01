@@ -4,8 +4,8 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
 
 export const metadata = {
-  title: 'Boys / Sonspiration | Chineze Eden',
-  description: 'Equipping the wholesome boy child — Chineze Eden\'s Sonspiration movement champions the emotional, spiritual, and social development of boys.',
+  title: 'Boys / Boyspiration | Chineze Eden',
+  description: 'Equipping the wholesome boy — Chineze Eden\'s Boyspiration movement champions the emotional, spiritual, and social development of boys.',
 }
 
 const focusAreas = [
@@ -42,88 +42,185 @@ const focusAreas = [
 ]
 
 const taglines = [
-  'Equipping the Wholesome Boy Child.',
-  'A boy well-raised is a nation well-built.',
-  'Boys don\'t need less — they need better.',
-  'Wholesome men don\'t happen by accident. They are intentionally raised.',
+  'Wholesome Men Do Not Just Happen. They Are Grown Boys Intentionally Equipped.',
+  'The Wholesome Boy = The Wholesome Man = The Wholesome Family = The Wholesome Society',
+]
+
+const whyBlocks = [
+  {
+    heading: 'Because who he becomes, matters',
+    tag: 'Identity',
+    body: [
+      'The boy is growing up without the emotional language, identity anchors, and safe spaces he needs to understand who he is and who he is becoming.',
+      'Many boys are left feeling lost, struggling with their sense of identity and significance, and pressured to perform a version of masculinity that earns acceptance at the expense of their inner well-being.',
+      'The boy needs more than instruction; he needs understanding, belonging, and intentional guidance. He deserves safe spaces to find his voice, embrace his identity, and grow into an emotionally healthy, confident, and purpose-driven young man.',
+    ],
+  },
+  {
+    heading: 'Equip the Boy, Shape the Man',
+    tag: 'The Investment',
+    body: [
+      'Investing in a boy is not coddling him; it is equipping him.',
+      'When a boy is seen, heard, guided, and intentionally built, he develops the confidence, character, and capacity to become a man who can lead, love, and serve without losing himself in the process.',
+      'The goal is not to shield the boy from the realities of life, but to truly prepare him to navigate those realities with identity, courage, emotional strength, and purpose.',
+    ],
+  },
+  {
+    heading: 'Wholeness, Not Softness or Hardness',
+    tag: 'Formation',
+    body: [
+      'This is not about producing soft boys or hard men.',
+      'It is about raising whole ones — anchored in identity, grounded in purpose, and emotionally capable of carrying the weight of the lives they will one day lead.',
+      'We want boys who can be strong without becoming hardened, vulnerable without becoming fragile, and confident without losing compassion. Boys who can grow into men with the inner strength to lead, love, and live fully.',
+    ],
+  },
 ]
 
 const pastEvents: BoysEvent[] = [
   {
-    title: 'A 5-Part Series on Self Identity with the Boys',
-    year: '',
-    type: 'Workshop Series',
-    desc: 'A deep-dive five-session journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
+    title: 'Guest Speaker at the International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
+    year: 'July 2025',
+    type: 'Guest Speaker',
+    desc: 'Chineze Eden spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
+    topic: 'Who is raising the boychild? Navigating identity, expectations and neglect.',
+    images: ['/boys-fida-flyer.jpeg'],
+  },
+  {
+    title: 'Guest Speaker, Politics Extra Radio Show on Kiss FM Abuja',
+    year: 'May 2025',
+    type: 'Radio Interview',
+    desc: 'A live radio conversation hosted by Primorg to mark the 2025 International Day of The Boychild.',
+    topic: 'The boychild in today\'s dynamic world.',
     images: [
-      '/boys-session-1.jpeg',
-      '/boys-worship-2.jpeg',
+      '/boys-kiss-fm-flyer.jpeg',
+      '/boys-kiss-fm-team.jpeg',
+      '/boys-kiss-fm-solo.jpeg',
     ],
   },
   {
-    title: 'Sons Worshipping The Father 1.0',
-    year: '',
-    type: 'Worship Experience',
-    desc: 'A pure, powerful worship experience designed exclusively for preteen and teenage boys — creating a sacred space for them to encounter God and discover who they are in Him.',
+    title: 'Impactfully Engaging the Boys at Kingsville College, Abuja',
+    year: 'June 2025',
+    type: 'School Visit',
+    desc: 'Engaging the boys on the occasion of their Humanities Week — Empowered Voices, Informed Choices.',
+    topic: 'Options beyond the obvious.',
+    images: ['/boys-kingsville-flyer.jpeg'],
+  },
+  {
+    title: 'Guest on the Fatherhood Gist With Favour Podcast',
+    year: 'June 2025',
+    type: 'Podcast',
+    desc: 'A podcast conversation hosted by Fatherhood Gist With Favour.',
+    topic: 'The role of fathers in molding boys into wholesome men.',
+    link: { href: 'https://youtu.be/POKsy6uNxHY?si=4wUYmPRO-VEQRSqq', label: 'Watch on YouTube' },
+    images: ['/boys-fatherhood-gist-flyer.jpeg'],
+  },
+  {
+    title: 'Sharing Moments — Celebrating and Equipping the Boys at Milestone Academy, Abuja',
+    year: 'May 2025',
+    type: 'School Visit',
+    desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
     images: [
-      '/boys-worship-1.jpeg',
-      '/boys-worship-2.jpeg',
+      '/boys-session-1.jpeg',
+      '/boys-milestone-flyer.jpeg',
+      '/boys-milestone-1.jpeg',
+    ],
+  },
+  {
+    title: 'Sharing Moments — Celebrating and Equipping the Boys at De Regnant Star Academy, Abuja',
+    year: 'May 2025',
+    type: 'School Visit',
+    desc: 'On the occasion of the 2025 International Day of The Boychild, 16th May, 2025.',
+    images: [
+      '/boys-radio-flyer.jpeg',
+      '/boys-intl-day-1.jpeg',
+      '/boys-intl-day-2.jpeg',
+    ],
+  },
+  {
+    title: 'Guest Speaker at Tenderthots Podcast',
+    year: 'May 2025',
+    type: 'Podcast',
+    desc: 'A podcast conversation on raising boys into wholesome men.',
+    topic: 'From Boys to Men: Nurturing The Right Mindset.',
+    link: { href: 'https://youtu.be/kuVqW3kU5G4', label: 'Watch on YouTube' },
+    images: [],
+  },
+  {
+    title: 'Sons Worshipping The Father 1.0',
+    year: 'May 2023',
+    type: 'Worship Experience',
+    desc: 'A pure worship experience for preteen and teenage boys at Tigris Studios, Abuja. This was in commemoration of The 2023 International Day of the Boychild.',
+    link: { href: 'https://www.facebook.com/share/v/1EJ5fRcrjm/?mibextid=wwXIfr', label: 'Watch on Facebook' },
+    images: [
+      '/boys-swf1-1.jpeg',
+      '/boys-swf1-2.jpeg',
+      '/boys-swf1-3.jpeg',
+      '/boys-swf1-4.jpeg',
     ],
   },
   {
     title: 'Celebration of The International Day of The Boy Child',
-    year: '2022',
+    year: '2026',
     type: 'Special Celebration',
     desc: 'A landmark event honouring the boy child — championing his worth, celebrating his potential, and affirming the investment he deserves.',
     images: [
-      '/boys-intl-day-1.jpeg',
-      '/boys-intl-day-2.jpeg',
       '/boys-intl-day-3.jpeg',
       '/boys-intl-day-4.jpeg',
     ],
   },
   {
-    title: 'Celebration of The International Day of The Boy Child',
-    year: '2025',
-    type: 'School Events',
-    desc: 'Sonspiration took the celebration of the International Day of the Boy Child into two schools — affirming the worth of every boy, speaking to identity, and bringing the message of wholesome manhood directly to them.',
-    schools: ['Milestone Academy', 'DeRegnant Star Academy'],
-    images: [
-      '/boys-milestone-flyer.jpeg',
-      '/boys-milestone-1.jpeg',
-      '/boys-deregnant-flyer.jpeg',
-      '/boys-celebration-1.jpeg',
-      '/boys-celebration-2.jpeg',
-      '/boys-session-1.jpeg',
-    ],
-  },
-  {
     title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
-    year: '2024',
+    year: 'November 2025',
     type: 'Worship & Celebration',
     desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
     images: [
-      '/boys-kiss-fm-solo.jpeg',
-      '/boys-kiss-fm-team.jpeg',
-      '/boys-radio-flyer.jpeg',
+      '/boys-swf2-1.jpeg',
+      '/boys-swf2-2.jpeg',
+      '/boys-swf2-3.jpeg',
+      '/boys-swf2-4.jpeg',
+      '/boys-swf2-5.jpeg',
     ],
   },
   {
-    title: '3-Day Boys Bootcamp — The Edge & Edges',
+    title: '3-Day Boys Bootcamp',
     year: '',
     type: 'Bootcamp',
-    desc: 'An immersive three-day bootcamp pushing boys to their edge — building resilience, sharpening character, and equipping them to thrive in every dimension of life.',
+    desc: 'A 3-Day engaging Bootcamp experience with the boys — building resilience, sharpening character and equipping the boys.',
     images: [
-      '/boys-fatherhood-gist-flyer.jpeg',
-      '/boys-fida-flyer.jpeg',
-      '/boys-kingsville-flyer.jpeg',
+      '/boys-bootcamp-1.jpeg',
+      '/boys-bootcamp-2.jpeg',
+      '/boys-bootcamp-3.jpeg',
     ],
+  },
+  {
+    title: 'A 5-Part Series on Self Identity with the Boys',
+    year: 'October 2023',
+    type: 'Virtual Workshop Series',
+    desc: 'A deep-dive five-session virtual journey guiding boys through the foundations of who they are — exploring identity, self-worth, and purpose from the inside out.',
+    images: [],
   },
 ]
 
+const workFolds = [
+  'Directly engaging and equipping the boys.',
+  'Advocacy and awareness on the critical need of intentionally equipping the boys.',
+]
+
+const instruments = [
+  {
+    title: 'Group Coaching Series',
+    desc: 'Structured personal growth layered on identity and value system.',
+  },
+  { title: 'Structured Mentorships' },
+  { title: 'Leadership & Mentoring Conferences' },
+  { title: 'School Visits' },
+  { title: 'Excursions' },
+]
+
 const stats = [
-  { value: '6+', label: 'Events Hosted' },
+  { value: '11', label: 'Events Hosted' },
   { value: '500+', label: 'Boys Reached' },
-  { value: '2', label: 'Schools Visited' },
+  { value: '4', label: 'Schools Visited' },
   { value: '2', label: 'Worship Experiences' },
 ]
 
@@ -142,7 +239,7 @@ export default function BoysPage() {
             className="font-playfair font-bold text-white leading-none"
             style={{ fontSize: 'clamp(8rem, 30vw, 26rem)', opacity: 0.03, letterSpacing: '-0.04em' }}
           >
-            SONS
+            BOYS
           </span>
         </div>
 
@@ -153,7 +250,7 @@ export default function BoysPage() {
         <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
-            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Sonspiration</span>
+            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Boyspiration</span>
           </div>
 
           <div className="animate-on-scroll">
@@ -161,29 +258,23 @@ export default function BoysPage() {
               className="font-playfair font-bold text-white leading-[0.9] mb-10"
               style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
             >
-              Raising<br />
+              Equipping<br />
               <em className="not-italic text-gold-400">Wholesome</em><br />
-              Sons.
+              Boys
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-10 lg:items-end animate-on-scroll">
             <p className="text-white/50 text-lg leading-relaxed max-w-md">
-              Boys are not broken. They are a generation waiting to be equipped,
-              championed, and loved with intention.
+              Boys are not broken. They are becoming. Our responsibility is to equip,
+              champion and nurture them intentionally as they grow into wholesome men.
             </p>
             <div className="flex flex-wrap gap-4 lg:ml-auto shrink-0">
-              <Link
-                href="/contact?subject=Sonspiration+%2F+Boy+Child"
-                className="px-8 py-3.5 bg-gold-gradient text-charcoal font-bold text-sm rounded-full hover:shadow-2xl hover:shadow-gold-500/40 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Join Sonspiration
-              </Link>
               <a
                 href="#events"
                 className="px-8 py-3.5 border border-white/15 text-white text-sm font-medium rounded-full hover:border-gold-500/60 hover:text-gold-400 transition-all duration-300"
               >
-                See Events ↓
+                Our Engagements ↓
               </a>
             </div>
           </div>
@@ -199,10 +290,10 @@ export default function BoysPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="w-1 h-16 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
           <p className="font-playfair text-2xl md:text-4xl font-bold text-charcoal text-center md:text-left leading-snug">
-            &ldquo;Equipping the Wholesome Boy Child.&rdquo;
+            &ldquo;Equipping The Wholesome Boy.&rdquo;
           </p>
           <div className="md:ml-auto shrink-0">
-            <span className="text-charcoal/50 text-sm tracking-widest uppercase">The Sonspiration Mission</span>
+            <span className="text-charcoal/50 text-sm tracking-widest uppercase">The Boyspiration Mission</span>
           </div>
         </div>
       </section>
@@ -241,39 +332,40 @@ export default function BoysPage() {
                 <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">The Why</span>
               </div>
               <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white leading-tight">
-                Why the<br />Boy Child<br />
-                <span className="text-gold-400">Matters.</span>
+                Why the<br />
+                <span className="text-gold-400">Boys?</span>
               </h2>
             </div>
 
             <div className="lg:col-span-8 animate-on-scroll-right">
-              {[
-                {
-                  heading: 'A generation left without language.',
-                  body: 'Boys are growing up without the emotional vocabulary, identity anchors, or safe spaces to wrestle with who they are becoming. The result is young men who feel lost — forced to perform a version of themselves that costs everything on the inside.',
-                },
-                {
-                  heading: 'The need is not weakness — it\'s wisdom.',
-                  body: 'Investing in a boy is not coddling him. It is equipping him. A boy who is seen, heard, and intentionally built becomes a man who can lead, love, and serve without losing himself in the process.',
-                },
-                {
-                  heading: 'Wholeness, not softness or hardness.',
-                  body: 'Sonspiration is not about producing soft boys or hard men. It is about raising whole ones — anchored, purposeful, and emotionally capable of carrying the weight of the lives they will one day lead.',
-                },
-              ].map((block, i) => (
-                <div key={i} className="border-t border-white/10 py-10 group">
-                  <div className="flex gap-6 items-start">
-                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 group-hover:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
+              {whyBlocks.map((block, i) => (
+                <details key={i} className="border-t border-white/10 group/why">
+                  <summary className="flex gap-6 items-start py-10 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded">
+                    <span className="font-playfair text-gold-500/30 text-4xl font-bold shrink-0 w-14 group-hover/why:text-gold-500/60 transition-colors duration-300 leading-none mt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <div>
-                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-gold-300 transition-colors duration-300">
+                    <div className="flex-1">
+                      <span className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-2 block">{block.tag}</span>
+                      <h3 className="font-playfair text-xl md:text-2xl font-bold text-white group-hover/why:text-gold-300 transition-colors duration-300">
                         {block.heading}
                       </h3>
-                      <p className="text-white/50 leading-relaxed">{block.body}</p>
                     </div>
+                    <svg
+                      className="w-6 h-6 shrink-0 mt-2 text-gold-400/60 group-hover/why:text-gold-400 group-open/why:rotate-180 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="pl-20 pb-10 pr-10 space-y-4">
+                    {block.body.map((para, j) => (
+                      <p key={j} className="text-white/50 leading-relaxed">{para}</p>
+                    ))}
                   </div>
-                </div>
+                </details>
               ))}
               <div className="border-t border-white/10" />
             </div>
@@ -288,49 +380,39 @@ export default function BoysPage() {
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-gold-500" />
-                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">What We Build</span>
+                <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">How We Build</span>
               </div>
               <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
-                Built<br /><span className="text-gold-600">Inside</span> Out.
+                Building from the<br /><span className="text-gold-600">Inside</span> Out.
               </h2>
             </div>
-            <p className="md:ml-auto md:max-w-xs text-charcoal/55 text-sm leading-relaxed">
-              Sonspiration works on six pillars that produce wholesome, grounded, purposeful young men.
-            </p>
           </div>
         </div>
 
-        <div className="border-t border-charcoal/10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {focusAreas.map((area, i) => (
-              <div
-                key={area.num}
-                className="animate-on-scroll group relative border-b border-r border-charcoal/10 p-10 bg-cream hover:bg-charcoal transition-all duration-500 cursor-default overflow-hidden"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none select-none absolute right-4 bottom-2 font-playfair font-bold text-charcoal/5 group-hover:text-white/5 leading-none transition-colors duration-500"
-                  style={{ fontSize: '6rem' }}
-                >
+        <div className="max-w-7xl mx-auto px-6 pb-24">
+          {focusAreas.map((area) => (
+            <details key={area.num} className="animate-on-scroll border-t border-charcoal/10 group/focus">
+              <summary className="flex gap-6 items-center py-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded">
+                <span className="font-playfair text-gold-600/50 group-hover/focus:text-gold-600 text-3xl font-bold shrink-0 w-14 leading-none transition-colors duration-300">
                   {area.num}
                 </span>
-
-                <div className="relative">
-                  <span className="font-playfair text-xs text-gold-600 group-hover:text-gold-400 font-bold tracking-widest uppercase mb-5 block transition-colors duration-300">
-                    {area.num}
-                  </span>
-                  <div className="w-8 h-0.5 bg-gold-gradient rounded-full mb-6" />
-                  <h3 className="font-playfair text-2xl font-bold text-charcoal group-hover:text-white mb-4 leading-snug transition-colors duration-300">
-                    {area.title}
-                  </h3>
-                  <p className="text-charcoal/55 group-hover:text-white/55 text-sm leading-relaxed transition-colors duration-300">
-                    {area.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+                <h3 className="flex-1 font-playfair text-2xl md:text-3xl font-bold text-charcoal group-hover/focus:text-gold-700 leading-snug transition-colors duration-300">
+                  {area.title}
+                </h3>
+                <svg
+                  className="w-6 h-6 shrink-0 text-gold-600/60 group-hover/focus:text-gold-600 group-open/focus:rotate-180 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="pl-20 pr-10 pb-8 text-charcoal/60 leading-relaxed max-w-3xl">{area.desc}</p>
+            </details>
+          ))}
+          <div className="border-t border-charcoal/10" />
         </div>
       </section>
 
@@ -376,6 +458,49 @@ export default function BoysPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
+          {/* Our Work */}
+          <div className="mb-20 animate-on-scroll">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-8 h-px bg-gold-500" />
+              <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Our Work</span>
+            </div>
+
+            <h3 className="font-playfair text-3xl md:text-4xl font-bold text-charcoal mb-8">
+              Our work is <span className="text-gold-600">two-fold.</span>
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+              {workFolds.map((fold, i) => (
+                <div key={i} className="flex gap-5 items-start p-8 bg-white/60 border border-charcoal/10 rounded-2xl">
+                  <span className="font-playfair text-gold-600 text-3xl font-bold leading-none shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-charcoal/80 text-lg leading-relaxed">{fold}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-charcoal rounded-2xl p-8 md:p-12">
+              <p className="font-playfair text-xl md:text-2xl text-white leading-snug mb-10">
+                The core of our work is equipping <span className="text-gold-400">The Wholesome Boy</span> through
+                direct engagements — physical, virtual or hybrid.
+              </p>
+
+              <p className="text-gold-400 text-xs tracking-[0.35em] uppercase mb-6">Our Primary Instruments of Engagement</p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+                {instruments.map((item) => (
+                  <li key={item.title} className="flex gap-4 items-start border-t border-white/10 py-5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 mt-2.5" />
+                    <div>
+                      <p className="text-white font-semibold">{item.title}</p>
+                      {item.desc && <p className="text-white/50 text-sm leading-relaxed mt-1">{item.desc}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20 animate-on-scroll">
             <div className="lg:col-span-5">
               <div className="flex items-center gap-4 mb-6">
@@ -388,7 +513,7 @@ export default function BoysPage() {
             </div>
             <div className="lg:col-span-7 lg:pt-8 flex items-end">
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                From worship experiences and identity bootcamps to school celebrations and group series — click any event to see photos.
+                From Identity boot-camps to lovingly celebrating the boys on International Day of The Boychild, empowering Conferences, Christian faith based experiences for boys, to Advocacy and Awareness.
               </p>
             </div>
           </div>
@@ -417,15 +542,15 @@ export default function BoysPage() {
                 Today.
               </h2>
               <p className="text-white/50 text-lg leading-relaxed max-w-md">
-                Whether you&apos;re a parent, educator, mentor, or someone who cares about the next generation of men — there&apos;s a place for you in Sonspiration.
+                Whether you&apos;re a parent, educator, mentor, or someone who cares about the next generation of men — there&apos;s a place for you in Boyspiration.
               </p>
             </div>
 
             <div className="animate-on-scroll-right space-y-5">
               {[
-                { label: 'Join the group calls', desc: 'Be part of the ongoing Sonspiration community conversations.' },
-                { label: 'Bring Sonspiration to your school', desc: 'Host an event, workshop, or bootcamp for the boys in your community.' },
-                { label: 'Share the message', desc: 'Champion a boy in your life and help spread the Sonspiration vision.' },
+                { label: 'Join the group calls', desc: 'Be part of the ongoing Boyspiration community conversations.' },
+                { label: 'Bring Boyspiration to your school', desc: 'Host an event, workshop, or bootcamp for the boys in your community.' },
+                { label: 'Share the message', desc: 'Champion a boy in your life and help spread the Boyspiration vision.' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -442,12 +567,6 @@ export default function BoysPage() {
               ))}
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Link
-                  href="/contact?subject=Sonspiration+%2F+Boy+Child"
-                  className="px-8 py-4 bg-gold-gradient text-charcoal font-bold rounded-full hover:shadow-2xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Join Sonspiration
-                </Link>
                 <Link
                   href="/about"
                   className="px-8 py-4 border border-white/15 text-white font-medium rounded-full hover:border-gold-500/40 hover:text-gold-400 transition-all duration-300"

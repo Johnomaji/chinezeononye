@@ -36,13 +36,13 @@ const timeline = [
   },
   {
     year: '2023',
-    title: 'Founded Sonspiration',
-    desc: 'Launched Sonspiration — a group call community dedicated to equipping the wholesome boy child, championing the emotional, spiritual, and social development of boys.',
+    title: 'Founded Boyspiration',
+    desc: 'Launched Boyspiration — a group call community dedicated to equipping the wholesome boy child, championing the emotional, spiritual, and social development of boys.',
   },
   {
     year: '2024',
     title: 'Today & Beyond',
-    desc: 'Continuing to impact thousands through writing, speaking, mentorship, and Sonspiration — with greater reach and deeper purpose than ever.',
+    desc: 'Continuing to impact thousands through writing, speaking, mentorship, and Boyspiration — with greater reach and deeper purpose than ever.',
   },
 ]
 
@@ -85,8 +85,14 @@ export default function AboutPage() {
             <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               About <span className="gold-text">Chineze</span>
             </h1>
-            <p className="text-white/60 text-xl leading-relaxed">
-              Writer. Teacher. Mentor. Speaker. Champion of the boy child. But above all — a woman who believes that every human being carries within them the seed of something extraordinary.
+            <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-5">
+              Equipper. Speaker. Trainer. Writer. Champion of the Boy.
+            </p>
+            <p className="text-white/60 text-xl leading-relaxed mb-5">
+              One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
+            </p>
+            <p className="font-playfair italic text-gold-400 text-xl md:text-2xl leading-relaxed">
+              &ldquo;The UNSTOPPABLE You is the GROWING You&rdquo;.
             </p>
           </div>
         </div>
@@ -94,8 +100,8 @@ export default function AboutPage() {
 
       {/* STORY SECTION */}
       <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-on-scroll-left">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="animate-on-scroll-left lg:sticky lg:top-28">
             <div className="relative">
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
                 <Image
@@ -118,23 +124,52 @@ export default function AboutPage() {
 
           <div className="animate-on-scroll-right">
             <h2 className="font-playfair text-4xl font-bold text-charcoal mb-6 leading-tight">
-              From the Classroom to the World Stage
+              A life of intentional Growth. A Mandate to Equip. A Passion to transform.
             </h2>
+            <blockquote className="border-l-4 border-gold-500 pl-5 mb-8 font-playfair italic text-xl text-charcoal leading-relaxed">
+              No matter how audacious the goals of an organisation or a nation may be, they can only be fully realised by individuals committed to their own personal growth.
+            </blockquote>
             <div className="space-y-4 text-charcoal/70 leading-relaxed">
               <p>
-                Chineze Eden's journey began in a modest classroom in Nigeria, where she quickly discovered something that would define her entire career: the moment a student's eyes light up with understanding is one of the most profound experiences a human being can have.
+                Hello, I am Eden—a Transformation Strategist, Consultant, Speaker, and Author committed to driving sustainable impact across individual, organisational, and national development.
               </p>
               <p>
-                That discovery didn't just make her a better teacher — it ignited a mission. A mission to create more of those moments. Not just in classrooms, but in boardrooms, conference halls, community centers, and one-on-one conversations that change the trajectory of a life.
+                My own defining journey of growth began in 2021, deepening my conviction that structured personal growth is not merely personal—it is a powerful strategy for organisational and national development. Today, through structured and bespoke growth frameworks, I partner with leaders, teams, and institutions to unlock potential, strengthen capacity, and translate growth into meaningful, sustainable results.
               </p>
               <p>
-                Over 12 years, Chineze has worn many hats — classroom teacher, curriculum developer, youth mentor, corporate trainer, and keynote speaker. But through it all, one thread has remained constant: an unwavering belief in the extraordinary potential that resides in every ordinary person.
+                This perspective also informs my growing engagement in advisory, advocacy, and policy conversations—exploring how policies, systems, and environments can move beyond simply managing people to intentionally developing people and strengthening institutions.
               </p>
               <p>
-                Her approach is rooted in authenticity, driven by compassion, and focused always on empowerment. She doesn't just motivate people — she equips them with the mindsets, tools, and courage to sustain their own transformation.
+                With close to two decades of experience in the Nigerian public sector, I bring practical leadership, institutional experience, and a deeply relational approach to my work. I connect with people where it matters most—at the heart—because I believe transformation is never merely transactional; it is deeply human.
               </p>
               <p>
-                As a writer and advocate, Chineze also founded <span className="text-gold-600 font-semibold">Sonspiration</span> — a group call community built around her heartfelt tag: <em>&ldquo;Equipping the Wholesome Boy Child.&rdquo;</em> Through Sonspiration, she speaks directly to the often-overlooked needs of boys, bringing together parents, educators, and mentors to champion the next generation of wholesome, purposeful young men.
+                Alongside my transformation and advisory work is a distinct and deeply personal mandate: <span className="text-gold-600 font-semibold">equipping the boy child</span>.
+              </p>
+              <p>
+                Through <span className="text-gold-600 font-semibold">Boyspiration</span>, targeted programmes, coaching, and strategic partnerships, I engage teenage boys and young men while championing the need to raise purpose-driven, emotionally grounded, well-rounded men and leaders for today and the future. I am blessed with three biological sons.
+              </p>
+              <p>
+                Beyond direct engagement, having spoken across platforms, I seek to start and shape conversations around the policies, systems, and environments that influence how boys are raised, supported, and prepared for adulthood.
+              </p>
+              <p>
+                This mandate is both professional and deeply personal. My conviction remains simple:
+              </p>
+              <p className="font-playfair text-xl font-bold text-charcoal">
+                Boys are not broken. They are becoming and require intentional attention.
+              </p>
+              <p>
+                Across all I do, one thread remains constant:
+              </p>
+              <p className="font-playfair text-xl font-bold text-gold-600">
+                Equip the person. Strengthen the system. Shape the future.
+              </p>
+              <p>
+                I believe transformation begins within — but its impact should reach far beyond the individual.
+              </p>
+              <p className="pt-2">
+                With love &amp; light,
+                <br />
+                <span className="font-playfair font-semibold text-charcoal">Chineze Eden Ononye.</span>
               </p>
             </div>
             <Link
@@ -176,7 +211,7 @@ export default function AboutPage() {
       </section>
 
       {/* TIMELINE */}
-      <section className="py-24 bg-cream">
+      {/* <section className="py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16 animate-on-scroll">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-50 mb-4">
@@ -209,7 +244,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ACHIEVEMENTS GRID */}
       {/* <section className="py-24 bg-white">

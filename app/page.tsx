@@ -203,7 +203,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SONSPIRATION SECTION */}
+      {/* BOYSPIRATION SECTION */}
       <section className="py-24 bg-charcoal relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(201,162,39,0.08),transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -213,25 +213,25 @@ export default function HomePage() {
               <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Community & Advocacy</span>
             </div>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-              Introducing <span className="gold-text">Sonspiration</span>
+              Introducing <span className="gold-text">Boyspiration</span>
             </h2>
             <p className="text-gold-400 font-playfair italic text-lg mb-6">
               &ldquo;Equipping the Wholesome Boy Child&rdquo;
             </p>
             <div className="space-y-4 text-white/60 leading-relaxed">
               <p>
-                Sonspiration is Chineze&apos;s group call community dedicated to raising, championing, and equipping the boy child. In a world that often overlooks the emotional, spiritual, and social needs of boys, Sonspiration creates a space for intentional conversations about nurturing wholesome, grounded, and purposeful young men.
+                Boyspiration is Chineze&apos;s group call community dedicated to raising, championing, and equipping the boy child. In a world that often overlooks the emotional, spiritual, and social needs of boys, Boyspiration creates a space for intentional conversations about nurturing wholesome, grounded, and purposeful young men.
               </p>
               <p>
-                Through live group calls, practical insights, and community connection, Sonspiration brings together parents, educators, mentors, and advocates who believe that the future begins with how we raise our sons.
+                Through live group calls, practical insights, and community connection, Boyspiration brings together parents, educators, mentors, and advocates who believe that the future begins with how we raise our sons.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mt-8">
               <Link
-                href="/contact?subject=Sonspiration+%2F+Boy+Child"
+                href="/contact?subject=Boyspiration+%2F+Boy+Child"
                 className="px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Join Sonspiration
+                Join Boyspiration
               </Link>
               <Link
                 href="/about"

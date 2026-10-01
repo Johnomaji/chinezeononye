@@ -10,6 +10,8 @@ export interface BoysEvent {
   desc: string
   images: string[]
   schools?: string[]
+  topic?: string
+  link?: { href: string; label: string }
 }
 
 function CloseIcon() {
@@ -200,6 +202,9 @@ function EventGalleryModal({
             </div>
             <h3 className="font-playfair text-white font-bold text-xl leading-snug">{event.title}</h3>
             <p className="text-white/40 text-sm mt-1.5 leading-relaxed">{event.desc}</p>
+            {event.topic && (
+              <p className="text-gold-400 text-sm mt-2 leading-relaxed"><span className="font-semibold">Topic:</span> {event.topic}</p>
+            )}
             {event.schools && event.schools.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {event.schools.map((school) => (
@@ -288,6 +293,9 @@ export default function BoysEventGallery({ events }: { events: BoysEvent[] }) {
                 {event.title}
               </h3>
               <p className="text-charcoal/50 text-sm leading-relaxed">{event.desc}</p>
+              {event.topic && (
+                <p className="text-charcoal/80 text-sm leading-relaxed mt-2"><span className="font-semibold text-gold-600">Topic:</span> {event.topic}</p>
+              )}
 
               {event.schools && event.schools.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-3">
@@ -298,6 +306,18 @@ export default function BoysEventGallery({ events }: { events: BoysEvent[] }) {
                     </span>
                   ))}
                 </div>
+              )}
+
+              {event.link && (
+                <a
+                  href={event.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 mr-6 text-xs font-semibold text-gold-600 hover:text-gold-700 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                  <span className="underline underline-offset-2 hover:no-underline">{event.link.label}</span>
+                </a>
               )}
 
               {event.images.length > 0 && (
