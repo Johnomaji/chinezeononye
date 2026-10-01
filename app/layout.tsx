@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import { SITE_URL, SITE_NAME, SITE_LOCALE } from '@/lib/seo'
-// @ts-expect-error CSS imports are handled by Next.js at build time.
 import './globals.css'
 
 const playfair = Playfair_Display({
