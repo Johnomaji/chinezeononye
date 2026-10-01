@@ -2,11 +2,13 @@
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Boys / Boyspiration | Chineze Eden',
   description: 'Equipping the wholesome boy — Chineze Eden\'s Boyspiration movement champions the emotional, spiritual, and social development of boys.',
-}
+  path: '/boys',
+})
 
 const focusAreas = [
   {

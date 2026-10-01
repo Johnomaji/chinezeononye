@@ -45,7 +45,7 @@ export default function HomePage() {
               Potential
             </h1>
             <p className="text-white/80 text-lg leading-relaxed mb-5 max-w-lg">
-              Equipper. Speaker. Trainer. Writer. Champion of the Boy.
+              Writer. Speaker. Trainer. Champion of the Boy.
             </p>
             <p className="text-white/60 text-lg leading-relaxed mb-6 max-w-lg">
               One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.

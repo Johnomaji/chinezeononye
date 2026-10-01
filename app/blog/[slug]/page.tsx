@@ -6,6 +6,7 @@ import sanitizeHtml from 'sanitize-html'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
 import { getBlogBySlug, getBlogs } from '@/lib/data'
+import { articleMetadata } from '@/lib/seo'
 
 interface Props {
   params: { slug: string }
@@ -19,10 +20,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const post = getBlogBySlug(params.slug)
   if (!post) return {}
-  return {
+  return articleMetadata({
     title: `${post.title} | Chineze Eden Blog`,
     description: post.excerpt,
-  }
+    path: `/blog/${post.slug}`,
+    image: post.coverImage || undefined,
+    publishedTime: post.createdAt,
+    modifiedTime: post.updatedAt || post.createdAt,
+    tags: post.tags,
+  })
 }
 
 export const revalidate = 60
@@ -151,7 +157,7 @@ export default function BlogPostPage({ params }: Props) {
             </div>
             <div>
               <p className="font-playfair text-white font-bold text-lg">Chineze Eden</p>
-              <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Motivational Speaker</p>
+              <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Writer</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
                 Learn more about Chineze &rarr;
               </Link>

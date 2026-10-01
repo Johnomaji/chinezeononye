@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
+import { SITE_URL, SITE_NAME, SITE_LOCALE } from '@/lib/seo'
+// @ts-expect-error CSS imports are handled by Next.js at build time.
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -15,15 +17,46 @@ const inter = Inter({
   display: 'swap',
 })
 
+const title = 'Chineze Eden | Teacher · Mentor · Writer'
+const description =
+  'Empowering individuals and organizations to discover their purpose, unlock their potential, and live with intention.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  title: 'Chineze Eden | Teacher · Mentor · Motivational Speaker',
-  description: 'Empowering individuals and organizations to discover their purpose, unlock their potential, and live with intention.',
-  keywords: ['Chineze Eden', 'motivational speaker', 'mentor', 'teacher', 'Nigeria', 'education'],
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  keywords: ['Chineze Eden', 'writer', 'mentor', 'teacher', 'speaker', 'Nigeria', 'education'],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: { canonical: '/' },
+  icons: {
+    icon: '/cropped-co-favicon.png',
+    apple: '/cropped-co-favicon.png',
+  },
   openGraph: {
-    title: 'Chineze Eden',
-    description: 'Teacher · Mentor · Motivational Speaker',
+    title,
+    description,
+    url: '/',
+    siteName: SITE_NAME,
+    locale: SITE_LOCALE,
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 }
 

@@ -75,6 +75,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { href: '/about', label: 'About Chineze' },
+                { href: '/growth', label: 'Growth & Transformation' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/speaking', label: 'Speaking Topics' },
                 { href: '/boys', label: 'Boys / Boyspiration' },

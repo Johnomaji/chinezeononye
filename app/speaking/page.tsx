@@ -2,11 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Speaking | Chineze Eden',
   description: 'Book Chineze Eden for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
-}
+  path: '/speaking',
+})
 
 const signatureTopic = {
   title: 'The Unstoppable You Signature Course Experience',

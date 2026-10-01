@@ -4,11 +4,13 @@ import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BlogCard from '@/components/BlogCard'
 import { getBlogs } from '@/lib/data'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Blog | Chineze Eden',
   description: 'Insights on teaching, mentorship, personal development, and living with purpose.',
-}
+  path: '/blog',
+})
 
 export const revalidate = 60
 

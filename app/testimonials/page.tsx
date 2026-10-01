@@ -4,11 +4,13 @@ import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import { getTestimonials } from '@/lib/data'
 import type { Testimonial } from '@/lib/types'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Testimonials | Chineze Eden',
   description: 'Read what clients, students, and event organizers say about working with Chineze Eden.',
-}
+  path: '/testimonials',
+})
 
 export const revalidate = 60
 

@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Book | Chineze Eden',
   description: 'A new book from Chineze Eden — coming soon.',
-}
+  path: '/book',
+})
 
 const themes = [
   {

@@ -2,11 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'About Chineze Eden | Teacher, Mentor & Motivational Speaker',
+export const metadata = pageMetadata({
+  title: 'About Chineze Eden | Teacher, Mentor & Writer',
   description: 'Learn about Chineze Eden — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
-}
+  path: '/about',
+})
 
 const timeline = [
   {
@@ -86,7 +88,7 @@ export default function AboutPage() {
               About <span className="gold-text">Chineze</span>
             </h1>
             <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-5">
-              Equipper. Speaker. Trainer. Writer. Champion of the Boy.
+              Writer. Speaker. Trainer. Champion of the Boy.
             </p>
             <p className="text-white/60 text-xl leading-relaxed mb-5">
               One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
