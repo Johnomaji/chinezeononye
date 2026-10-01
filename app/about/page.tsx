@@ -146,7 +146,8 @@ export default function AboutPage() {
                 Alongside my transformation and advisory work is a distinct and deeply personal mandate: <span className="text-gold-600 font-semibold">equipping the boy child</span>.
               </p>
               <p>
-                Through <span className="text-gold-600 font-semibold">Boyspiration</span>, targeted programmes, coaching, and strategic partnerships, I engage teenage boys and young men while championing the need to raise purpose-driven, emotionally grounded, well-rounded men and leaders for today and the future. I am blessed with three biological sons.
+                Through <span className="text-gold-600 font-semibold">Boyspiration</span>
+                <span className="text-gold-600/70 align-super text-[0.7em] ml-px">&trade;</span>, targeted programmes, coaching, and strategic partnerships, I engage teenage boys and young men while championing the need to raise purpose-driven, emotionally grounded, well-rounded men and leaders for today and the future. I am blessed with three biological sons.
               </p>
               <p>
                 Beyond direct engagement, having spoken across platforms, I seek to start and shape conversations around the policies, systems, and environments that influence how boys are raised, supported, and prepared for adulthood.

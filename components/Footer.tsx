@@ -19,7 +19,8 @@ export default function Footer() {
               Transformation Strategist. Coach. Trainer. Speaker. Catalyst — working with individuals to discover and unleash their greatness on increasing levels.
             </p>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm mt-3">
-              Championing the wholesome boy through <span className="text-gold-400 font-medium">Boyspiration</span>.
+              Championing the wholesome boy through <span className="text-gold-400 font-medium">Boyspiration</span>
+              <span className="text-gold-400/70 align-super text-[0.7em] ml-px">&trade;</span>.
             </p>
             <div className="flex gap-4 mt-6">
               {[

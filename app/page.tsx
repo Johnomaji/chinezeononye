@@ -2,15 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
-import TestimonialCard from '@/components/TestimonialCard'
+// import TestimonialCard from '@/components/TestimonialCard' // re-enable with the testimonials section below
 import ScrollAnimator from '@/components/ScrollAnimator'
-import { getBlogs, getTestimonials } from '@/lib/data'
+import { getBlogs } from '@/lib/data'
 
 export const revalidate = 60
 
 export default function HomePage() {
   const blogs = getBlogs().filter(b => b.published).slice(0, 3)
-  const testimonials = getTestimonials().filter(t => t.featured).slice(0, 3)
+  // const testimonials = getTestimonials().filter(t => t.featured).slice(0, 3)
 
   return (
     <PublicLayout>
@@ -94,17 +94,12 @@ export default function HomePage() {
                 priority
               />
             </div>
-            {/* Floating review card */}
-            <div className="absolute -bottom-6 -left-8 bg-white rounded-2xl p-5 shadow-2xl border border-gold-100 max-w-[200px]">
-              <div className="flex gap-1 mb-2">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <svg key={i} className="w-3 h-3 text-gold-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-charcoal/70 text-xs italic leading-relaxed">"Truly transformative experience"</p>
-              <p className="text-charcoal text-xs font-semibold mt-2">— Adaeze O.</p>
+            {/* Floating badge */}
+            <div className="absolute -bottom-6 -left-8 bg-white rounded-2xl p-5 shadow-2xl border border-gold-100 max-w-[210px]">
+              <p className="text-gold-600 text-[10px] font-semibold tracking-[0.25em] uppercase mb-2">Boyspiration</p>
+              <p className="font-playfair text-charcoal text-sm font-bold leading-snug">
+                Equipping The Wholesome Boy
+              </p>
             </div>
             <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl border-2 border-gold-400/30" />
             <div className="absolute top-1/2 -right-8 w-16 h-16 rounded-full bg-gold-500/20 blur-xl" />
@@ -214,6 +209,7 @@ export default function HomePage() {
             </div>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               Introducing <span className="gold-text">Boyspiration</span>
+              <span className="text-gold-400 align-super text-[0.35em] font-inter font-semibold">&trade;</span>
             </h2>
             <p className="text-gold-400 font-playfair italic text-lg mb-6">
               &ldquo;Equipping the Wholesome Boy Child&rdquo;
@@ -312,7 +308,10 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS — hidden until the real testimonials are in.
+          Uncomment this block, the TestimonialCard import, and the
+          testimonials const above to bring it back. */}
+      {/*
       {testimonials.length > 0 && (
         <section className="py-24 bg-charcoal relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(201,162,39,0.06)_0%,_transparent_60%)]" />
@@ -343,6 +342,7 @@ export default function HomePage() {
           </div>
         </section>
       )}
+      */}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-cream">

@@ -250,7 +250,9 @@ export default function BoysPage() {
         <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
-            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">Boyspiration</span>
+            <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">
+              Boyspiration<span className="tracking-normal align-super text-[0.8em]">&trade;</span>
+            </span>
           </div>
 
           <div className="animate-on-scroll">
