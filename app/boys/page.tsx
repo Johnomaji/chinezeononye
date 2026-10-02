@@ -100,6 +100,19 @@ const pastEvents: BoysEvent[] = [
     ],
   },
   {
+    title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
+    year: 'November 2025',
+    type: 'Worship & Celebration',
+    desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
+    images: [
+      '/boys-swf2-1.jpeg',
+      '/boys-swf2-2.jpeg',
+      '/boys-swf2-3.jpeg',
+      '/boys-swf2-4.jpeg',
+      '/boys-swf2-5.jpeg',
+    ],
+  },
+  {
     title: 'Impactfully Engaging the Boys at Kingsville College, Abuja',
     year: 'June 2025',
     type: 'School Visit',
@@ -168,19 +181,6 @@ const pastEvents: BoysEvent[] = [
     images: [
       '/boys-intl-day-3.jpeg',
       '/boys-intl-day-4.jpeg',
-    ],
-  },
-  {
-    title: 'Sons Worshipping The Father 2.0 & Purpose-Day Party',
-    year: 'November 2025',
-    type: 'Worship & Celebration',
-    desc: 'Bigger, deeper, and paired with a Purpose-Day party — celebrating boys stepping into their God-given identity and calling.',
-    images: [
-      '/boys-swf2-1.jpeg',
-      '/boys-swf2-2.jpeg',
-      '/boys-swf2-3.jpeg',
-      '/boys-swf2-4.jpeg',
-      '/boys-swf2-5.jpeg',
     ],
   },
   {
