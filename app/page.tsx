@@ -33,10 +33,6 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
-              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Writer · Teacher · Mentor · Speaker</span>
-            </div>
             <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
               Unlocking
               <br />
@@ -44,9 +40,10 @@ export default function HomePage() {
               <br />
               Potential
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed mb-5 max-w-lg">
-              Writer. Speaker. Trainer. Champion of the Boy.
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Equipper · Writer · Speaker · Champion of the Boy</span>
+            </div>
             <p className="text-white/60 text-lg leading-relaxed mb-6 max-w-lg">
               One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
             </p>
@@ -119,24 +116,24 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
+                icon: '🛠️',
+                title: 'Equipper',
+                desc: 'Handing people the tools, language, and confidence to rise on their own — building capability, never dependency.',
+              },
+              {
                 icon: '✍️',
                 title: 'Writer',
                 desc: 'Crafting words that move hearts and shift perspectives — telling stories that give voice to purpose and truth.',
               },
               {
-                icon: '📚',
-                title: 'Teacher',
-                desc: 'Transforming classrooms into launchpads for human potential through purpose-driven education and innovative pedagogy.',
-              },
-              {
-                icon: '🌟',
-                title: 'Mentor',
-                desc: 'Walking alongside leaders, entrepreneurs, and educators as they navigate growth, challenges, and transitions.',
-              },
-              {
                 icon: '🎤',
                 title: 'Speaker',
-                desc: 'Delivering compelling keynotes and workshops that ignite audiences and drive meaningful, lasting change.',
+                desc: 'Delivering keynotes and workshops that ignite audiences and turn conviction into lasting, visible change.',
+              },
+              {
+                icon: '🤝',
+                title: 'Convener',
+                desc: 'Building the rooms where growth happens — gathering parents, educators, and young leaders into communities that hold them.',
               },
             ].map((item, i) => (
               <div
@@ -159,16 +156,16 @@ export default function HomePage() {
           <div className="animate-on-scroll-left relative">
             <div className="relative aspect-square rounded-3xl overflow-hidden max-w-lg">
               <Image
-                src="/IMG-20250326-WA0008.jpg"
-                alt="Chineze speaking"
+                src="/chinezeheadshot.jpeg"
+                alt="Chineze Eden"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-charcoal rounded-2xl p-6 max-w-[220px] shadow-2xl">
-              <p className="text-gold-400 font-playfair text-3xl font-bold">12+</p>
-              <p className="text-white/60 text-sm mt-1">Years of transforming lives through education &amp; mentorship</p>
+              <p className="text-gold-400 font-playfair text-2xl font-bold leading-tight">Multiple Years</p>
+              <p className="text-white/60 text-sm mt-1">of transforming lives through education &amp; mentorship</p>
             </div>
           </div>
 
@@ -230,7 +227,7 @@ export default function HomePage() {
                 Join Boyspiration
               </Link>
               <Link
-                href="/about"
+                href="/boys"
                 className="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:border-gold-400 hover:text-gold-400 transition-all duration-300"
               >
                 Learn More

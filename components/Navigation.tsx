@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
@@ -37,12 +38,14 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-gold-gradient flex items-center justify-center">
-            <span className="text-charcoal font-playfair font-bold text-sm">C</span>
-          </div>
-          <span className="font-playfair font-bold text-xl text-white group-hover:text-gold-400 transition-colors">
-            Chineze Eden
-          </span>
+          <Image
+            src="/cropped-co-favicon.png"
+            alt="Chineze Eden"
+            width={512}
+            height={512}
+            className="w-16 h-10 object-contain group-hover:opacity-80 transition-opacity"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

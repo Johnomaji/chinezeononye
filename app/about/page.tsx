@@ -88,7 +88,7 @@ export default function AboutPage() {
               About <span className="gold-text">Chineze</span>
             </h1>
             <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-5">
-              Writer. Speaker. Trainer. Champion of the Boy.
+              Equipper. Writer. Speaker. Champion of the Boy.
             </p>
             <p className="text-white/60 text-xl leading-relaxed mb-5">
               One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.

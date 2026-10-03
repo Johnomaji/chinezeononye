@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($b = [System.IO.File]::ReadAllBytes\\(\"public\\\\cropped-co-favicon.png\"\\); \"width=$\\([BitConverter]::ToUInt32\\($b[19..16],0\\)\\) height=$\\([BitConverter]::ToUInt32\\($b[23..20],0\\)\\) bitdepth=$\\($b[24]\\) colortype=$\\($b[25]\\)\"; Add-Type -AssemblyName System.Drawing; $img=[System.Drawing.Image]::FromFile\\(\\(Resolve-Path \"public\\\\cropped-co-favicon.png\"\\)\\); \"pixelformat=$\\($img.PixelFormat\\)\"; \"corner_alpha=$\\($img.GetPixel\\(2,2\\).A\\) corner_rgb=$\\($img.GetPixel\\(2,2\\).R\\),$\\($img.GetPixel\\(2,2\\).G\\),$\\($img.GetPixel\\(2,2\\).B\\)\"; \"center_alpha=$\\($img.GetPixel\\(256,256\\).A\\)\"; $img.Dispose\\(\\))",
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3001/\" -UseBasicParsing -TimeoutSec 90; \"status=$\\($r.StatusCode\\)\"; $h = $r.Content; \"has_old_pill=$\\($h -match 'Writer . Teacher . Mentor . Speaker'\\)\"; \"has_new_tagline=$\\($h -match 'Equipper\\\\. Writer\\\\. Speaker\\\\. Champion of the Boy\\\\.'\\)\"; \"has_boys_link=$\\($h -match 'href=\"/boys\"'\\)\"; \"has_logo=$\\($h -match 'cropped-co-favicon'\\)\")"
+    ]
+  }
+}
