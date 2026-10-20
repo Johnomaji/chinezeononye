@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Chineze Eden — Teacher · Mentor · Writer'
+export const alt = 'Chineze Eden — Equipper · Writer · Speaker'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -78,7 +78,7 @@ export default function OpengraphImage() {
         {/* Footer strip */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: 28 }}>
-            Teacher · Mentor · Writer
+            Equipper · Writer · Speaker
           </div>
           <div style={{ color: 'rgba(232,197,71,0.85)', fontSize: 24, letterSpacing: 3 }}>
             Boyspiration™

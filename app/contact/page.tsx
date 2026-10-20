@@ -32,7 +32,7 @@ export default function ContactPage() {
     email: '',
     subject: '',
     message: '',
-    website: '',
+    botcheck: '',
   })
   const [loading, setLoading] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -49,17 +49,25 @@ export default function ContactPage() {
     }
     setLoading(true)
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '9ca2242d-77eb-4df8-99ea-12ac8b4692bd',
+          name: form.name,
+          email: form.email,
+          subject: form.subject || 'New message from chineze-website contact form',
+          message: form.message,
+          botcheck: form.botcheck,
+          from_name: form.name,
+        }),
       })
       const data = await res.json()
-      if (res.ok) {
+      if (data.success) {
         toast.success('Message sent! Chineze will be in touch soon.')
-        setForm({ name: '', email: '', subject: '', message: '', website: '' })
+        setForm({ name: '', email: '', subject: '', message: '', botcheck: '' })
       } else {
-        toast.error(data.error || 'Something went wrong. Please try again.')
+        toast.error(data.message || 'Something went wrong. Please try again.')
       }
     } catch {
       toast.error('Network error. Please try again.')
@@ -212,16 +220,15 @@ export default function ContactPage() {
 
                 <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
                   <label className="block text-sm font-medium text-charcoal mb-2">
-                    Website
+                    Do not fill this out
                   </label>
                   <input
-                    type="text"
-                    name="website"
-                    value={form.website}
-                    onChange={handleChange}
+                    type="checkbox"
+                    name="botcheck"
+                    checked={!!form.botcheck}
+                    onChange={e => setForm(prev => ({ ...prev, botcheck: e.target.checked ? 'on' : '' }))}
                     tabIndex={-1}
                     autoComplete="off"
-                    className="w-full px-4 py-3 border border-charcoal/20 rounded-xl text-sm bg-cream"
                   />
                 </div>
 

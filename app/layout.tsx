@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from 'react-hot-toast'
 import { SITE_URL, SITE_NAME, SITE_LOCALE } from '@/lib/seo'
 import './globals.css'
@@ -16,7 +17,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const title = 'Chineze Eden | Teacher · Mentor · Writer'
+const title = 'Chineze Eden | Equipper. Writer. Speaker.'
 const description =
   'Empowering individuals and organizations to discover their purpose, unlock their potential, and live with intention.'
 
@@ -79,6 +80,7 @@ export default function RootLayout({
             },
           }}
         />
+        <Analytics />
       </body>
     </html>
   )

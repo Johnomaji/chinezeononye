@@ -84,7 +84,7 @@ export default function HomePage() {
             <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent z-10 rounded-3xl" />
               <Image
-                src="/Chinezered-e1745223506142.jpg"
+                src="/chineze-hero-red.png"
                 alt="Chineze Eden"
                 fill
                 className="object-cover"
