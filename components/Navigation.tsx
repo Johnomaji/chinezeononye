@@ -13,7 +13,6 @@ const navLinks = [
   { href: '/speaking', label: 'Speaking' },
   { href: '/boys', label: 'Boys' },
   { href: '/book', label: 'Book' },
-  { href: '/testimonials', label: 'Testimonials' },
 ]
 
 export default function Navigation() {
