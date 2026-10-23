@@ -79,7 +79,6 @@ export default function Footer() {
                 { href: '/blog', label: 'Blog' },
                 { href: '/speaking', label: 'Speaking Topics' },
                 { href: '/boys', label: 'Boys / Boyspiration' },
-                { href: '/testimonials', label: 'Testimonials' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-white/60 hover:text-gold-400 text-sm transition-colors">
