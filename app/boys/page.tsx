@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link'
+import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
@@ -339,6 +340,16 @@ export default function BoysPage() {
                 Why the<br />
                 <span className="text-gold-400">Boys?</span>
               </h2>
+              <div className="relative mt-12 max-w-sm">
+                <div className="absolute -inset-3 border border-gold-500/30 rounded-2xl translate-x-4 translate-y-4" aria-hidden />
+                <Image
+                  src="/chineze-boys-portrait.jpeg"
+                  alt="Chineze Eden, founder of Boyspiration"
+                  width={498}
+                  height={621}
+                  className="relative w-full h-auto rounded-2xl shadow-2xl shadow-black/50"
+                />
+              </div>
             </div>
 
             <div className="lg:col-span-8 animate-on-scroll-right">

@@ -24,8 +24,10 @@ const levels = [
     tag: 'The Individual',
     heading: 'It begins with a person who decides to grow',
     body: [
-      'Growth is not a mood, a motivational high, or a season of good intentions. It is a structure — chosen deliberately, built patiently, and stood upon for the rest of a life.',
-      'The work starts here because it cannot start anywhere else. Before a team can be strengthened or an institution reformed, there has to be a person willing to look honestly at who they are, who they are becoming, and the distance between the two.',
+      'Growth is not a mood or a season of good intentions. It is a deliberate, structured commitment to developing one’s mindset, character, capacity and competence.',
+      'Before a team can be strengthened or an institution transformed, there must be a person already on the path of growth willing to bring on same experience on the larger scale.',
+      'The person is where the transformation begins.',
+      'Growth that makes for lasting transformation in a person, starts with a self-awareness.',
     ],
   },
   {
@@ -33,8 +35,8 @@ const levels = [
     tag: 'The Organisation',
     heading: 'Capacity is people, compounded',
     body: [
-      'Organisations do not grow in the abstract. They grow because the people inside them grow — in clarity, in capability, in the confidence to carry responsibility well.',
-      'Through structured and bespoke growth frameworks, Chineze partners with leaders and teams to unlock potential, strengthen capacity, and translate growth into meaningful, sustainable results — rather than training that is felt for a week and forgotten by the next quarter.',
+      'Organizations do not grow in abstract. They grow and transform as their people are wholesomely growing and transforming- in identity, in clarity, in capability and the confidence to authentically carry responsibility well.',
+      'Through structured and bespoke growth frameworks, Eden partners with leaders and teams to unlock potential, strengthen capacity and translate growth into wholesome, meaningful, sustainable results that endure beyond the training room.',
     ],
   },
   {
@@ -42,32 +44,56 @@ const levels = [
     tag: 'The Nation',
     heading: 'Systems that develop people, not just manage them',
     body: [
-      'The same conviction scales. Structured personal growth is not merely personal — it is a strategy for organisational and national development.',
-      'This informs a growing engagement in advisory, advocacy, and policy conversations: how policies, systems, and environments might move beyond simply managing people to intentionally developing people and strengthening the institutions they serve.',
+      'The same conviction extends to National development: Structured personal growth is not merely personal. It is a strategy for Organisational and National progress.',
+      'This informs Eden’s in-depth training and consulting across MDAs; and her growing engagement in advisory, advocacy and policy conversations on how policies, systems and environments can intentionally develop and strengthen the institutions they serve.',
     ],
   },
 ]
 
-const framework = [
+const courses: {
+  num: string
+  title: string
+  tagline: string
+  body: string[]
+  forYouIf?: string[]
+  closing?: string
+}[] = [
   {
     num: '01',
-    title: 'Identity Breakthrough',
-    desc: 'Everything stable is built on something settled. Before strategy, before goals, the work is to establish who you are apart from what you achieve — because an identity borrowed from performance collapses the moment performance does.',
+    title: 'The Unstoppable You',
+    tagline: 'The Unstoppable You is the Growing You',
+    body: [
+      'Your proven, practical pathway to wholesome personal transformation, personal power and a more enriched life.',
+      'More than a Course Experience, The Unstoppable You equips you with a practical formula for lifelong growth and transformation - empowering you to continually unlock your potential, take intentional action, and create the outcomes you desire across different areas of your life.',
+    ],
+    forYouIf: [
+      'feel stuck, stagnant or frustrated with your current reality.',
+      'know you are capable of more but struggle to translate your potential to progress.',
+      'desire greater clarity, confidence and direction.',
+      'are ready to take ownership of your growth and create meaningful, lasting change.',
+    ],
+    closing: 'Who you are becoming is foundational to everything you do, including your wealth creation.',
   },
   {
     num: '02',
-    title: 'Vision Mapping',
-    desc: 'Clarity is kindness to your future self. Here the vague becomes specific: what is actually being built, why it matters, and what it will ask of you — named plainly enough to be pursued.',
+    title: 'The Trophy Employee',
+    tagline: 'Developing The Person. Elevating Workplace Performance',
+    body: [
+      'The Trophy Employee is a Signature professional development experience built on the conviction that Organisational excellence is strengthened by the personal growth levels of the employees who drive it.',
+      'Through a holistic, structured approach to individual development, the program engages the employee as a whole person, fostering the self-awareness, personal responsibility, mindset and capacity needed to thrive both personally and professionally.',
+      'By connecting personal growth with workplace expectations and Organisational objectives, the experience equips employees to move beyond performing assigned duties to wholesomely engaging meaningfully, taking ownership and contributing to sustained Organisational excellence.',
+    ],
   },
   {
     num: '03',
-    title: 'Limitless Mindset',
-    desc: 'Most ceilings are internal before they are circumstantial. This is the deliberate work of surfacing the assumptions quietly setting the limit, and replacing them with ones that hold weight.',
-  },
-  {
-    num: '04',
-    title: 'Action Blueprint',
-    desc: 'Insight that never becomes a step is entertainment. The journey closes with a structure for the ordinary days — the deliberate, repeatable actions that turn conviction into a changed life.',
+    title: 'Wow Them - Win Them',
+    tagline: 'Where Personal Growth Translates into Service Excellence, Customer Loyalty and Revenue Growth',
+    body: [
+      'Wow Them - Win Them is a holistic Customer Service and support development experience designed to help organizations embed service excellence into their culture, strengthen customer relationships, retain their customer base and grow revenue.',
+      'Recognizing that exceptional customer engagement is influenced by the employee delivering the service, the experience goes beyond operational service skills to engage the employee as a whole person.',
+      'By integrating personal development with practical customer service strategies, the experience equips employees with empathy, professionalism, personal ownership and a genuine commitment to delivering value beyond just the task. This is because an employee cannot truly and lastingly give what he is not experiencing in his personal life.',
+      'The result is a workforce better equipped to deliver consistently excellent customer experiences, build lasting customer relationships, strengthen customer loyalty and contribute to sustainable business growth.',
+    ],
   },
 ]
 
@@ -99,7 +125,7 @@ const engagements = [
 ]
 
 const convictions = [
-  'Equip the person. Strengthen the system. Shape the future.',
+  'Equip The Person. Strengthen The System. Shape The Future.',
   'Transformation is never merely transactional; it is deeply human.',
   'Transformation begins within — but its impact should reach far beyond the individual.',
 ]
@@ -131,7 +157,7 @@ export default function GrowthPage() {
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
             <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">
-              Transformation &amp; Growth
+              Growth &amp; Transformation
             </span>
           </div>
 
@@ -147,10 +173,15 @@ export default function GrowthPage() {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-10 lg:items-end animate-on-scroll">
-            <p className="text-white/50 text-lg leading-relaxed max-w-lg">
-              No matter how audacious the goals of an organisation or a nation may be, they can only
-              be fully realised by individuals committed to their own personal growth.
-            </p>
+            <div className="text-white/50 text-lg leading-relaxed max-w-lg space-y-4">
+              <p>This is Eden&rsquo;s forte.</p>
+              <p>
+                She has come to recognize that no matter how audacious the goals of an Organization
+                or a Nation are, the full realization of those objectives depend on individuals
+                committed to their own continuous personal growth - a conviction that underpins her
+                work.
+              </p>
+            </div>
             <div className="flex flex-wrap gap-4 lg:ml-auto shrink-0">
               <a
                 href="#levels"
@@ -177,8 +208,10 @@ export default function GrowthPage() {
       <section className="relative py-16 bg-gold-gradient overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="w-1 h-16 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
-          <p className="font-playfair text-2xl md:text-4xl font-bold text-charcoal text-center md:text-left leading-snug">
-            Equip the person. Strengthen the system. Shape the future.
+          <p className="font-playfair text-3xl md:text-5xl font-bold text-charcoal text-center md:text-left leading-tight tracking-tight">
+            Equip The Person.<br />
+            Strengthen The System.<br />
+            <span className="italic">Shape The Future.</span>
           </p>
           <div className="md:ml-auto shrink-0">
             <span className="text-charcoal/50 text-sm tracking-widest uppercase">The Thread</span>
@@ -273,30 +306,31 @@ export default function GrowthPage() {
             <div className="flex items-center gap-4 mb-4">
               <div className="w-8 h-px bg-gold-500" />
               <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">
-                The Signature Framework
+                Signature Framework
               </span>
             </div>
             <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
-              From limitation<br />
-              to <span className="text-gold-600">limitless.</span>
+              Our Signature<br />
+              <span className="text-gold-600">Course Experiences.</span>
             </h2>
-            <p className="text-charcoal/55 text-lg leading-relaxed max-w-xl mt-8">
-              The Unstoppable You moves through four stages, in order. Each one holds the next up —
-              which is why the work is structured rather than inspirational.
-            </p>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 pb-24">
-          {framework.map((stage) => (
-            <details key={stage.num} className="animate-on-scroll border-t border-charcoal/10 group/stage">
+          {courses.map((course) => (
+            <details key={course.num} className="animate-on-scroll border-t border-charcoal/10 group/stage">
               <summary className="flex gap-6 items-center py-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded">
                 <span className="font-playfair text-gold-600/50 group-hover/stage:text-gold-600 text-3xl font-bold shrink-0 w-14 leading-none transition-colors duration-300">
-                  {stage.num}
+                  {course.num}
                 </span>
-                <h3 className="flex-1 font-playfair text-2xl md:text-3xl font-bold text-charcoal group-hover/stage:text-gold-700 leading-snug transition-colors duration-300">
-                  {stage.title}
-                </h3>
+                <div className="flex-1">
+                  <h3 className="font-playfair text-2xl md:text-3xl font-bold text-charcoal group-hover/stage:text-gold-700 leading-snug transition-colors duration-300">
+                    {course.title}
+                  </h3>
+                  <p className="font-playfair italic text-gold-600 text-base md:text-lg mt-1">
+                    {course.tagline}
+                  </p>
+                </div>
                 <svg
                   className="w-6 h-6 shrink-0 text-gold-600/60 group-hover/stage:text-gold-600 group-open/stage:rotate-180 transition-transform duration-300"
                   fill="none"
@@ -307,7 +341,27 @@ export default function GrowthPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <p className="pl-20 pr-10 pb-8 text-charcoal/60 leading-relaxed max-w-3xl">{stage.desc}</p>
+              <div className="pl-20 pr-10 pb-10 text-charcoal/60 leading-relaxed max-w-3xl space-y-4">
+                {course.body.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+                {course.forYouIf && (
+                  <div className="pt-2">
+                    <p className="font-semibold text-charcoal mb-3">The Course is for you if you:</p>
+                    <ul className="space-y-2">
+                      {course.forYouIf.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gold-500 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {course.closing && (
+                  <p className="font-playfair italic text-charcoal text-lg pt-2">{course.closing}</p>
+                )}
+              </div>
             </details>
           ))}
           <div className="border-t border-charcoal/10" />

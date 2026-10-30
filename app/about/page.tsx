@@ -163,9 +163,13 @@ export default function AboutPage() {
               <p>
                 Across all I do, one thread remains constant:
               </p>
-              <p className="font-playfair text-xl font-bold text-gold-600">
-                Equip the person. Strengthen the system. Shape the future.
-              </p>
+              <div className="my-6 border-l-4 border-gold-500 bg-gold-500/10 rounded-r-xl py-6 pl-6 pr-4">
+                <p className="font-playfair text-2xl md:text-3xl font-bold text-charcoal leading-snug">
+                  Equip The Person.<br />
+                  Strengthen The System.<br />
+                  <span className="text-gold-600">Shape The Future.</span>
+                </p>
+              </div>
               <p>
                 I believe transformation begins within — but its impact should reach far beyond the individual.
               </p>
