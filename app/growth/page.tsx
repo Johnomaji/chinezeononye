@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import GrowthGallery, { type GalleryPhoto } from '@/components/GrowthGallery'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
@@ -57,6 +58,7 @@ const courses: {
   body: string[]
   forYouIf?: string[]
   closing?: string
+  format: string
 }[] = [
   {
     num: '01',
@@ -73,6 +75,7 @@ const courses: {
       'are ready to take ownership of your growth and create meaningful, lasting change.',
     ],
     closing: 'Who you are becoming is foundational to everything you do, including your wealth creation.',
+    format: 'The Unstoppable You is a 2 - 3hrs 2 day interactive group Coaching Call.',
   },
   {
     num: '02',
@@ -83,6 +86,7 @@ const courses: {
       'Through a holistic, structured approach to individual development, the program engages the employee as a whole person, fostering the self-awareness, personal responsibility, mindset and capacity needed to thrive both personally and professionally.',
       'By connecting personal growth with workplace expectations and Organisational objectives, the experience equips employees to move beyond performing assigned duties to wholesomely engaging meaningfully, taking ownership and contributing to sustained Organisational excellence.',
     ],
+    format: 'The Trophy Employee is a 4-hour 2 day Organization wide or Group Coaching call.',
   },
   {
     num: '03',
@@ -94,6 +98,7 @@ const courses: {
       'By integrating personal development with practical customer service strategies, the experience equips employees with empathy, professionalism, personal ownership and a genuine commitment to delivering value beyond just the task. This is because an employee cannot truly and lastingly give what he is not experiencing in his personal life.',
       'The result is a workforce better equipped to deliver consistently excellent customer experiences, build lasting customer relationships, strengthen customer loyalty and contribute to sustainable business growth.',
     ],
+    format: 'The Wow Them - Win Them is a 4-hour 2 day Organization wide or Group Coaching call.',
   },
 ]
 
@@ -104,23 +109,96 @@ const engagements = [
   },
   {
     title: 'Team & Organisational Training',
-    desc: 'Structured sessions that build shared language and capability across a team, so growth becomes a culture rather than an individual effort.',
+    desc: 'Structured sessions that build shared language and capability across a team, so growth and transformation become a shared culture rather than individual efforts.',
   },
   {
     title: 'Bespoke Growth Frameworks',
-    desc: 'Frameworks designed around the specific institution — its people, pressures, and goals — rather than a programme lifted from elsewhere.',
+    desc: 'Frameworks designed around the specific institution — its people, pressures, and goals.',
   },
   {
     title: 'Institutional Advisory',
     desc: 'Advisory and advocacy work on the policies, systems, and environments that shape whether people in an institution are developed or merely managed.',
   },
   {
+    title: 'Group Coaching Series',
+    desc: 'A sustained series rather than a single sitting, layering structured growth on identity and value using proven strategies and tools; with accountability in place.',
+  },
+  {
     title: 'Keynotes & Masterclasses',
     desc: 'The Unstoppable You, delivered to a room — as a keynote that shifts the air or an extended masterclass that sends people home with tools.',
   },
+]
+
+const gallery: GalleryPhoto[] = [
   {
-    title: 'Group Coaching Series',
-    desc: 'A sustained series rather than a single sitting, layering structured growth on identity and value system over time.',
+    src: '/growth-customer-service-training.jpeg',
+    width: 1080,
+    height: 720,
+    title: 'Customer Support Service Training',
+    caption: 'Training',
+  },
+  {
+    src: '/growth-presidential-workshop.jpeg',
+    width: 607,
+    height: 1080,
+    title: 'Facilitator @ The Presidential Amnesty Program Staff Orientation',
+    caption: 'Facilitator · In conjunction with Cygnus International',
+  },
+  {
+    src: '/growth-gbb-webinar.jpeg',
+    width: 652,
+    height: 638,
+    title: 'Speaker, 2026 Customer Service Week at Galaxy Backbone Ltd',
+    caption: 'Theme: “Go The Extra Mile” · October 2026',
+  },
+  {
+    src: '/growth-awith-forum.jpeg',
+    width: 720,
+    height: 899,
+    title: 'Speaker at African International Trade Network',
+    caption: 'A-W-I-T-H Business Excellence Forum · October 2026',
+  },
+  {
+    src: '/growth-thag-mentor.jpeg',
+    width: 540,
+    height: 544,
+    title: 'Guest Mentor, Rise Up Mentorship Collective',
+    caption: 'THAG Foundation',
+  },
+  {
+    src: '/growth-fwc-personal-growth.jpeg',
+    width: 763,
+    height: 1080,
+    title: 'Session with The Women of Excellence, FWC Kubwa 3',
+    caption: 'My Personal Growth: A Key Resource to Experiencing the Fulfilling Life as a Woman',
+  },
+  {
+    src: '/growth-tp-multiple-income.jpeg',
+    width: 1080,
+    height: 1080,
+    title: 'Empowerment Through Multiple Income Streams',
+    caption: 'The Transforming Place 2-Year Book Club · March 2024',
+  },
+  {
+    src: '/growth-tp-market-trends.jpeg',
+    width: 1080,
+    height: 1080,
+    title: 'Understanding Market Trends in 2024: Investment Options & Opportunities',
+    caption: 'The Transforming Place 2-Year Book Club · March 2024',
+  },
+  {
+    src: '/growth-tp-wealth-road.jpeg',
+    width: 1080,
+    height: 1080,
+    title: 'My Road to Financial Wealth Creation in 2024',
+    caption: 'The Transforming Place 2-Year Book Club · March 2024',
+  },
+  {
+    src: '/growth-tp-business-steps.jpeg',
+    width: 1080,
+    height: 1080,
+    title: 'Proven & Practical Foundational Steps @ Starting, Sustaining & Scaling a Business',
+    caption: 'The Transforming Place 2-Year Book Club · October 2024',
   },
 ]
 
@@ -219,7 +297,7 @@ export default function GrowthPage() {
         </div>
       </section>
 
-      {/* ─── STATS ─── */}
+      {/* ─── STATS ─── (hidden for now — remove the comment markers to restore)
       <section className="bg-[#111111] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
@@ -236,6 +314,7 @@ export default function GrowthPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ─── THE THREE LEVELS ─── */}
       <section id="levels" className="py-32 bg-[#0D0D0D] relative overflow-hidden">
@@ -361,6 +440,15 @@ export default function GrowthPage() {
                 {course.closing && (
                   <p className="font-playfair italic text-charcoal text-lg pt-2">{course.closing}</p>
                 )}
+                <div className="mt-6 border-l-4 border-gold-500 bg-gold-500/10 rounded-r-xl p-6 space-y-3 text-charcoal/75">
+                  <p className="text-gold-700 text-xs tracking-[0.3em] uppercase font-semibold">Format &amp; Delivery</p>
+                  <p className="font-semibold text-charcoal">{course.format}</p>
+                  <p>
+                    A one-hour accountability session follows 90 days after strictly for participants to
+                    share feedback on growth thus far.
+                  </p>
+                  <p>Session can be delivered physically, virtually or hybrid.</p>
+                </div>
               </div>
             </details>
           ))}
@@ -383,6 +471,31 @@ export default function GrowthPage() {
               </svg>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ─── IN ACTION ─── */}
+      <section id="in-action" className="py-28 bg-[#111111] border-b border-white/8 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-8 mb-16 animate-on-scroll">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-gold-500" />
+                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">In Action</span>
+              </div>
+              <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white leading-tight">
+                Past sessions &amp;<br />
+                <span className="text-gold-400">engagements.</span>
+              </h2>
+            </div>
+            <p className="text-white/45 leading-relaxed max-w-md lg:ml-auto">
+              Trainings, workshops, webinars and mentorship sessions with organisations, institutions
+              and communities — including a 2-year Book Club on self development through literature
+              and other related, with diverse documented transformations and testimonials.
+            </p>
+          </div>
+
+          <GrowthGallery photos={gallery} />
         </div>
       </section>
 
@@ -459,14 +572,10 @@ export default function GrowthPage() {
           </div>
 
           <div className="lg:col-span-7 animate-on-scroll-right">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-10">
               <div className="w-8 h-px bg-gold-500" />
               <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Ways to Engage</span>
             </div>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-charcoal leading-tight mb-10">
-              How the work<br />
-              <span className="text-gold-600">takes shape.</span>
-            </h2>
 
             <div>
               {engagements.map((item, i) => (

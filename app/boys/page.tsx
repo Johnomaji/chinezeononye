@@ -250,7 +250,8 @@ export default function BoysPage() {
         <div className="absolute top-1/4 right-0 w-64 h-px bg-gradient-to-l from-gold-500/30 to-transparent" />
         <div className="absolute top-2/3 right-0 w-40 h-px bg-gradient-to-l from-gold-500/20 to-transparent" />
 
-        <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
+        <div className="relative max-w-7xl mx-auto px-6 w-full pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+          <div className="lg:col-span-7">
           <div className="flex items-center gap-4 mb-12 animate-on-scroll">
             <div className="w-16 h-px bg-gold-500" />
             <span className="text-gold-400 text-xs tracking-[0.4em] uppercase font-medium">
@@ -261,7 +262,7 @@ export default function BoysPage() {
           <div className="animate-on-scroll">
             <h1
               className="font-playfair font-bold text-white leading-[0.9] mb-10"
-              style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
+              style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)' }}
             >
               Equipping<br />
               <em className="not-italic text-gold-400">Wholesome</em><br />
@@ -281,6 +282,21 @@ export default function BoysPage() {
               >
                 Our Engagements ↓
               </a>
+            </div>
+          </div>
+          </div>
+
+          <div className="lg:col-span-5 animate-on-scroll-right">
+            <div className="relative max-w-sm mx-auto lg:max-w-md lg:mr-4">
+              <div className="absolute inset-0 border border-gold-500/40 rounded-2xl translate-x-4 translate-y-4" aria-hidden />
+              <Image
+                src="/chineze-boys-portrait.jpeg"
+                alt="Chineze Eden, founder of Boyspiration"
+                width={498}
+                height={621}
+                priority
+                className="relative w-full h-auto rounded-2xl shadow-2xl shadow-black/60"
+              />
             </div>
           </div>
         </div>
@@ -340,16 +356,6 @@ export default function BoysPage() {
                 Why the<br />
                 <span className="text-gold-400">Boys?</span>
               </h2>
-              <div className="relative mt-12 max-w-sm">
-                <div className="absolute -inset-3 border border-gold-500/30 rounded-2xl translate-x-4 translate-y-4" aria-hidden />
-                <Image
-                  src="/chineze-boys-portrait.jpeg"
-                  alt="Chineze Eden, founder of Boyspiration"
-                  width={498}
-                  height={621}
-                  className="relative w-full h-auto rounded-2xl shadow-2xl shadow-black/50"
-                />
-              </div>
             </div>
 
             <div className="lg:col-span-8 animate-on-scroll-right">
