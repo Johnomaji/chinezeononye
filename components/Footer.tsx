@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -9,12 +10,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center">
-                <span className="text-charcoal font-playfair font-bold">C</span>
-              </div>
-              <span className="font-playfair font-bold text-2xl">Chineze Eden</span>
-            </div>
+            <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
+              <Image
+                src="/cropped-co-favicon.png"
+                alt="Chineze Eden"
+                width={512}
+                height={512}
+                className="w-24 h-16 object-contain"
+              />
+            </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               Transformation Strategist. Coach. Trainer. Speaker. Catalyst — working with individuals to discover and unleash their greatness on increasing levels.
             </p>

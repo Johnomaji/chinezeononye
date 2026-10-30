@@ -63,13 +63,15 @@ export default function ContactPage() {
         }),
       })
       const data = await res.json()
+      if (!data.success) console.error('Contact form: Web3Forms rejected the submission', res.status, data)
       if (data.success) {
         toast.success('Message sent! Chineze will be in touch soon.')
         setForm({ name: '', email: '', subject: '', message: '', botcheck: '' })
       } else {
         toast.error(data.message || 'Something went wrong. Please try again.')
       }
-    } catch {
+    } catch (err) {
+      console.error('Contact form: request to Web3Forms failed', err)
       toast.error('Network error. Please try again.')
     } finally {
       setLoading(false)
