@@ -18,8 +18,14 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
       </div>
       <p className="text-charcoal/70 text-sm leading-relaxed italic mb-6">"{testimonial.content}"</p>
       <div className="flex items-center gap-3">
-        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-300">
-          <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" />
+        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-300 shrink-0 bg-gold-500/10 flex items-center justify-center">
+          {testimonial.image ? (
+            <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" />
+          ) : (
+            <span className="font-playfair font-bold text-gold-500 text-lg">
+              {testimonial.name.split(' ').filter(Boolean).slice(0, 2).map((n) => n[0]).join('')}
+            </span>
+          )}
         </div>
         <div>
           <p className="font-semibold text-charcoal text-sm">{testimonial.name}</p>

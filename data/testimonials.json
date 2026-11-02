@@ -1,1 +1,90 @@
-[]
+[
+  {
+    "id": "georgina-wealth",
+    "name": "Georgina",
+    "role": "Business Owner",
+    "company": "",
+    "content": "After our sessions on financial wealth creation, I identified and named my financial blueprint, made definite decisions, and started working on them. Within one year, we opened two new branches after five years of operating from one store. From my heart, thank you.",
+    "image": "",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2026-11-02T10:00:00.000Z"
+  },
+  {
+    "id": "hauwa-speaking",
+    "name": "Hauwa",
+    "role": "Public Speaking Coaching",
+    "company": "",
+    "content": "With Eden, public speaking coaching was not the regular. They were brief sessions filled with light, and I looked forward to every one. In no time, I could speak confidently in public. Even I could not believe my before and after videos.",
+    "image": "",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2026-11-02T09:00:00.000Z"
+  },
+  {
+    "id": "anon-mentoring",
+    "name": "Anonymous",
+    "role": "Mentoring Client",
+    "company": "",
+    "content": "My thought and speech patterns radically changed through our sessions. I was so filled with life and energy that my husband asked me to set up the same for him and his friends. At work, I started taking higher actions, positioning for higher opportunities, and being called into rooms I was never invited to before.",
+    "image": "",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2026-11-02T08:00:00.000Z"
+  },
+  {
+    "id": "anon-trophy-employee",
+    "name": "Anonymous",
+    "role": "Trophy Employee Participant",
+    "company": "",
+    "content": "It's your energy, the light you radiate, and how you always ignite something in me. I left the session with ready strategies and resources to implement for the higher results I desire. I started implementing what I learnt from Trophy Employee, and within 18 months I was promoted to the next level, after years of stagnation. I am grateful.",
+    "image": "",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2026-11-02T07:50:00.000Z"
+  },
+  {
+    "id": "anon-unstoppable-you",
+    "name": "Anonymous",
+    "role": "The Unstoppable You Course",
+    "company": "",
+    "content": "My marriage and my parenting took a different, beautiful turn because of who I was becoming after The Unstoppable You course. I became more aware of myself, discovering and understanding me better. Everyone says I've changed. I'm filled with more joy and more peace, and I know it's because of who I'm becoming. Thank you.",
+    "image": "",
+    "rating": 5,
+    "featured": true,
+    "createdAt": "2026-11-02T07:40:00.000Z"
+  },
+  {
+    "id": "anon-course",
+    "name": "Anonymous",
+    "role": "Course Participant",
+    "company": "",
+    "content": "The books shared will go a long way to sharpen my mind and improve my life. A lot of people don't know the next steps to take, or how to bring to light what is in their mind. I will recommend this course to them as a guide to achieving their goals.",
+    "image": "",
+    "rating": 5,
+    "featured": false,
+    "createdAt": "2026-11-02T07:00:00.000Z"
+  },
+  {
+    "id": "anon-fire",
+    "name": "Anonymous",
+    "role": "Session Attendee",
+    "company": "",
+    "content": "Thank you for shining the light. It was enlightening and refreshing. You have lit a fire in us.",
+    "image": "",
+    "rating": 5,
+    "featured": false,
+    "createdAt": "2026-11-02T06:00:00.000Z"
+  },
+  {
+    "id": "anon-powerful",
+    "name": "Anonymous",
+    "role": "Session Attendee",
+    "company": "",
+    "content": "Very powerful session, and impactful.",
+    "image": "",
+    "rating": 5,
+    "featured": false,
+    "createdAt": "2026-11-02T05:00:00.000Z"
+  }
+]

@@ -2,15 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
-// import TestimonialCard from '@/components/TestimonialCard' // re-enable with the testimonials section below
+import TestimonialCard from '@/components/TestimonialCard'
 import ScrollAnimator from '@/components/ScrollAnimator'
-import { getBlogs } from '@/lib/data'
+import { getBlogs, getTestimonials } from '@/lib/data'
 
 export const revalidate = 60
 
 export default function HomePage() {
   const blogs = getBlogs().filter(b => b.published).slice(0, 3)
-  // const testimonials = getTestimonials().filter(t => t.featured).slice(0, 3)
+  const testimonials =getTestimonials().filter(t => t.featured).slice(0, 3)
 
   return (
     <PublicLayout>
@@ -305,10 +305,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* TESTIMONIALS — hidden until the real testimonials are in.
-          Uncomment this block, the TestimonialCard import, and the
-          testimonials const above to bring it back. */}
-      {/*
+      {/* TESTIMONIALS */}
       {testimonials.length > 0 && (
         <section className="py-24 bg-charcoal relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(201,162,39,0.06)_0%,_transparent_60%)]" />
@@ -339,7 +336,6 @@ export default function HomePage() {
           </div>
         </section>
       )}
-      */}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-cream">
