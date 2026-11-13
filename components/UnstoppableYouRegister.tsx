@@ -1,5 +1,6 @@
 'use client'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import toast from 'react-hot-toast'
 import { formatNaira, unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 import { WEB3FORMS_ACCESS_KEY } from '@/lib/web3forms'
@@ -203,7 +204,9 @@ export default function UnstoppableYouRegister() {
         </svg>
       </button>
 
-      {open && (
+      {/* Portalled to <body>: the scroll-in animation puts a transform on this
+          button's column, which would otherwise trap a position:fixed overlay inside it. */}
+      {open && createPortal(
         <div className="fixed inset-0 z-[100] overflow-y-auto bg-black/75 backdrop-blur-sm">
           <div
             className="min-h-full flex items-center justify-center p-4"
@@ -341,7 +344,8 @@ export default function UnstoppableYouRegister() {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )

@@ -67,9 +67,9 @@ export default function HomePage() {
 
             <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
               {[
-                { value: '500+', label: 'Lives Impacted' },
-                { value: '12+', label: 'Years Teaching' },
-                { value: '50+', label: 'Speaking Events' },
+                { value: '2000+', label: 'Lives Impacted' },
+                { value: '5+', label: 'Years Teaching' },
+                { value: '20+', label: 'Speaking Events' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="font-playfair text-3xl font-bold text-gold-400">{stat.value}</div>
@@ -98,7 +98,6 @@ export default function HomePage() {
                 Equipping The Wholesome Boy
               </p>
             </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl border-2 border-gold-400/30" />
             <div className="absolute top-1/2 -right-8 w-16 h-16 rounded-full bg-gold-500/20 blur-xl" />
           </div>
         </div>
