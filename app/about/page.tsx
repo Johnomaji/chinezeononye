@@ -85,7 +85,7 @@ export default function AboutPage() {
               <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">My Story</span>
             </div>
             <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              About <span className="gold-text">Chineze</span>
+              About <span className="gold-text">Eden</span>
             </h1>
             <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-5">
               Equipper. Writer. Speaker. Champion of the Boy.
@@ -114,11 +114,11 @@ export default function AboutPage() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-gold-gradient rounded-2xl p-6 shadow-2xl">
-                <p className="font-playfair text-charcoal text-2xl font-bold">500+</p>
+                <p className="font-playfair text-charcoal text-2xl font-bold">2000+</p>
                 <p className="text-charcoal/70 text-sm">Lives Transformed</p>
               </div>
               <div className="absolute -top-6 -left-6 bg-charcoal rounded-2xl p-4 shadow-2xl border border-gold-500/20">
-                <p className="text-gold-400 font-semibold text-sm">12+ Years</p>
+                <p className="text-gold-400 font-semibold text-sm">5+ Years</p>
                 <p className="text-white/60 text-xs">of Impact</p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 This mandate is both professional and deeply personal. My conviction remains simple:
               </p>
               <p className="font-playfair text-xl font-bold text-charcoal">
-                Boys are not broken. They are becoming and require intentional attention.
+                Boys are becoming; they require intentional attention to guide them into their healthy wholesomeness as boys and men.
               </p>
               <p>
                 Across all I do, one thread remains constant:
@@ -183,7 +183,7 @@ export default function AboutPage() {
               href="/contact"
               className="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Work With Chineze
+              Work With Eden
             </Link>
           </div>
         </div>
@@ -194,11 +194,8 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,162,39,0.05),transparent_70%)]" />
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 animate-on-scroll">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-4">
-              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">What I Stand For</span>
-            </div>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white">
-              Core <span className="gold-text">Values</span>
+              My Core <span className="gold-text">Values</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,7 +260,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: '500+', label: 'Lives Transformed' },
+              { value: '2000+', label: 'Lives Transformed' },
               { value: '50+', label: 'Speaking Events' },
               { value: '12+', label: 'Years Teaching' },
               { value: '1', label: 'Published Book' },
@@ -296,17 +293,11 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              
               '/1-1.jpg',
               '/2-1.jpg',
-              '/Chinezered-e1745223506142.jpg',
-              '/IMG-20250326-WA0008.jpg',
-              '/3-1.jpg',
               '/3.jpg',
-              '/new1.jpeg',
               '/new2.jpeg',
               '/new3.jpeg',
-              '/new4.jpeg',
               '/new5.png',
             ].map((src, i) => (
               <div
@@ -316,7 +307,7 @@ export default function AboutPage() {
               >
                 <Image
                   src={src}
-                  alt={`Chineze in action ${i + 1}`}
+                  alt={`Eden in action ${i + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

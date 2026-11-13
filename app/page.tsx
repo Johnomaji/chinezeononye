@@ -55,7 +55,7 @@ export default function HomePage() {
                 href="/contact"
                 className="px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Work With Me
+                Work with Eden
               </Link>
               <Link
                 href="/about"
