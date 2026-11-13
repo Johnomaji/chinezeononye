@@ -99,8 +99,8 @@ export default function Footer() {
             <h4 className="font-playfair text-gold-400 font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li>
-                <a href="mailto:chinezeedenononye@gmail.com" className="hover:text-gold-400 transition-colors">
-                  chinezeedenononye@gmail.com
+                <a href="mailto:info@edenononye.com" className="hover:text-gold-400 transition-colors">
+                  info@edenononye.com
                 </a>
               </li>
               <li>Available for speaking engagements, workshops, mentorship, and Boyspiration group calls</li>

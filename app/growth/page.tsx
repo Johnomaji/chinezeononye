@@ -3,6 +3,8 @@ import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import GrowthGallery, { type GalleryPhoto } from '@/components/GrowthGallery'
+import UnstoppableYouRegister from '@/components/UnstoppableYouRegister'
+import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
@@ -23,7 +25,7 @@ const levels = [
   {
     num: '01',
     tag: 'The Individual',
-    heading: 'It begins with a person who decides to grow',
+    heading: 'It begins with an awareness of self',
     body: [
       'Growth is not a mood or a season of good intentions. It is a deliberate, structured commitment to developing one’s mindset, character, capacity and competence.',
       'Before a team can be strengthened or an institution transformed, there must be a person already on the path of growth willing to bring on same experience on the larger scale.',
@@ -80,7 +82,7 @@ const courses: {
   {
     num: '02',
     title: 'The Trophy Employee',
-    tagline: 'Developing The Person. Elevating Workplace Performance',
+    tagline: 'Developing The Individual. Elevating Workplace Performance',
     body: [
       'The Trophy Employee is a Signature professional development experience built on the conviction that Organisational excellence is strengthened by the personal growth levels of the employees who drive it.',
       'Through a holistic, structured approach to individual development, the program engages the employee as a whole person, fostering the self-awareness, personal responsibility, mindset and capacity needed to thrive both personally and professionally.',
@@ -203,7 +205,7 @@ const gallery: GalleryPhoto[] = [
 ]
 
 const convictions = [
-  'Equip The Person. Strengthen The System. Shape The Future.',
+  'Equip The Individual. Strengthen The System. Shape The Future.',
   'Transformation is never merely transactional; it is deeply human.',
   'Transformation begins within — but its impact should reach far beyond the individual.',
 ]
@@ -287,7 +289,7 @@ export default function GrowthPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="w-1 h-16 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
           <p className="font-playfair text-3xl md:text-5xl font-bold text-charcoal text-center md:text-left leading-tight tracking-tight">
-            Equip The Person.<br />
+            Equip The Individual.<br />
             Strengthen The System.<br />
             <span className="italic">Shape The Future.</span>
           </p>
@@ -457,11 +459,11 @@ export default function GrowthPage() {
           <div className="mt-12">
             <Link
               href="/speaking"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 transition-colors group/link"
+              className="inline-flex items-center gap-2 text-lg font-semibold text-gold-600 hover:text-gold-700 transition-colors group/link"
             >
               See it delivered as a keynote or masterclass
               <svg
-                className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform"
+                className="w-5 h-5 group-hover/link:translate-x-0.5 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -489,7 +491,7 @@ export default function GrowthPage() {
               </h2>
             </div>
             <p className="text-white/45 leading-relaxed max-w-md lg:ml-auto">
-              Trainings, workshops, webinars and mentorship sessions with organisations, institutions
+              Trainings, Workshops, Speaking engagements, webinars and mentorship sessions with organisations, institutions
               and communities — including a 2-year Book Club on self development through literature
               and other related, with diverse documented transformations and testimonials.
             </p>
@@ -600,77 +602,48 @@ export default function GrowthPage() {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden">
+      {/* ─── UPCOMING COURSE: THE UNSTOPPABLE YOU ─── */}
+      <section id="register" className="bg-[#0A0A0A] relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold-gradient" />
 
-        <div className="max-w-7xl mx-auto px-6 py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-on-scroll-left">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-8 h-px bg-gold-500" />
-                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Begin</span>
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7 animate-on-scroll-left">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+                <Image
+                  src={unstoppableYou.flyer}
+                  alt="The ‘Unstoppable’ You is the ‘Growing’ You! Your proven, practical pathway to wholesome personal transformation, personal power and a more enriched life."
+                  width={1920}
+                  height={1080}
+                  sizes="(min-width: 1280px) 700px, (min-width: 1024px) 58vw, 100vw"
+                  className="w-full h-auto"
+                />
               </div>
-              <h2
-                className="font-playfair font-bold text-white leading-tight mb-8"
-                style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
-              >
-                The <span className="text-gold-400">unstoppable</span><br />
-                you is the<br />
-                growing you.
-              </h2>
-              <p className="text-white/50 text-lg leading-relaxed max-w-md">
-                Whether you are one person deciding to take your own growth seriously, or a leader
-                responsible for the capacity of many — the structure is the same. It simply has to
-                be started.
-              </p>
             </div>
 
-            <div className="animate-on-scroll-right space-y-5">
-              {[
-                {
-                  label: 'For yourself',
-                  desc: 'Coaching and a structured path through the four stages, at your own pace.',
-                },
-                {
-                  label: 'For your team',
-                  desc: 'Training and frameworks built around your organisation, its people and its pressures.',
-                },
-                {
-                  label: 'For your institution',
-                  desc: 'Advisory on the systems and policies that decide whether people are developed or merely managed.',
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-start gap-5 p-6 border border-white/8 rounded-2xl hover:border-gold-500/30 hover:bg-white/[0.03] transition-all duration-300 group"
-                >
-                  <div className="w-6 h-6 rounded-full border border-gold-500/40 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-gold-500/20 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm mb-1 group-hover:text-gold-300 transition-colors">
-                      {item.label}
-                    </p>
-                    <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Link
-                  href="/contact?subject=Growth+%26+Transformation"
-                  className="px-8 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
-                >
-                  Start a Conversation
-                </Link>
-                <Link
-                  href="/speaking"
-                  className="px-8 py-4 border border-white/15 text-white font-medium rounded-full hover:border-gold-500/40 hover:text-gold-400 transition-all duration-300"
-                >
-                  Speaking &amp; Workshops
-                </Link>
+            <div className="lg:col-span-5 animate-on-scroll-right">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-gold-500" />
+                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Upcoming Course</span>
               </div>
+              <h2 className="font-playfair font-bold text-white text-4xl md:text-5xl leading-tight mb-4">
+                {unstoppableYou.title}
+              </h2>
+              <p className="font-playfair italic text-gold-400 text-xl mb-5">{unstoppableYou.tagline}</p>
+              <p className="text-white/55 leading-relaxed mb-8">{unstoppableYou.summary}</p>
+
+              <dl className="border-t border-white/10 mb-10">
+                {unstoppableYouDetails.map((d) => (
+                  <div key={d.label} className="flex gap-6 py-4 border-b border-white/10">
+                    <dt className="w-16 shrink-0 text-gold-400/80 text-xs tracking-[0.25em] uppercase pt-1">
+                      {d.label}
+                    </dt>
+                    <dd className="text-white/90">{d.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <UnstoppableYouRegister />
             </div>
           </div>
         </div>

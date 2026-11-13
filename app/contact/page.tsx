@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import PublicLayout from '@/components/PublicLayout'
 import toast from 'react-hot-toast'
+import { WEB3FORMS_ACCESS_KEY } from '@/lib/web3forms'
 
 const faqs = [
   {
@@ -53,7 +54,7 @@ export default function ContactPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: '9ca2242d-77eb-4df8-99ea-12ac8b4692bd',
+          access_key: WEB3FORMS_ACCESS_KEY,
           name: form.name,
           email: form.email,
           subject: form.subject || 'New message from chineze-website contact form',
@@ -107,15 +108,15 @@ export default function ContactPage() {
             {[
               {
                 title: 'Email',
-                value: 'chinezeedenononye@gmail.com',
+                value: 'info@edenononye.com',
                 desc: 'Best for general inquiries and mentorship',
-                href: 'mailto:chinezeedenononye@gmail.com',
+                href: 'mailto:info@edenononye.com',
               },
               {
                 title: 'Speaking Bookings',
-                value: 'chinezeedenononye@gmail.com',
+                value: 'info@edenononye.com',
                 desc: 'For event and conference inquiries',
-                href: 'mailto:chinezeedenononye@gmail.com',
+                href: 'mailto:info@edenononye.com',
               },
             ].map(contact => (
               <div key={contact.title} className="bg-white rounded-2xl p-6 gold-border">
