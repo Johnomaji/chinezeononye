@@ -45,7 +45,7 @@ export default function HomePage() {
               <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Equipper · Writer · Speaker · Champion of the Boy</span>
             </div>
             <p className="text-white/60 text-lg leading-relaxed mb-6 max-w-lg">
-              One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
+              <span className="text-white font-semibold">Eden Chineze Ononye</span> — one who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of Individual, Organizational or National.
             </p>
             <p className="font-playfair text-gold-400 text-xl italic leading-relaxed mb-10 max-w-lg">
               “The UNSTOPPABLE You is the GROWING You”.
@@ -170,7 +170,7 @@ export default function HomePage() {
 
           <div className="animate-on-scroll-right">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-50 mb-6">
-              <span className="text-gold-600 text-xs font-medium tracking-widest uppercase">About Chineze</span>
+              <span className="text-gold-600 text-xs font-medium tracking-widest uppercase">About Eden</span>
             </div>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-6 leading-tight">
               A Life Dedicated to <span className="text-gold-600">Elevating Others</span>
