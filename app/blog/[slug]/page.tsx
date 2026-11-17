@@ -93,16 +93,32 @@ export default function BlogPostPage({ params }: Props) {
       </section>
 
       {/* COVER IMAGE */}
-      <div className="relative h-[400px] md:h-[500px] bg-charcoal">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
-          className="object-cover opacity-90"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent" />
-      </div>
+      {post.coverFit === 'contain' ? (
+        // Shown whole as a framed card straddling the hero and the article, so text graphics aren't cropped
+        <div className="bg-gradient-to-b from-charcoal from-50% to-cream to-50% px-6">
+          <div className="relative mx-auto w-full max-w-xl aspect-[6/5] rounded-2xl overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              sizes="(max-width: 640px) 100vw, 576px"
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="relative h-[400px] md:h-[500px] bg-charcoal">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover opacity-90"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent" />
+        </div>
+      )}
 
       {/* ARTICLE CONTENT */}
       <article className="bg-cream py-16">

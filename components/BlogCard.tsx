@@ -8,17 +8,18 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
+  const showWhole = post.coverFit === 'contain'
   return (
     <Link href={`/blog/${post.slug}`} className={`group block ${featured ? 'md:col-span-2' : ''}`}>
       <article className="bg-white rounded-2xl overflow-hidden card-hover gold-border h-full">
-        <div className={`relative overflow-hidden ${featured ? 'h-72' : 'h-52'}`}>
+        <div className={`relative overflow-hidden ${featured ? 'h-72' : 'h-52'} ${showWhole ? 'bg-white border-b border-gold-100' : ''}`}>
           <Image
             src={post.coverImage}
             alt={post.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className={`${showWhole ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          {!showWhole && <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />}
           <span className="absolute top-4 left-4 px-3 py-1 bg-gold-500 text-charcoal text-xs font-semibold rounded-full">
             {post.category}
           </span>

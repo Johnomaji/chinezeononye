@@ -335,7 +335,7 @@ export default function UnstoppableYouRegister() {
                     disabled={paying}
                     className="w-full py-4 bg-gold-gradient text-charcoal font-semibold rounded-xl hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
-                    {paying ? 'Opening secure payment…' : `Pay ${formatNaira(unstoppableYou.feeNaira)} & Register`}
+                    {paying ? 'Opening secure payment…' : 'Proceed to Payment'}
                   </button>
                   <p className="text-charcoal/50 text-xs text-center leading-relaxed">
                     Payment is processed securely by Paystack (card, bank transfer or USSD).

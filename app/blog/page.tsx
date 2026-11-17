@@ -94,14 +94,16 @@ export default function BlogPage({
                   <Link href={`/blog/${featuredPost.slug}`} className="group block">
                     <article className="bg-white rounded-3xl overflow-hidden gold-border card-hover">
                       <div className="grid grid-cols-1 lg:grid-cols-2">
-                        <div className="relative h-72 lg:h-auto">
+                        <div className={`relative h-72 lg:h-auto ${featuredPost.coverFit === 'contain' ? 'bg-white' : ''}`}>
                           <Image
                             src={featuredPost.coverImage}
                             alt={featuredPost.title}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            className={`${featuredPost.coverFit === 'contain' ? 'object-contain' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                          {featuredPost.coverFit !== 'contain' && (
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                          )}
                           <span className="absolute top-6 left-6 px-3 py-1 bg-gold-500 text-charcoal text-xs font-semibold rounded-full">
                             Featured · {featuredPost.category}
                           </span>

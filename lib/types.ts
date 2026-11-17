@@ -5,6 +5,11 @@ export interface BlogPost {
   excerpt: string
   content: string
   coverImage: string
+  /**
+   * How the cover fills its frame. Defaults to 'cover' (cropped to fill), which suits
+   * photos. Use 'contain' for quote graphics or anything with text that must stay whole.
+   */
+  coverFit?: 'cover' | 'contain'
   category: string
   tags: string[]
   published: boolean
