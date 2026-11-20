@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
  * so a deploy without NEXT_PUBLIC_SITE_URL set falls back to this value, and a
  * localhost default here would ship a sitemap full of unreachable URLs.
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.chinezeononye.com'
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.edenononye.com'
 export const SITE_NAME = 'Chineze Eden'
 export const SITE_LOCALE = 'en_NG'
 

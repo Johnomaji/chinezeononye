@@ -609,13 +609,13 @@ export default function GrowthPage() {
         <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7 animate-on-scroll-left">
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+              <div className="max-w-lg mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
                 <Image
                   src={unstoppableYou.flyer}
-                  alt="The ‘Unstoppable’ You is the ‘Growing’ You! Your proven, practical pathway to wholesome personal transformation, personal power and a more enriched life."
-                  width={1920}
-                  height={1080}
-                  sizes="(min-width: 1280px) 700px, (min-width: 1024px) 58vw, 100vw"
+                  alt="The Unstoppable You is the Growing You: a virtual course experience with Eden Chineze Ononye, January 8th & 9th, 2027. Master personal transformation, unlock your power, enrich your life."
+                  width={1122}
+                  height={1280}
+                  sizes="(min-width: 640px) 512px, 100vw"
                   className="w-full h-auto"
                 />
               </div>

@@ -2,8 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import toast from 'react-hot-toast'
-import { formatNaira, unstoppableYou, unstoppableYouDetails } from '@/lib/events'
-import { WEB3FORMS_ACCESS_KEY } from '@/lib/web3forms'
+import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 
 type PaystackTransaction = { reference: string }
 
@@ -54,33 +53,19 @@ function loadPaystack(): Promise<void> {
 
 type Registrant = { name: string; email: string; phone: string }
 
-// Paystack's dashboard is the record of who paid; this just emails the details
-// to the site inbox as well. A failure here must not affect the registrant.
-async function notifyRegistration(r: Registrant, reference: string) {
+// The server checks the payment with Paystack, then emails the registrant their
+// confirmation and the site inbox the details. If this call fails, the Paystack
+// webhook sends the same emails, so a failure here must not affect the registrant.
+async function requestConfirmation(reference: string) {
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    const res = await fetch('/api/register/confirm', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `New registration: ${unstoppableYou.title} (${r.name})`,
-        from_name: 'Chineze Eden website',
-        name: r.name,
-        email: r.email,
-        phone: r.phone,
-        message: [
-          `${r.name} has registered and paid for ${unstoppableYou.title}.`,
-          `Dates: ${unstoppableYou.dates}`,
-          `Time: ${unstoppableYou.time}`,
-          `Amount: ${formatNaira(unstoppableYou.feeNaira)}`,
-          `Paystack reference: ${reference}`,
-        ].join('\n'),
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reference }),
     })
-    const data = await res.json()
-    if (!data.success) console.error('Registration: Web3Forms rejected the notification', res.status, data)
+    if (!res.ok) console.error('Registration: confirmation failed', res.status, await res.json().catch(() => null))
   } catch (err) {
-    console.error('Registration: notification to Web3Forms failed', err)
+    console.error('Registration: could not reach the confirmation endpoint', err)
   }
 }
 
@@ -161,6 +146,9 @@ export default function UnstoppableYouRegister() {
       lastName: otherNames.join(' '),
       phone: registrant.phone,
       metadata: {
+        // Tells the server this payment is for this run of the course, not
+        // something else paid through the same Paystack account.
+        event_id: unstoppableYou.id,
         custom_fields: [
           { display_name: 'Full name', variable_name: 'full_name', value: registrant.name },
           { display_name: 'Phone', variable_name: 'phone', value: registrant.phone },
@@ -174,7 +162,7 @@ export default function UnstoppableYouRegister() {
       onSuccess: transaction => {
         setReference(transaction.reference)
         setStep('success')
-        notifyRegistration(registrant, transaction.reference)
+        requestConfirmation(transaction.reference)
       },
       onCancel: () => {
         setStep('form')
@@ -259,9 +247,9 @@ export default function UnstoppableYouRegister() {
                   <h3 className="font-playfair text-2xl font-bold text-charcoal mb-3">You&apos;re registered!</h3>
                   <p className="text-charcoal/70 leading-relaxed">
                     Thank you, {form.name.trim().split(/\s+/)[0]}. Your payment was successful and your seat is
-                    reserved. The joining link and session details will be sent to{' '}
-                    <strong className="text-charcoal">{form.email.trim().toLowerCase()}</strong> before the course
-                    begins.
+                    reserved. A confirmation is on its way to{' '}
+                    <strong className="text-charcoal">{form.email.trim().toLowerCase()}</strong>, and the joining
+                    link and session details will follow before the course begins.
                   </p>
                   <p className="text-charcoal/50 text-sm mt-4">
                     Payment reference: <span className="font-mono">{reference}</span>
