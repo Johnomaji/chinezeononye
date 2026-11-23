@@ -3,6 +3,7 @@ import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import BoysEventGallery, { type BoysEvent } from '@/components/BoysEventGallery'
+import GrowthGallery, { type GalleryPhoto } from '@/components/GrowthGallery'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
@@ -14,33 +15,33 @@ export const metadata = pageMetadata({
 const focusAreas = [
   {
     num: '01',
-    title: 'Emotional Intelligence',
-    desc: 'Teaching boys to name, process, and channel their emotions — moving beyond the damaging myth that boys shouldn\'t feel.',
-  },
-  {
-    num: '02',
     title: 'Identity & Purpose',
     desc: 'Grounding boys in a strong sense of self before the world tries to define them — knowing who they are and why they matter.',
   },
   {
-    num: '03',
+    num: '02',
     title: 'Spiritual Grounding',
     desc: 'Building an inner anchor rooted in faith, values, and integrity that holds them steady through life\'s pressures.',
   },
   {
+    num: '03',
+    title: 'Emotional Health & Intelligence',
+    desc: 'Teaching boys to name, process, and channel their emotions — moving beyond the damaging myth that boys shouldn\'t feel.',
+  },
+  {
     num: '04',
+    title: 'Leadership & Service',
+    desc: 'Cultivating the truth that real leadership is not dominance — it is service, for the good of others.',
+  },
+  {
+    num: '05',
     title: 'Healthy Relationships',
     desc: 'Modelling respect, empathy, and honour — so boys grow into men who love well in every relationship.',
   },
   {
-    num: '05',
+    num: '06',
     title: 'Resilience & Grit',
     desc: 'Equipping boys with the mental toughness to face failure, overcome adversity, and rise with character intact.',
-  },
-  {
-    num: '06',
-    title: 'Leadership & Service',
-    desc: 'Cultivating the truth that real leadership is not dominance — it is service, for the good of others.',
   },
 ]
 
@@ -203,6 +204,45 @@ const pastEvents: BoysEvent[] = [
     images: [],
   },
 ]
+
+// Intrinsic sizes of the event photos, so the In Action masonry holds its layout while images load.
+const photoSizes: Record<string, { width: number; height: number }> = {
+  '/boys-fida-flyer.jpeg': { width: 1080, height: 1080 },
+  '/boys-kiss-fm-flyer.jpeg': { width: 864, height: 1080 },
+  '/boys-kiss-fm-team.jpeg': { width: 810, height: 1080 },
+  '/boys-kiss-fm-solo.jpeg': { width: 810, height: 1080 },
+  '/boys-swf2-1.jpeg': { width: 778, height: 1080 },
+  '/boys-swf2-2.jpeg': { width: 1280, height: 854 },
+  '/boys-swf2-3.jpeg': { width: 1080, height: 720 },
+  '/boys-swf2-4.jpeg': { width: 1080, height: 720 },
+  '/boys-swf2-5.jpeg': { width: 1080, height: 720 },
+  '/boys-kingsville-flyer.jpeg': { width: 1080, height: 1080 },
+  '/boys-fatherhood-gist-flyer.jpeg': { width: 1080, height: 1080 },
+  '/boys-session-1.jpeg': { width: 864, height: 1152 },
+  '/boys-milestone-flyer.jpeg': { width: 1080, height: 1080 },
+  '/boys-milestone-1.jpeg': { width: 960, height: 1280 },
+  '/boys-radio-flyer.jpeg': { width: 1080, height: 1080 },
+  '/boys-intl-day-1.jpeg': { width: 1080, height: 810 },
+  '/boys-intl-day-2.jpeg': { width: 1080, height: 810 },
+  '/boys-swf1-1.jpeg': { width: 1080, height: 546 },
+  '/boys-swf1-2.jpeg': { width: 1080, height: 538 },
+  '/boys-swf1-3.jpeg': { width: 771, height: 1080 },
+  '/boys-swf1-4.jpeg': { width: 497, height: 1080 },
+  '/boys-intl-day-3.jpeg': { width: 810, height: 1080 },
+  '/boys-intl-day-4.jpeg': { width: 810, height: 1080 },
+  '/boys-bootcamp-1.jpeg': { width: 1080, height: 870 },
+  '/boys-bootcamp-2.jpeg': { width: 810, height: 1080 },
+  '/boys-bootcamp-3.jpeg': { width: 810, height: 1080 },
+}
+
+const gallery: GalleryPhoto[] = pastEvents.flatMap((event) =>
+  event.images.map((src) => ({
+    src,
+    ...(photoSizes[src] ?? { width: 1080, height: 1080 }),
+    title: event.title,
+    caption: event.year ? `${event.type} · ${event.year}` : event.type,
+  })),
+)
 
 const workFolds = [
   'Directly engaging and equipping the boys.',
@@ -407,6 +447,9 @@ export default function BoysPage() {
                 Building from the<br /><span className="text-gold-600">Inside</span> Out.
               </h2>
             </div>
+            <p className="md:ml-auto md:text-right text-charcoal/60 text-lg leading-relaxed max-w-sm">
+              Using the instrument of structured personal growth, we build the boy across six areas.
+            </p>
           </div>
         </div>
 
@@ -540,6 +583,30 @@ export default function BoysPage() {
           </div>
 
           <BoysEventGallery events={pastEvents} />
+        </div>
+      </section>
+
+      {/* ─── IN ACTION ─── */}
+      <section id="in-action" className="py-28 bg-[#111111] border-b border-white/8 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-8 mb-16 animate-on-scroll">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-gold-500" />
+                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">In Action</span>
+              </div>
+              <h2 className="font-playfair text-5xl md:text-6xl font-bold text-white leading-tight">
+                Past sessions &amp;<br />
+                <span className="text-gold-400">engagements.</span>
+              </h2>
+            </div>
+            <p className="text-white/45 leading-relaxed max-w-md lg:ml-auto">
+              School visits, bootcamps, worship experiences, radio and podcast conversations — moments
+              from directly engaging, celebrating and equipping the boys.
+            </p>
+          </div>
+
+          <GrowthGallery photos={gallery} />
         </div>
       </section>
 

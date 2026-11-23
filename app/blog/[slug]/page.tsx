@@ -6,7 +6,7 @@ import sanitizeHtml from 'sanitize-html'
 import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
 import { getBlogBySlug, getBlogs } from '@/lib/data'
-import { articleMetadata } from '@/lib/seo'
+import { articleMetadata, SITE_URL } from '@/lib/seo'
 
 interface Props {
   params: { slug: string }
@@ -41,6 +41,7 @@ export default function BlogPostPage({ params }: Props) {
   const related = allPosts.filter(b => b.category === post.category).slice(0, 3)
   const others = allPosts.filter(b => b.category !== post.category).slice(0, 3 - related.length)
   const relatedPosts = [...related, ...others]
+  const shareUrl = encodeURIComponent(`${SITE_URL}/blog/${post.slug}`)
 
   const htmlContent = sanitizeHtml(marked(post.content) as string, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat([
@@ -144,9 +145,9 @@ export default function BlogPostPage({ params }: Props) {
             <p className="text-charcoal font-semibold mb-4">Share this article</p>
             <div className="flex gap-3">
               {[
-                { label: 'Twitter', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://chinezeonye.com/blog/${post.slug}`)}` },
-                { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://chinezeonye.com/blog/${post.slug}`)}` },
-                { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://chinezeonye.com/blog/${post.slug}`)}` },
+                { label: 'Twitter', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${shareUrl}` },
+                { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}` },
+                { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}` },
               ].map(s => (
                 <a
                   key={s.label}
@@ -165,15 +166,16 @@ export default function BlogPostPage({ params }: Props) {
           <div className="mt-8 p-8 bg-charcoal rounded-2xl flex gap-6 items-center">
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gold-400 shrink-0">
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80"
-                alt="Chineze Eden"
+                src="/Chinezered-e1745223506142.jpg"
+                alt="Chineze Eden Ononye"
                 fill
-                className="object-cover"
+                sizes="80px"
+                className="object-cover object-top"
               />
             </div>
             <div>
-              <p className="font-playfair text-white font-bold text-lg">Chineze Eden</p>
-              <p className="text-white/50 text-sm mb-3">Teacher - Mentor - Writer</p>
+              <p className="font-playfair text-white font-bold text-lg">Chineze Eden Ononye</p>
+              <p className="text-white/50 text-sm mb-3">Equipper · Writer · Speaker · Champion of the Boy</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
                 Learn more about Chineze &rarr;
               </Link>

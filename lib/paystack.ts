@@ -36,6 +36,23 @@ export async function verifyTransaction(reference: string): Promise<PaystackTran
   return body.data
 }
 
+/** Every successful transaction on the account, newest first. */
+export async function listSuccessfulTransactions(): Promise<PaystackTransaction[]> {
+  const transactions: PaystackTransaction[] = []
+  for (let page = 1; ; page++) {
+    const res = await fetch(`https://api.paystack.co/transaction?status=success&perPage=100&page=${page}`, {
+      headers: { Authorization: `Bearer ${secretKey()}` },
+      cache: 'no-store',
+    })
+    const body = await res.json().catch(() => null)
+    if (!res.ok || !body?.status) {
+      throw new Error(`Paystack could not list transactions (${res.status}): ${body?.message ?? 'no message'}`)
+    }
+    transactions.push(...body.data)
+    if (!body.data.length || page >= (body.meta?.pageCount ?? page)) return transactions
+  }
+}
+
 /** True if a webhook body was signed with our secret key, i.e. really came from Paystack. */
 export function isValidSignature(rawBody: string, signature: string | null): boolean {
   if (!signature) return false

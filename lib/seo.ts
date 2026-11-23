@@ -19,7 +19,7 @@ const DEFAULT_OG_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Chineze Eden — Teacher · Mentor · Writer',
+  alt: 'Chineze Eden — Equipper · Writer · Speaker · Champion of the Boy',
 }
 
 type PageSeo = {

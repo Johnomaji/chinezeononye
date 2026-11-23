@@ -1,10 +1,16 @@
+import { createHash } from 'crypto'
+import { CertificateFile, IssuedCertificate, latestCertificate, saveCertificate } from './certificates'
 import { formatNaira, unstoppableYou, unstoppableYouDetails } from './events'
-import { PaystackTransaction, parseMetadata, verifyTransaction } from './paystack'
+import { PaystackTransaction, listSuccessfulTransactions, parseMetadata, verifyTransaction } from './paystack'
 import { Email, sendEmail } from './resend'
+import { SITE_URL } from './seo'
 
-// Server-only: imports the Paystack and Resend clients.
+// Server-only: imports the Paystack, Resend and Vercel Blob clients.
 
 const SITE_INBOX = 'info@edenononye.com'
+const SITE_HOST = new URL(SITE_URL).host
+// Email clients load images from the live site, so this must already be deployed.
+const LOGO_URL = `${SITE_URL}/cropped-co-favicon.png`
 
 // Paystack only allows letters, digits, '-', '.' and '=' in a reference.
 export const REFERENCE_PATTERN = /^[A-Za-z0-9.=-]{1,100}$/
@@ -12,14 +18,33 @@ export const REFERENCE_PATTERN = /^[A-Za-z0-9.=-]{1,100}$/
 type Registrant = { name: string; firstName: string; email: string; phone: string }
 type Row = [label: string, value: string]
 
-/** Why a transaction is not a paid registration for this run of the course, or null if it is. */
-function rejection(tx: PaystackTransaction): string | null {
+export type Run = { id: string; label: string }
+
+export type Registration = {
+  reference: string
+  runId: string
+  name: string
+  email: string
+  phone: string
+  paidNaira: number
+  paidAt: string | null
+}
+
+/**
+ * Why a transaction is not a paid registration for a run of the course, or null
+ * if it is. Pass a run's id to also require the payment to be for that run.
+ */
+function rejection(tx: PaystackTransaction, runId?: string): string | null {
+  const paidFor = parseMetadata(tx.metadata).event_id
   if (tx.status !== 'success') return `status is ${tx.status}`
-  if (parseMetadata(tx.metadata).event_id !== unstoppableYou.id) return 'not a payment for this course'
+  if (!paidFor || (runId && paidFor !== runId)) return 'not a payment for this course'
   if (tx.currency !== 'NGN') return `currency is ${tx.currency}`
   // The amount is set in the browser, so a tampered checkout could charge less.
   // Not an exact match: passing Paystack's fees on to the customer adds to it.
-  if (tx.amount < unstoppableYou.feeNaira * 100) return `amount is only ${tx.amount} kobo`
+  // Only the current run's fee is known, so earlier runs aren't checked.
+  if (paidFor === unstoppableYou.id && tx.amount < unstoppableYou.feeNaira * 100) {
+    return `amount is only ${tx.amount} kobo`
+  }
   return null
 }
 
@@ -34,7 +59,7 @@ function rejection(tx: PaystackTransaction): string | null {
  */
 export async function confirmRegistration(reference: string): Promise<boolean> {
   const tx = await verifyTransaction(reference)
-  const problem = rejection(tx)
+  const problem = rejection(tx, unstoppableYou.id)
   if (problem) {
     console.warn(`Registration: ignoring ${reference}, ${problem}`)
     return false
@@ -50,21 +75,83 @@ export async function confirmRegistration(reference: string): Promise<boolean> {
   return true
 }
 
-// Everything here comes from Paystack's record, not from the browser that
-// called the confirm route. The custom fields were set by the checkout.
-function registrantOf(tx: PaystackTransaction): Registrant {
-  const fields = parseMetadata(tx.metadata).custom_fields
-  const field = (name: string) => {
-    const value = Array.isArray(fields) ? fields.find(f => f.variable_name === name)?.value : undefined
-    return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : ''
+/**
+ * Every paid registration on the Paystack account, newest first, with the runs
+ * they were for. The current run comes first, even before anyone has paid.
+ * Earlier runs stay listed so their certificates can still be issued after
+ * lib/events.ts moves on to the next run.
+ */
+export async function listRegistrations(): Promise<{ runs: Run[]; registrations: Registration[] }> {
+  const runs = new Map([[unstoppableYou.id, `${unstoppableYou.title}, ${unstoppableYou.dates}`]])
+  const registrations: Registration[] = []
+  for (const tx of await listSuccessfulTransactions()) {
+    const runId = parseMetadata(tx.metadata).event_id
+    if (!runId || rejection(tx)) continue
+    if (!runs.has(runId)) runs.set(runId, customField(tx, 'event') || runId)
+    const r = registrantOf(tx)
+    registrations.push({
+      reference: tx.reference,
+      runId,
+      name: r.name,
+      email: r.email,
+      phone: r.phone,
+      paidNaira: tx.amount / 100,
+      paidAt: tx.paid_at,
+    })
   }
+  return { runs: Array.from(runs, ([id, label]) => ({ id, label })), registrations }
+}
+
+/**
+ * Checks a payment with Paystack and, if it is a paid registration for any run
+ * of the course, emails the registrant their certificate and saves a copy as
+ * the record that it was issued. Issuing again sends the new file and keeps
+ * both copies.
+ *
+ * Returns null if the payment is not a registration. Throws if Paystack, Resend
+ * or the certificate store fails.
+ */
+export async function issueCertificate(
+  reference: string,
+  file: CertificateFile
+): Promise<(IssuedCertificate & { email: string }) | null> {
+  const tx = await verifyTransaction(reference)
+  const problem = rejection(tx)
+  if (problem) {
+    console.warn(`Certificate: not issuing for ${reference}, ${problem}`)
+    return null
+  }
+
+  const registrant = registrantOf(tx)
+  // A retry of the same issue (same file, nothing saved since) reuses the key,
+  // so if the email went but the copy failed to save, retrying doesn't send it
+  // twice. Issuing again after a saved issue gets a new key and is sent.
+  const previous = await latestCertificate(tx.reference)
+  const fileHash = createHash('sha256').update(file.bytes).digest('hex').slice(0, 16)
+  const key = `certificate/${tx.reference}/${fileHash}/after-${previous?.issuedAt ?? 'none'}`
+
+  await sendEmail(certificateEmail(registrant, file), key)
+  const saved = await saveCertificate(tx.reference, file)
+  return { ...saved, email: registrant.email }
+}
+
+// Set by the checkout in the transaction's metadata.
+function customField(tx: PaystackTransaction, name: string): string {
+  const fields = parseMetadata(tx.metadata).custom_fields
+  const value = Array.isArray(fields) ? fields.find(f => f.variable_name === name)?.value : undefined
+  return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : ''
+}
+
+// Everything here comes from Paystack's record, not from the browser that
+// called the confirm route.
+function registrantOf(tx: PaystackTransaction): Registrant {
   const name =
-    field('full_name') || [tx.customer.first_name, tx.customer.last_name].filter(Boolean).join(' ').trim()
+    customField(tx, 'full_name') || [tx.customer.first_name, tx.customer.last_name].filter(Boolean).join(' ').trim()
   return {
     name: name || tx.customer.email,
     firstName: name.split(' ')[0] || 'there',
     email: tx.customer.email,
-    phone: field('phone') || tx.customer.phone || '',
+    phone: customField(tx, 'phone') || tx.customer.phone || '',
   }
 }
 
@@ -77,12 +164,15 @@ function registrantEmail(r: Registrant, tx: PaystackTransaction): Email {
   const intro = `Thank you for registering for ${unstoppableYou.title}. Your payment has been received and your seat is reserved.`
   const next = 'The joining link and session details will be sent to this email address before the course begins.'
   const questions = 'If you have any questions, just reply to this email.'
+  const footnote = `You're receiving this email because you registered for ${unstoppableYou.title} at ${SITE_HOST}.`
 
   return {
     to: r.email,
     replyTo: SITE_INBOX,
     subject: `You're registered for ${unstoppableYou.title}`,
-    text: [`Hi ${r.firstName},`, intro, rowsText(details), next, questions, 'Chineze Eden'].join('\n\n'),
+    text: [`Hi ${r.firstName},`, intro, rowsText(details), next, questions, 'Chineze Eden', footerText(footnote)].join(
+      '\n\n'
+    ),
     html: layout(
       'Registration confirmed',
       "You're registered!",
@@ -91,7 +181,8 @@ function registrantEmail(r: Registrant, tx: PaystackTransaction): Email {
         rowsHtml(details) +
         paragraph(next) +
         paragraph(questions) +
-        paragraph('Chineze Eden')
+        paragraph('Chineze Eden'),
+      footnote
     ),
   }
 }
@@ -106,13 +197,41 @@ function inboxEmail(r: Registrant, tx: PaystackTransaction): Email {
     ['Reference', tx.reference],
   ]
   const intro = `${r.name} has registered and paid for ${unstoppableYou.title} (${unstoppableYou.dates}).`
+  const footnote = `Sent automatically when a payment on ${SITE_HOST} is confirmed. Reply to this email to reach ${r.firstName}.`
 
   return {
     to: SITE_INBOX,
     replyTo: r.email,
     subject: `New registration: ${unstoppableYou.title} (${r.name})`,
-    text: [intro, rowsText(details)].join('\n\n'),
-    html: layout('New registration', unstoppableYou.title, paragraph(intro) + rowsHtml(details)),
+    text: [intro, rowsText(details), footerText(footnote)].join('\n\n'),
+    html: layout('New registration', unstoppableYou.title, paragraph(intro) + rowsHtml(details), footnote),
+  }
+}
+
+function certificateEmail(r: Registrant, file: CertificateFile): Email {
+  const intro = `Congratulations on completing ${unstoppableYou.title}! Your certificate is attached to this email.`
+  const thanks = 'Thank you for being part of it.'
+  const questions = 'If you have any questions, just reply to this email.'
+  const footnote = `You're receiving this email because you took part in ${unstoppableYou.title}.`
+
+  return {
+    to: r.email,
+    replyTo: SITE_INBOX,
+    subject: `Your certificate for ${unstoppableYou.title}`,
+    text: [`Hi ${r.firstName},`, intro, thanks, questions, 'Chineze Eden', footerText(footnote)].join('\n\n'),
+    html: layout(
+      'Certificate',
+      'Congratulations!',
+      paragraph(`Hi ${r.firstName},`) +
+        paragraph(intro) +
+        paragraph(thanks) +
+        paragraph(questions) +
+        paragraph('Chineze Eden'),
+      footnote
+    ),
+    attachments: [
+      { filename: `${unstoppableYou.title} certificate.${file.ext}`, content: file.bytes.toString('base64') },
+    ],
   }
 }
 
@@ -149,18 +268,32 @@ function rowsHtml(rows: Row[]) {
   return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:8px 0 24px;border-collapse:collapse;font-size:14px">${cells}</table>`
 }
 
+const footerText = (footnote: string) => `--\n${SITE_HOST} · ${SITE_INBOX}\n${footnote}`
+
 // Table-based with inline styles: most email clients ignore <style> blocks and flexbox.
-function layout(eyebrow: string, heading: string, bodyHtml: string) {
+// `footnote` goes under the site links and says why the reader got the email.
+function layout(eyebrow: string, heading: string, bodyHtml: string, footnote: string) {
+  const link = 'color:#7A5F10;text-decoration:none'
   return `<!doctype html>
 <html>
 <body style="margin:0;padding:24px 12px;background:#FEFCF7">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px">
+<tr><td align="center" style="padding:0 0 4px"><a href="${SITE_URL}"><img src="${LOGO_URL}" width="72" height="72" alt="Chineze Eden" style="display:block;border:0"></a></td></tr>
+</table>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border:1px solid #FAEDB3;border-radius:16px;border-collapse:separate">
 <tr><td style="background:#1A1A1A;padding:28px 32px;border-radius:15px 15px 0 0">
 <p style="margin:0 0 8px;color:#E8C547;font:11px Arial,Helvetica,sans-serif;letter-spacing:3px;text-transform:uppercase">${escapeHtml(eyebrow)}</p>
 <h1 style="margin:0;color:#FFFFFF;font:bold 24px Georgia,'Times New Roman',serif">${escapeHtml(heading)}</h1>
 </td></tr>
 <tr><td style="padding:28px 32px 12px;color:#1A1A1A;font:15px/1.6 Arial,Helvetica,sans-serif">${bodyHtml}</td></tr>
+</table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px">
+<tr><td align="center" style="padding:24px 32px 8px;color:#6B6455;font:12px/1.6 Arial,Helvetica,sans-serif">
+<strong style="color:#1A1A1A">Chineze Eden</strong><br>
+<a href="${SITE_URL}" style="${link}">${escapeHtml(SITE_HOST)}</a> &middot; <a href="mailto:${SITE_INBOX}" style="${link}">${SITE_INBOX}</a><br><br>
+${escapeHtml(footnote)}
+</td></tr>
 </table>
 </td></tr></table>
 </body>

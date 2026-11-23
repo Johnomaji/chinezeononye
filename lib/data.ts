@@ -106,7 +106,7 @@ export const getSettings = (): SiteSettings => {
     maintenanceMessage: 'We are currently undergoing scheduled maintenance. We will be back shortly.',
     maintenanceEstimate: 'Back in a few hours',
     siteTitle: 'Chineze Eden',
-    siteDescription: 'Teacher | Mentor | Writer',
+    siteDescription: 'Equipper · Writer · Speaker · Champion of the Boy',
   }
   const stored = readJSON<Partial<SiteSettings>>('settings.json')
   return { ...defaults, ...stored }

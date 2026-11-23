@@ -5,7 +5,7 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'About Chineze Eden | Teacher, Mentor & Writer',
+  title: 'About Chineze Eden | Equipper, Writer, Speaker & Champion of the Boy',
   description: 'Learn about Chineze Eden — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
   path: '/about',
 })

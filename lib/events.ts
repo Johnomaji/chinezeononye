@@ -13,7 +13,7 @@ export const unstoppableYou = {
     'Your proven, practical pathway to wholesome personal transformation, personal power and a more enriched life.',
   dates: 'Friday 8 & Saturday 9 January 2027',
   time: '10:00am – 12:00pm WAT, both days',
-  location: 'Live online. Joining link sent by email after registration',
+  location: 'Live online. Joining link sent by email before the course begins',
   // Amount in Naira. Deliberately not shown anywhere on the site; visitors only
   // see it on the Paystack checkout screen.
   feeNaira: 25000,

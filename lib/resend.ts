@@ -9,6 +9,8 @@ export type Email = {
   html: string
   text: string
   replyTo?: string
+  // `content` is the file base64-encoded. Resend caps a whole email at 40MB.
+  attachments?: { filename: string; content: string }[]
 }
 
 /**
@@ -33,6 +35,7 @@ export async function sendEmail(email: Email, idempotencyKey: string): Promise<v
       html: email.html,
       text: email.text,
       reply_to: email.replyTo,
+      attachments: email.attachments,
     }),
     cache: 'no-store',
   })

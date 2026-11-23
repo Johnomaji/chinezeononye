@@ -114,6 +114,7 @@ export default function AdminDashboard() {
           <h2 className="font-playfair text-lg font-bold text-white mb-4">Quick Actions</h2>
           <div className="space-y-3">
             {[
+              { label: 'Course Registrations', href: '/admin/registrations', desc: 'See who has paid and issue certificates' },
               { label: 'Write New Blog Post', href: '/admin/blog/new', desc: 'Create and publish a new article' },
               { label: 'Blog Categories & Tags', href: '/admin/blog/meta', desc: 'Manage blog categories and tags' },
               { label: 'Add Testimonial', href: '/admin/testimonials', desc: 'Add a new client testimonial' },
