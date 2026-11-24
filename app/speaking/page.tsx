@@ -5,14 +5,14 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Speaking | Chineze Eden',
-  description: 'Book Chineze Eden for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
+  title: 'Speaking | Eden Chineze',
+  description: 'Book Eden Chineze for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
   path: '/speaking',
 })
 
 const signatureTopic = {
   title: 'The Unstoppable You Signature Course Experience',
-  desc: 'This is more than a talk — it\'s a full transformational experience. Drawing from years of coaching, education, and personal breakthroughs, Chineze takes your audience on a journey from limitation to limitless. Participants leave with a renewed identity, a clear vision, and the tools to pursue it relentlessly.',
+  desc: 'This is more than a talk — it\'s a full transformational experience. Drawing from years of coaching, education, and personal breakthroughs, Eden takes your audience on a journey from limitation to limitless. Participants leave with a renewed identity, a clear vision, and the tools to pursue it relentlessly.',
   audience: 'All audiences',
   highlights: ['Identity Breakthrough', 'Vision Mapping', 'Limitless Mindset', 'Action Blueprint'],
 }
@@ -39,13 +39,13 @@ const topics = [
     audience: 'All audiences',
   },
   {
-    title: 'Purpose-Driven Leadership',
-    desc: 'For executives and managers who want to lead from a place of values and vision rather than just strategy. Integrates emotional intelligence, storytelling, and servant leadership principles.',
-    audience: 'Executives & Managers',
+    title: 'Equipping for Purpose-Driven Leadership',
+    desc: 'For executives, managers and boys who want to lead from a place of values and vision rather than just strategy. Integrates emotional intelligence, storytelling, and servant leadership principles.',
+    audience: 'Executives, Managers & Boys',
   },
   {
     title: 'Raising The Wholesome Boy',
-    desc: 'A passionate call to action for parents, educators, and communities to intentionally invest in the boy child. Chineze unpacks the emotional, spiritual, and identity needs of boys growing up today — and the practical steps to raise whole, grounded, purposeful young men.',
+    desc: 'A passionate call to action for parents, educators, and communities to intentionally invest in the boy child. Eden unpacks the emotional, spiritual, and identity needs of boys growing up today — and the practical steps to raise whole, grounded, purposeful young men.',
     audience: 'Parents, Educators, Communities',
   },
 ]
@@ -53,7 +53,7 @@ const topics = [
 const eventTypes = [
   { title: 'Keynote Address', desc: 'The perfect opening or closing for your conference, summit, or corporate event.' },
   { title: 'Workshop & Masterclass', desc: 'Hands-on, interactive sessions that leave participants with practical tools and renewed energy.' },
-  { title: 'Panel Discussion', desc: 'Chineze brings depth, wit, and warmth to any panel conversation on education, leadership, or personal development.' },
+  { title: 'Panel Discussion', desc: 'Eden brings depth, wit, and warmth to any panel conversation on education, leadership, or personal development.' },
   { title: 'Corporate Training', desc: 'Customized programs for teams and organizations focused on culture, communication, and purpose.' },
   { title: 'School & University', desc: 'Inspiring assemblies, graduation speeches, and faculty development sessions.' },
   { title: 'Virtual Events', desc: 'Fully engaging virtual presentations that connect deeply even across screens.' },
@@ -68,15 +68,8 @@ type Engagement = {
 
 const pastEvents: Engagement[] = [
   { event: 'FIDA Nigeria, Anambra Branch', year: 'Jul 2025', type: 'Guest Speaker' },
-  { event: 'Kingsville College, Abuja', year: 'Jun 2025', type: 'School Engagement' },
-  {
-    event: 'Fatherhood Gist With Favour',
-    year: 'Jun 2025',
-    type: 'Podcast',
-    link: 'https://youtu.be/POKsy6uNxHY?si=4wUYmPRO-VEQRSqq',
-  },
   { event: 'Politics Extra, Kiss FM Abuja', year: 'May 2025', type: 'Radio' },
-  { event: 'Self Identity Series with the Boys', year: 'Oct 2023', type: 'Virtual Workshops' },
+  { event: 'African International Trade Network', year: 'Oct 2026', type: 'Speaker' },
 ]
 
 const whatYouGet = [
@@ -130,7 +123,7 @@ export default function SpeakingPage() {
 
             <div className="animate-on-scroll space-y-5 max-w-xl">
               <p className="text-white/50 text-lg leading-relaxed">
-                Chineze brings to every stage she stands on a rare, authentic combination of an
+                Eden brings to every stage she stands on a rare, authentic combination of an
                 educator&apos;s wisdom, a people&apos;s empathy, insightful experience, and a speaker&apos;s fire.
               </p>
               <p className="text-white/50 text-lg leading-relaxed">
@@ -139,12 +132,16 @@ export default function SpeakingPage() {
               </p>
             </div>
 
+            <p className="animate-on-scroll font-playfair font-bold text-white/85 text-3xl md:text-4xl leading-tight mt-8">
+              Insights that <span className="text-gold-400">transform</span>
+            </p>
+
             <div className="flex flex-wrap gap-4 mt-10 animate-on-scroll">
               <Link
                 href="/contact"
                 className="px-8 py-3.5 bg-gold-gradient text-charcoal text-sm font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
               >
-                Book Chineze to Speak
+                Book Eden to Speak
               </Link>
               <a
                 href="#topics"
@@ -159,7 +156,7 @@ export default function SpeakingPage() {
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10">
               <Image
                 src="/new5.png"
-                alt="Chineze Eden speaking on stage"
+                alt="Eden Chineze speaking on stage"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 0px, 40vw"
@@ -262,7 +259,7 @@ export default function SpeakingPage() {
               <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Signature Topics</span>
             </div>
             <h2 className="font-playfair text-5xl md:text-7xl font-bold text-charcoal leading-tight">
-              What Chineze<br />
+              What Eden<br />
               <span className="text-gold-600">Speaks</span> About.
             </h2>
             <p className="text-charcoal/55 text-lg leading-relaxed max-w-xl mt-8">
@@ -362,7 +359,7 @@ export default function SpeakingPage() {
               <span className="text-gold-600">stood on.</span>
             </h2>
             <p className="text-charcoal/55 leading-relaxed mb-10 max-w-md">
-              Law associations, school halls, radio studios, podcasts, and virtual rooms.
+              Eden has been on several platforms, including podcasts and stages; some of which include:
             </p>
 
             <div>
@@ -402,25 +399,14 @@ export default function SpeakingPage() {
               ))}
               <div className="border-t border-charcoal/10" />
             </div>
-
-            <div className="mt-10">
-              <Link
-                href="/boys"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-gold-600 hover:text-gold-700 transition-colors group/link"
-              >
-                See the Boyspiration engagements
-                <svg className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
+            <p className="font-playfair italic text-charcoal/45 text-lg mt-6">Etc.</p>
           </div>
 
           <div className="lg:col-span-5 animate-on-scroll-right">
             <div className="lg:sticky lg:top-32 bg-charcoal rounded-3xl p-8 md:p-10 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gold-gradient" />
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-white mb-2 leading-snug">
-                Book Chineze for<br />your event.
+                Book Eden for<br />your event.
               </h3>
               <p className="text-white/40 text-sm leading-relaxed mb-8">
                 What every engagement includes.

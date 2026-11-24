@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     if (website && String(website).trim().length > 0) {
       return NextResponse.json({
         success: true,
-        message: 'Message received! Chineze will be in touch soon.',
+        message: 'Message received! Eden will be in touch soon.',
       }, { status: 200 })
     }
 
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Message received! Chineze will be in touch soon.',
+      message: 'Message received! Eden will be in touch soon.',
     }, { status: 201 })
   } catch (err) {
     console.error('POST /api/contact error:', err)

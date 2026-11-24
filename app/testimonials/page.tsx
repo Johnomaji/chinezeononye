@@ -7,8 +7,8 @@ import type { Testimonial } from '@/lib/types'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Testimonials | Chineze Eden',
-  description: 'Read what clients, students, and event organizers say about working with Chineze Eden.',
+  title: 'Testimonials | Eden Chineze',
+  description: 'Read what clients, students, and event organizers say about working with Eden Chineze.',
   path: '/testimonials',
 })
 
@@ -88,7 +88,7 @@ function PendingState() {
           <div className="lg:col-span-7 lg:pt-6 flex items-end">
             <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
               Rather than fill this page with placeholders, we are collecting the real words of the
-              people Chineze has worked with — the schools, the boys, the organisations, and the
+              people Eden has worked with — the schools, the boys, the organisations, and the
               rooms she has stood in. They will land here shortly.
             </p>
           </div>
@@ -294,7 +294,7 @@ export default function TestimonialsPage() {
             &ldquo;The UNSTOPPABLE You is the GROWING You.&rdquo;
           </p>
           <div className="md:ml-auto shrink-0">
-            <span className="text-charcoal/50 text-sm tracking-widest uppercase">Chineze Eden</span>
+            <span className="text-charcoal/50 text-sm tracking-widest uppercase">Eden Chineze</span>
           </div>
         </div>
       </section>
@@ -377,7 +377,7 @@ export default function TestimonialsPage() {
               {[
                 { label: 'Book a speaking engagement', desc: 'Keynotes, workshops, and masterclasses for your event or organisation.' },
                 { label: 'Bring the work to your school', desc: 'Sessions and bootcamps that equip students and staff alike.' },
-                { label: 'Start a conversation', desc: 'Tell Chineze what you are building and where you want to go.' },
+                { label: 'Start a conversation', desc: 'Tell Eden what you are building and where you want to go.' },
               ].map((item) => (
                 <div
                   key={item.label}

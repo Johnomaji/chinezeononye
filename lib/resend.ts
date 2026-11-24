@@ -1,7 +1,7 @@
 // Server-only: uses RESEND_API_KEY, so import this from API routes only.
 
 // edenononye.com must be verified under Resend > Domains, or every send is rejected.
-const FROM = 'Chineze Eden <info@edenononye.com>'
+const FROM = 'Eden Chineze <info@edenononye.com>'
 
 export type Email = {
   to: string

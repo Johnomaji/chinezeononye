@@ -17,7 +17,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const title = 'Chineze Eden | Equipper. Writer. Speaker.'
+const title = 'Eden Chineze | Equipper. Writer. Speaker.'
 const description =
   'Empowering individuals and organizations to discover their purpose, unlock their potential, and live with intention.'
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
-  keywords: ['Chineze Eden', 'writer', 'mentor', 'teacher', 'speaker', 'Nigeria', 'education'],
+  keywords: ['Eden Chineze', 'writer', 'mentor', 'teacher', 'speaker', 'Nigeria', 'education'],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,

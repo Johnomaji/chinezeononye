@@ -7,8 +7,8 @@ import GrowthGallery, { type GalleryPhoto } from '@/components/GrowthGallery'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Boys / Boyspiration | Chineze Eden',
-  description: 'Equipping the wholesome boy — Chineze Eden\'s Boyspiration movement champions the emotional, spiritual, and social development of boys.',
+  title: 'Boys / Boyspiration | Eden Chineze',
+  description: 'Equipping the wholesome boy — Eden Chineze\'s Boyspiration movement champions the emotional, spiritual, and social development of boys.',
   path: '/boys',
 })
 
@@ -85,7 +85,7 @@ const pastEvents: BoysEvent[] = [
     title: 'Guest Speaker at the International Federation of Women Lawyers (FIDA) Nigeria, Anambra State Branch',
     year: 'July 2025',
     type: 'Guest Speaker',
-    desc: 'Chineze Eden spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
+    desc: 'Eden Chineze spoke at the FIDA Anambra July Meeting & Pep Talk, held at the FIDA Anambra Law Centre, Awka.',
     topic: 'Who is raising the boychild? Navigating identity, expectations and neglect.',
     images: ['/boys-fida-flyer.jpeg'],
   },
@@ -331,7 +331,7 @@ export default function BoysPage() {
               <div className="absolute inset-0 border border-gold-500/40 rounded-2xl translate-x-4 translate-y-4" aria-hidden />
               <Image
                 src="/chineze-boys-portrait.jpeg"
-                alt="Chineze Eden, founder of Boyspiration"
+                alt="Eden Chineze, founder of Boyspiration"
                 width={498}
                 height={621}
                 priority
@@ -448,7 +448,7 @@ export default function BoysPage() {
               </h2>
             </div>
             <p className="md:ml-auto md:text-right text-charcoal/60 text-lg leading-relaxed max-w-sm">
-              Using the instrument of structured personal growth, we build the boy across six areas.
+              Using the instrument of structured personal growth, we equip the boy across Six main pillars.
             </p>
           </div>
         </div>
@@ -659,7 +659,7 @@ export default function BoysPage() {
                   href="/about"
                   className="px-8 py-4 border border-white/15 text-white font-medium rounded-full hover:border-gold-500/40 hover:text-gold-400 transition-all duration-300"
                 >
-                  Meet Chineze
+                  Meet Eden
                 </Link>
               </div>
             </div>

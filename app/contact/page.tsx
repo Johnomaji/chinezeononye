@@ -6,16 +6,16 @@ import { WEB3FORMS_ACCESS_KEY } from '@/lib/web3forms'
 
 const faqs = [
   {
-    q: 'What types of events does Chineze speak at?',
-    a: 'Chineze speaks at conferences, summits, corporate events, schools, universities, workshops, and virtual events. She tailors each talk to fit the specific context and audience.',
+    q: 'What types of events does Eden speak at?',
+    a: 'Eden speaks at conferences, summits, corporate events, schools, universities, workshops, and virtual events. She tailors each talk to fit the specific context and audience.',
   },
   {
     q: 'How far in advance should I book?',
     a: 'For keynote speaking, we recommend booking at least 3-4 weeks in advance for the best availability. For workshops and group coaching sessions, 4-6 weeks is usually sufficient.',
   },
   {
-    q: 'Does Chineze offer virtual sessions?',
-    a: 'Yes! Chineze is fully equipped and experienced in delivering impactful virtual keynotes, workshops, and group coaching sessions via Zoom, Teams, and other platforms.',
+    q: 'Does Eden offer virtual sessions?',
+    a: 'Yes! Eden is fully equipped and experienced in delivering impactful virtual keynotes, workshops, and group coaching sessions via Zoom, Teams, and other platforms.',
   },
   {
     q: 'What is the process for initiating group coaching?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Are there group coaching options?',
-    a: 'Yes! Chineze offers small group, medium group and large group coaching programs. Group cohorts are a cost-effective way for organizations to develop multiple leaders simultaneously.',
+    a: 'Yes! Eden offers small group, medium group and large group coaching programs. Group cohorts are a cost-effective way for organizations to develop multiple leaders simultaneously.',
   },
 ]
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
       const data = await res.json()
       if (!data.success) console.error('Contact form: Web3Forms rejected the submission', res.status, data)
       if (data.success) {
-        toast.success('Message sent! Chineze will be in touch soon.')
+        toast.success('Message sent! Eden will be in touch soon.')
         setForm({ name: '', email: '', subject: '', message: '', botcheck: '' })
       } else {
         toast.error(data.message || 'Something went wrong. Please try again.')
@@ -265,7 +265,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    placeholder="Tell Chineze about your event, your goals, or what you have in mind..."
+                    placeholder="Tell Eden about your event, your goals, or what you have in mind..."
                     className="w-full px-4 py-3 border border-charcoal/20 rounded-xl focus:outline-none focus:border-gold-400 transition-colors text-sm bg-cream resize-none"
                   />
                 </div>

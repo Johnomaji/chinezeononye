@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
  * localhost default here would ship a sitemap full of unreachable URLs.
  */
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.edenononye.com'
-export const SITE_NAME = 'Chineze Eden'
+export const SITE_NAME = 'Eden Chineze'
 export const SITE_LOCALE = 'en_NG'
 
 /**
@@ -19,7 +19,7 @@ const DEFAULT_OG_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Chineze Eden — Equipper · Writer · Speaker · Champion of the Boy',
+  alt: 'Eden Chineze — Equipper · Writer · Speaker · Champion of the Boy',
 }
 
 type PageSeo = {

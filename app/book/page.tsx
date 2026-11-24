@@ -4,15 +4,15 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Book | Chineze Eden',
-  description: 'A new book from Chineze Eden — coming soon.',
+  title: 'Books | Eden Chineze',
+  description: 'Transforming and equipping books from Eden Chineze — coming soon.',
   path: '/book',
 })
 
 const themes = [
   {
     title: 'Structured Personal Growth',
-    desc: 'Growth is not a mood or a motivational high. It is a structure you build and then stand on — and it is the thread running through everything Chineze teaches.',
+    desc: 'Growth is not a mood or a motivational high. It is a structure you build and then stand on — and it is the thread running through everything Eden teaches.',
   },
   {
     title: 'The Unstoppable You',
@@ -72,7 +72,7 @@ export default function BookPage() {
 
             <div className="flex flex-col lg:flex-row gap-10 lg:items-end animate-on-scroll">
               <p className="text-white/50 text-lg leading-relaxed max-w-md">
-                Chineze is working on something that will equip, inspire, and transform. Stay close —
+                Eden is working on something that will equip, inspire, and transform. Stay close —
                 this page will come alive soon.
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function BookPage() {
                   className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(201,162,39,0.10)_50%,transparent_100%)] bg-[length:200%_100%] animate-shimmer"
                 />
                 <div className="relative h-full flex flex-col justify-between p-8 pl-10">
-                  <span className="text-gold-400/70 text-[10px] tracking-[0.35em] uppercase">Chineze Eden</span>
+                  <span className="text-gold-400/70 text-[10px] tracking-[0.35em] uppercase">Eden Chineze</span>
                   <div className="space-y-3">
                     <div className="h-2.5 w-4/5 rounded-full bg-white/15 animate-pulse" />
                     <div className="h-2.5 w-3/5 rounded-full bg-white/10 animate-pulse" />
@@ -123,19 +123,6 @@ export default function BookPage() {
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="w-px h-14 bg-gradient-to-b from-gold-400/60 to-transparent" />
-        </div>
-      </section>
-
-      {/* ─── BANNER ─── */}
-      <section className="relative py-14 bg-gold-gradient overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-          <div className="w-1 h-14 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
-          <p className="font-playfair text-2xl md:text-4xl font-bold text-charcoal text-center md:text-left leading-snug">
-            &ldquo;The UNSTOPPABLE You is the GROWING You.&rdquo;
-          </p>
-          <div className="md:ml-auto shrink-0">
-            <span className="text-charcoal/50 text-sm tracking-widest uppercase">Chineze Eden</span>
-          </div>
         </div>
       </section>
 
@@ -163,9 +150,8 @@ export default function BookPage() {
             </div>
             <div className="lg:col-span-7 lg:pt-6 flex items-end">
               <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
-                The book is still being written, so there is nothing to promise yet. But the ground it
-                grows from is not a secret — these are the convictions behind every room Chineze has
-                stood in.
+                The transforming and equipping Books are currently under production. You will be
+                notified once available.
               </p>
             </div>
           </div>

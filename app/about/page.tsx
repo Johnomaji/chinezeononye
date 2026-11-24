@@ -5,8 +5,8 @@ import ScrollAnimator from '@/components/ScrollAnimator'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'About Chineze Eden | Equipper, Writer, Speaker & Champion of the Boy',
-  description: 'Learn about Chineze Eden — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
+  title: 'About Eden Chineze | Equipper, Writer, Speaker & Champion of the Boy',
+  description: 'Learn about Eden Chineze — her story, values, and mission to transform lives through education, mentorship, and inspiring talks.',
   path: '/about',
 })
 
@@ -91,10 +91,10 @@ export default function AboutPage() {
               Equipper. Writer. Speaker. Champion of the Boy.
             </p>
             <p className="text-white/60 text-xl leading-relaxed mb-5">
-              One who believes that Structured Personal Growth is the key to true lasting wholesome success in life at the levels of individual, Organization or National.
+              I create transformational experiences that equip people to become active architects of their own growth and transformation.
             </p>
-            <p className="font-playfair italic text-gold-400 text-xl md:text-2xl leading-relaxed">
-              &ldquo;The UNSTOPPABLE You is the GROWING You&rdquo;.
+            <p className="text-white/60 text-xl leading-relaxed">
+              We engage at the levels of Individual, Organizational and National.
             </p>
           </div>
         </div>
@@ -108,14 +108,10 @@ export default function AboutPage() {
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
                 <Image
                   src="/Chinezered-e1745223506142.jpg"
-                  alt="Chineze Eden"
+                  alt="Eden Chineze"
                   fill
                   className="object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-gold-gradient rounded-2xl p-6 shadow-2xl">
-                <p className="font-playfair text-charcoal text-2xl font-bold">2000+</p>
-                <p className="text-charcoal/70 text-sm">Lives Transformed</p>
               </div>
             </div>
           </div>
@@ -161,7 +157,7 @@ export default function AboutPage() {
               </p>
               <div className="my-6 border-l-4 border-gold-500 bg-gold-500/10 rounded-r-xl py-6 pl-6 pr-4">
                 <p className="font-playfair text-2xl md:text-3xl font-bold text-charcoal leading-snug">
-                  Equip The Person.<br />
+                  Equip The Individual.<br />
                   Strengthen The System.<br />
                   <span className="text-gold-600">Shape The Future.</span>
                 </p>
@@ -172,7 +168,7 @@ export default function AboutPage() {
               <p className="pt-2">
                 With love &amp; light,
                 <br />
-                <span className="font-playfair font-semibold text-charcoal">Chineze Eden Ononye.</span>
+                <span className="font-playfair font-semibold text-charcoal">Eden Chineze Ononye.</span>
               </p>
             </div>
             <Link

@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
       })
       const data = await res.json()
       if (res.ok) {
-        toast.success('Welcome back, Chineze!')
+        toast.success('Welcome back, Eden!')
         router.push('/admin')
       } else {
         toast.error(data.error || 'Invalid credentials.')
@@ -49,10 +49,10 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="w-16 h-16 rounded-full bg-gold-gradient flex items-center justify-center mx-auto mb-4">
-            <img src="/chinezelogo.png" alt="Chineze Eden Logo" />
+            <img src="/chinezelogo.png" alt="Eden Chineze Logo" />
           </div>
           <h1 className="font-playfair text-3xl font-bold text-white">Admin Panel</h1>
-          <p className="text-white/40 text-sm mt-2">Chineze Eden - Content Management</p>
+          <p className="text-white/40 text-sm mt-2">Eden Chineze - Content Management</p>
         </div>
 
         {/* Form */}
@@ -114,7 +114,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-white/30 text-xs mt-6">
-          Secure admin access - Chineze Eden
+          Secure admin access - Eden Chineze
         </p>
       </div>
     </div>

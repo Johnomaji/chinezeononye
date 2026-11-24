@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   const post = getBlogBySlug(params.slug)
   if (!post) return {}
   return articleMetadata({
-    title: `${post.title} | Chineze Eden Blog`,
+    title: `${post.title} | Eden Chineze Blog`,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.coverImage || undefined,
@@ -167,17 +167,17 @@ export default function BlogPostPage({ params }: Props) {
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gold-400 shrink-0">
               <Image
                 src="/Chinezered-e1745223506142.jpg"
-                alt="Chineze Eden Ononye"
+                alt="Eden Chineze Ononye"
                 fill
                 sizes="80px"
                 className="object-cover object-top"
               />
             </div>
             <div>
-              <p className="font-playfair text-white font-bold text-lg">Chineze Eden Ononye</p>
+              <p className="font-playfair text-white font-bold text-lg">Eden Chineze Ononye</p>
               <p className="text-white/50 text-sm mb-3">Equipper · Writer · Speaker · Champion of the Boy</p>
               <Link href="/about" className="text-gold-400 text-sm hover:text-gold-300 transition-colors">
-                Learn more about Chineze &rarr;
+                Learn more about Eden &rarr;
               </Link>
             </div>
           </div>

@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
               <Image
                 src="/cropped-co-favicon.png"
-                alt="Chineze Eden"
+                alt="Eden Chineze"
                 width={512}
                 height={512}
                 className="w-24 h-16 object-contain"
@@ -116,7 +116,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            &copy; {year} Chineze Eden. All rights reserved.
+            &copy; {year} Eden Chineze. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/40">
             <Link href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>

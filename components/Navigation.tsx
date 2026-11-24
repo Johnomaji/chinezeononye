@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/speaking', label: 'Speaking' },
   { href: '/boys', label: 'Boys' },
-  { href: '/book', label: 'Book' },
+  { href: '/book', label: 'Books' },
   { href: '/testimonials', label: 'Testimonials' },
 ]
 
@@ -40,7 +40,7 @@ export default function Navigation() {
         <Link href="/" className="flex items-center gap-2 group">
           <Image
             src="/cropped-co-favicon.png"
-            alt="Chineze Eden"
+            alt="Eden Chineze"
             width={512}
             height={512}
             className="w-16 h-10 object-contain group-hover:opacity-80 transition-opacity"
@@ -72,7 +72,7 @@ export default function Navigation() {
             href="/contact"
             className="px-5 py-2 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
           >
-            Book Chineze Eden
+            Book Eden Chineze
           </Link>
         </div>
 
@@ -114,7 +114,7 @@ export default function Navigation() {
             onClick={() => setMenuOpen(false)}
             className="px-5 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full text-center mt-2"
           >
-            Book Chineze Eden
+            Book Eden Chineze
           </Link>
         </div>
       </div>

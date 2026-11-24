@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getSettings } from '@/lib/data'
 
 export const metadata = {
-  title: 'Under Maintenance | Chineze Eden',
+  title: 'Under Maintenance | Eden Chineze',
 }
 
 export default function MaintenancePage() {
@@ -28,9 +28,9 @@ export default function MaintenancePage() {
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-12">
           <div className="w-14 h-14 rounded-full  flex items-center justify-center">
-            <img src="/chinezelogo.png" alt="Chineze Eden Logo" />
+            <img src="/chinezelogo.png" alt="Eden Chineze Logo" />
           </div>
-          <span className="font-playfair font-bold text-2xl text-white">Chineze Eden</span>
+          <span className="font-playfair font-bold text-2xl text-white">Eden Chineze</span>
         </div>
 
         {/* Icon */}
@@ -86,7 +86,7 @@ export default function MaintenancePage() {
         </div>
 
         <p className="mt-6 text-white/30 text-sm">
-          &copy; {new Date().getFullYear()} Chineze Eden. All rights reserved.
+          &copy; {new Date().getFullYear()} Eden Chineze. All rights reserved.
         </p>
       </div>
     </div>

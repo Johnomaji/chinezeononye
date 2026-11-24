@@ -108,7 +108,7 @@ export default function UnstoppableYouPopup() {
           <div className="flex-1 px-6 sm:px-8 py-8 sm:py-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
-              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Upcoming Course</span>
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Upcoming Course Experience</span>
             </div>
             <h2 id="uy-popup-title" className="font-playfair text-3xl sm:text-4xl font-bold text-white leading-tight pr-8">
               {unstoppableYou.title}

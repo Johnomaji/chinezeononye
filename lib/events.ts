@@ -13,8 +13,8 @@ export const unstoppableYou = {
   highlights: ['Master Personal Transformation', 'Unlock Your Power', 'Enrich Your Life'],
   dates: 'Friday 8 & Saturday 9 January 2027',
   // The first-visit popup stops showing once this moment has passed.
-  startsAt: '2027-01-08T10:00:00+01:00',
-  time: '10:00am – 12:00pm WAT, both days',
+  startsAt: '2027-01-08T09:00:00+01:00',
+  time: '9:00am – 12:00pm WAT, both days',
   location: 'Live online. Joining link sent by email before the course begins',
   // Amount in Naira. Deliberately not shown anywhere on the site; visitors only
   // see it on the Paystack checkout screen.

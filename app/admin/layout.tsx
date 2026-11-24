@@ -140,10 +140,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="p-6 border-b border-gold-500/10">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-gold-gradient flex items-center justify-center shrink-0">
-            <img src="/chinezelogo.png" alt="Chineze Eden Logo" />
+            <img src="/chinezelogo.png" alt="Eden Chineze Logo" />
           </div>
           <div>
-            <p className="font-playfair text-white font-bold text-sm">Chineze Eden</p>
+            <p className="font-playfair text-white font-bold text-sm">Eden Chineze</p>
             <p className="text-white/30 text-xs">Admin Panel</p>
           </div>
         </div>

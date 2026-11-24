@@ -8,9 +8,9 @@ import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Growth & Transformation | Chineze Eden',
+  title: 'Growth & Transformation | Eden Chineze',
   description:
-    'Structured Personal Growth — Chineze Eden partners with individuals, organisations, and institutions to unlock potential, strengthen capacity, and translate growth into sustainable results.',
+    'Structured Personal Growth — Eden Chineze partners with individuals, organisations, and institutions to unlock potential, strengthen capacity, and translate growth into sustainable results.',
   path: '/growth',
 })
 
@@ -61,6 +61,8 @@ const courses: {
   forYouIf?: string[]
   closing?: string
   format: string
+  // Falls back to defaultAccountability when a course doesn't word it differently.
+  accountability?: string
 }[] = [
   {
     num: '01',
@@ -102,7 +104,22 @@ const courses: {
     ],
     format: 'The Wow Them - Win Them is a 4-hour 2 day Organization wide or Group Coaching call.',
   },
+  {
+    num: '04',
+    title: 'The Onboarding that Shapens & Sharpens',
+    tagline: 'Beyond Welcoming. Into Equipping. Towards Excellence.',
+    body: [
+      'The first formal contact with new employees is the best time to truly equip them towards excellence in the workplace. A time to equip them to position and align properly while serving at a higher scale.',
+      'The quality of an employee’s contribution is influenced by the quality of the individual behind the position. Let’s strategically partner with you on this. Get the foundation right and the stage to soar is set.',
+    ],
+    format: 'The Onboarding that Shapens & Sharpens is a 3-hour 2 day Course Experience.',
+    accountability:
+      'A one-hour accountability session follows 90 days after for employees to feedback on experience thus far.',
+  },
 ]
+
+const defaultAccountability =
+  'A one-hour accountability session follows 90 days after strictly for participants to share feedback on growth thus far.'
 
 const engagements = [
   {
@@ -445,10 +462,7 @@ export default function GrowthPage() {
                 <div className="mt-6 border-l-4 border-gold-500 bg-gold-500/10 rounded-r-xl p-6 space-y-3 text-charcoal/75">
                   <p className="text-gold-700 text-xs tracking-[0.3em] uppercase font-semibold">Format &amp; Delivery</p>
                   <p className="font-semibold text-charcoal">{course.format}</p>
-                  <p>
-                    A one-hour accountability session follows 90 days after strictly for participants to
-                    share feedback on growth thus far.
-                  </p>
+                  <p>{course.accountability ?? defaultAccountability}</p>
                   <p>Session can be delivered physically, virtually or hybrid.</p>
                 </div>
               </div>
@@ -547,7 +561,7 @@ export default function GrowthPage() {
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden">
               <Image
                 src="/Chinezered-e1745223506142.jpg"
-                alt="Chineze Eden"
+                alt="Eden Chineze"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -636,7 +650,7 @@ export default function GrowthPage() {
             <div className="lg:col-span-5 animate-on-scroll-right">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-8 h-px bg-gold-500" />
-                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Upcoming Course</span>
+                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Upcoming Course Experience</span>
               </div>
               <h2 className="font-playfair font-bold text-white text-4xl md:text-5xl leading-tight mb-4">
                 {unstoppableYou.title}

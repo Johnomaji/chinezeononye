@@ -170,7 +170,7 @@ function registrantEmail(r: Registrant, tx: PaystackTransaction): Email {
     to: r.email,
     replyTo: SITE_INBOX,
     subject: `You're registered for ${unstoppableYou.title}`,
-    text: [`Hi ${r.firstName},`, intro, rowsText(details), next, questions, 'Chineze Eden', footerText(footnote)].join(
+    text: [`Hi ${r.firstName},`, intro, rowsText(details), next, questions, 'Eden Chineze', footerText(footnote)].join(
       '\n\n'
     ),
     html: layout(
@@ -181,7 +181,7 @@ function registrantEmail(r: Registrant, tx: PaystackTransaction): Email {
         rowsHtml(details) +
         paragraph(next) +
         paragraph(questions) +
-        paragraph('Chineze Eden'),
+        paragraph('Eden Chineze'),
       footnote
     ),
   }
@@ -218,7 +218,7 @@ function certificateEmail(r: Registrant, file: CertificateFile): Email {
     to: r.email,
     replyTo: SITE_INBOX,
     subject: `Your certificate for ${unstoppableYou.title}`,
-    text: [`Hi ${r.firstName},`, intro, thanks, questions, 'Chineze Eden', footerText(footnote)].join('\n\n'),
+    text: [`Hi ${r.firstName},`, intro, thanks, questions, 'Eden Chineze', footerText(footnote)].join('\n\n'),
     html: layout(
       'Certificate',
       'Congratulations!',
@@ -226,7 +226,7 @@ function certificateEmail(r: Registrant, file: CertificateFile): Email {
         paragraph(intro) +
         paragraph(thanks) +
         paragraph(questions) +
-        paragraph('Chineze Eden'),
+        paragraph('Eden Chineze'),
       footnote
     ),
     attachments: [
@@ -279,7 +279,7 @@ function layout(eyebrow: string, heading: string, bodyHtml: string, footnote: st
 <body style="margin:0;padding:24px 12px;background:#FEFCF7">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px">
-<tr><td align="center" style="padding:0 0 4px"><a href="${SITE_URL}"><img src="${LOGO_URL}" width="72" height="72" alt="Chineze Eden" style="display:block;border:0"></a></td></tr>
+<tr><td align="center" style="padding:0 0 4px"><a href="${SITE_URL}"><img src="${LOGO_URL}" width="72" height="72" alt="Eden Chineze" style="display:block;border:0"></a></td></tr>
 </table>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border:1px solid #FAEDB3;border-radius:16px;border-collapse:separate">
 <tr><td style="background:#1A1A1A;padding:28px 32px;border-radius:15px 15px 0 0">
@@ -290,7 +290,7 @@ function layout(eyebrow: string, heading: string, bodyHtml: string, footnote: st
 </table>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px">
 <tr><td align="center" style="padding:24px 32px 8px;color:#6B6455;font:12px/1.6 Arial,Helvetica,sans-serif">
-<strong style="color:#1A1A1A">Chineze Eden</strong><br>
+<strong style="color:#1A1A1A">Eden Chineze</strong><br>
 <a href="${SITE_URL}" style="${link}">${escapeHtml(SITE_HOST)}</a> &middot; <a href="mailto:${SITE_INBOX}" style="${link}">${SITE_INBOX}</a><br><br>
 ${escapeHtml(footnote)}
 </td></tr>

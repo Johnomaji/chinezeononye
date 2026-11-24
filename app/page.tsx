@@ -90,7 +90,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-br from-gold-500/20 to-transparent z-10 rounded-3xl" />
               <Image
                 src="/chineze-hero-red.png"
-                alt="Chineze Eden"
+                alt="Eden Chineze"
                 fill
                 className="object-cover"
                 priority
@@ -174,7 +174,7 @@ export default function HomePage() {
           <div className="animate-on-scroll-right">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
-              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Upcoming Course</span>
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Upcoming Course Experience</span>
             </div>
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               {unstoppableYou.title}
@@ -231,7 +231,7 @@ export default function HomePage() {
             <div className="relative aspect-square rounded-3xl overflow-hidden max-w-lg">
               <Image
                 src="/chinezeheadshot.jpeg"
-                alt="Chineze Eden"
+                alt="Eden Chineze"
                 fill
                 className="object-cover object-top"
               />
@@ -252,7 +252,7 @@ export default function HomePage() {
               A Life Dedicated to <span className="text-gold-600">Elevating Others</span>
             </h2>
             <p className="text-charcoal/60 leading-relaxed mb-6">
-              With over a decade of experience in education and personal development, Chineze Eden has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
+              With over a decade of experience in education and personal development, Eden Chineze has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
             </p>
             <p className="text-charcoal/60 leading-relaxed mb-8">
               From classrooms to conference halls, her message is consistent: your story has power, your purpose has value, and your potential is limitless.
@@ -284,11 +284,11 @@ export default function HomePage() {
               <span className="text-gold-400 align-super text-[0.35em] font-inter font-semibold">&trade;</span>
             </h2>
             <p className="text-gold-400 font-playfair italic text-lg mb-6">
-              &ldquo;Equipping the Wholesome Boy Child&rdquo;
+              &ldquo;Equipping the Wholesome Boy&rdquo;
             </p>
             <div className="space-y-4 text-white/60 leading-relaxed">
               <p>
-                Boyspiration is Chineze&apos;s group call community dedicated to raising, championing, and equipping the boy child. In a world that often overlooks the emotional, spiritual, and social needs of boys, Boyspiration creates a space for intentional conversations about nurturing wholesome, grounded, and purposeful young men.
+                Boyspiration is Eden&apos;s group call community dedicated to raising, championing, and equipping the boy child. In a world that often overlooks the emotional, spiritual, and social needs of boys, Boyspiration creates a space for intentional conversations about nurturing wholesome, grounded, and purposeful young men.
               </p>
               <p>
                 Through live group calls, practical insights, and community connection, Boyspiration brings together parents, educators, mentors, and advocates who believe that the future begins with how we raise our sons.
@@ -424,7 +424,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="px-10 py-4 bg-charcoal text-white font-semibold rounded-full hover:bg-gold-600 transition-colors duration-300">
-              Book Chineze Eden
+              Book Eden Chineze
             </Link>
             <Link href="/speaking" className="px-10 py-4 border-2 border-charcoal text-charcoal font-semibold rounded-full hover:border-gold-600 hover:text-gold-600 transition-colors duration-300">
               View Speaking Topics

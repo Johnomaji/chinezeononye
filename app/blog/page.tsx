@@ -7,7 +7,7 @@ import { getBlogs } from '@/lib/data'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
-  title: 'Blog | Chineze Eden',
+  title: 'Blog | Eden Chineze',
   description: 'Insights on teaching, mentorship, personal development, and living with purpose.',
   path: '/blog',
 })
