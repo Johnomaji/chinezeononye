@@ -107,7 +107,7 @@ const courses: {
 const engagements = [
   {
     title: 'Executive & Leadership Coaching',
-    desc: 'One-to-one partnership with leaders carrying real weight — clarifying identity, sharpening vision, and building the inner structure the role demands.',
+    desc: 'One-on-one partnership with leaders carrying real weight — clarifying identity, sharpening vision, and building the inner structure the role demands.',
   },
   {
     title: 'Team & Organisational Training',
@@ -597,6 +597,18 @@ export default function GrowthPage() {
                 </div>
               ))}
               <div className="border-t border-charcoal/10" />
+            </div>
+
+            <div className="mt-10">
+              <Link
+                href="/contact?subject=Growth+%26+Transformation"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-gold-gradient text-charcoal text-sm font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
+              >
+                Contact Eden
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>

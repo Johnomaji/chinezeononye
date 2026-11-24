@@ -117,10 +117,6 @@ export default function AboutPage() {
                 <p className="font-playfair text-charcoal text-2xl font-bold">2000+</p>
                 <p className="text-charcoal/70 text-sm">Lives Transformed</p>
               </div>
-              <div className="absolute -top-6 -left-6 bg-charcoal rounded-2xl p-4 shadow-2xl border border-gold-500/20">
-                <p className="text-gold-400 font-semibold text-sm">5+ Years</p>
-                <p className="text-white/60 text-xs">of Impact</p>
-              </div>
             </div>
           </div>
 

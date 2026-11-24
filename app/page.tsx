@@ -65,6 +65,7 @@ export default function HomePage() {
               </Link>
             </div>
 
+            {/* STATS (hidden for now — remove the comment markers to restore)
             <div className="flex flex-wrap gap-10 mt-14 pt-10 border-t border-white/10">
               {[
                 { value: '2000+', label: 'Lives Impacted' },
@@ -77,6 +78,7 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+            */}
           </div>
 
           {/* Hero Image */}
@@ -162,9 +164,10 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-charcoal rounded-2xl p-6 max-w-[220px] shadow-2xl">
-              <p className="text-gold-400 font-playfair text-2xl font-bold leading-tight">Multiple Years</p>
-              <p className="text-white/60 text-sm mt-1">of transforming lives through education &amp; mentorship</p>
+            <div className="absolute -bottom-6 -right-6 bg-charcoal rounded-2xl p-6 max-w-[260px] shadow-2xl">
+              <p className="text-gold-400 font-playfair text-lg italic font-bold leading-snug">
+                &ldquo;The Equipped Individual is the Foundational Unit of The Healthy Society&rdquo;
+              </p>
             </div>
           </div>
 
