@@ -381,7 +381,7 @@ export default function GrowthPage() {
       </section>
 
       {/* ─── THE FRAMEWORK ─── */}
-      <section className="bg-cream relative overflow-hidden">
+      <section id="courses" className="bg-cream relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
           <div className="animate-on-scroll">
             <div className="flex items-center gap-4 mb-4">
@@ -624,7 +624,7 @@ export default function GrowthPage() {
               <div className="max-w-lg mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
                 <Image
                   src={unstoppableYou.flyer}
-                  alt="The Unstoppable You is the Growing You: a virtual course experience with Eden Chineze Ononye, January 8th & 9th, 2027. Master personal transformation, unlock your power, enrich your life."
+                  alt={unstoppableYou.flyerAlt}
                   width={1122}
                   height={1280}
                   sizes="(min-width: 640px) 512px, 100vw"
@@ -642,7 +642,14 @@ export default function GrowthPage() {
                 {unstoppableYou.title}
               </h2>
               <p className="font-playfair italic text-gold-400 text-xl mb-5">{unstoppableYou.tagline}</p>
-              <p className="text-white/55 leading-relaxed mb-8">{unstoppableYou.summary}</p>
+              <ul className="space-y-2 mb-8">
+                {unstoppableYou.highlights.map((item) => (
+                  <li key={item} className="flex gap-3 text-white/80">
+                    <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
               <dl className="border-t border-white/10 mb-10">
                 {unstoppableYouDetails.map((d) => (

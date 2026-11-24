@@ -4,13 +4,16 @@ import PublicLayout from '@/components/PublicLayout'
 import BlogCard from '@/components/BlogCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import ScrollAnimator from '@/components/ScrollAnimator'
+import UnstoppableYouRegister from '@/components/UnstoppableYouRegister'
 import { getBlogs, getTestimonials } from '@/lib/data'
+import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 
 export const revalidate = 60
 
 export default function HomePage() {
   const blogs = getBlogs().filter(b => b.published).slice(0, 3)
   const testimonials =getTestimonials().filter(t => t.featured).slice(0, 3)
+  const courseTestimonial = getTestimonials().find(t => t.id === 'anon-unstoppable-you')
 
   return (
     <PublicLayout>
@@ -147,6 +150,76 @@ export default function HomePage() {
                 <p className="text-charcoal/60 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* UPCOMING COURSE: THE UNSTOPPABLE YOU */}
+      <section className="py-24 bg-charcoal relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,162,39,0.08),transparent_60%)]" />
+        <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="animate-on-scroll-left">
+            <div className="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+              <Image
+                src={unstoppableYou.flyer}
+                alt={unstoppableYou.flyerAlt}
+                width={1122}
+                height={1280}
+                sizes="(min-width: 640px) 448px, 100vw"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
+          <div className="animate-on-scroll-right">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+              <span className="text-gold-400 text-xs font-medium tracking-widest uppercase">Upcoming Course</span>
+            </div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              {unstoppableYou.title}
+            </h2>
+            <p className="text-gold-400 font-playfair italic text-lg mb-6">{unstoppableYou.tagline}</p>
+            <ul className="space-y-2 mb-8">
+              {unstoppableYou.highlights.map((item) => (
+                <li key={item} className="flex gap-3 text-white/80">
+                  <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            {courseTestimonial && (
+              <blockquote className="border-l-2 border-gold-500 pl-5 mb-8">
+                <p className="font-playfair italic text-white/75 leading-relaxed">
+                  &ldquo;{courseTestimonial.content}&rdquo;
+                </p>
+                <footer className="text-white/40 text-sm mt-3">
+                  — {courseTestimonial.name}, {courseTestimonial.role}
+                </footer>
+              </blockquote>
+            )}
+
+            <dl className="border-t border-white/10 mb-10">
+              {unstoppableYouDetails.map((d) => (
+                <div key={d.label} className="flex gap-6 py-4 border-b border-white/10">
+                  <dt className="w-16 shrink-0 text-gold-400/80 text-xs tracking-[0.25em] uppercase pt-1">
+                    {d.label}
+                  </dt>
+                  <dd className="text-white/90">{d.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <UnstoppableYouRegister />
+              <Link
+                href="/growth#courses"
+                className="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:border-gold-400 hover:text-gold-400 transition-all duration-300"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import Navigation from './Navigation'
 import Footer from './Footer'
+import UnstoppableYouPopup from './UnstoppableYouPopup'
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
       <Navigation />
       <main>{children}</main>
       <Footer />
+      <UnstoppableYouPopup />
     </>
   )
 }

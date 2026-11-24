@@ -74,7 +74,8 @@ const emptyForm: Registrant = { name: '', email: '', phone: '' }
 const inputClass =
   'w-full px-4 py-3 border border-charcoal/20 rounded-xl focus:outline-none focus:border-gold-400 transition-colors text-sm bg-white disabled:opacity-60'
 
-export default function UnstoppableYouRegister() {
+// onOpen lets a surrounding popup step aside once the registration form opens.
+export default function UnstoppableYouRegister({ onOpen }: { onOpen?: () => void } = {}) {
   const [open, setOpen] = useState(false)
   const [step, setStep] = useState<'form' | 'paying' | 'success'>('form')
   const [form, setForm] = useState<Registrant>(emptyForm)
@@ -183,7 +184,10 @@ export default function UnstoppableYouRegister() {
       <button
         ref={triggerRef}
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOpen(true)
+          onOpen?.()
+        }}
         className="inline-flex items-center gap-3 px-10 py-4 bg-gold-gradient text-charcoal font-semibold rounded-full hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-1"
       >
         Register Now

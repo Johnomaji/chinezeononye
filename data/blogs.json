@@ -90,8 +90,8 @@
       "team management"
     ],
     "published": true,
-    "createdAt": "2024-01-15T10:00:00.000Z",
-    "updatedAt": "2024-01-15T10:00:00.000Z",
+    "createdAt": "2025-01-15T10:00:00.000Z",
+    "updatedAt": "2025-01-15T10:00:00.000Z",
     "readTime": 5
   },
   {
@@ -109,8 +109,8 @@
       "classroom"
     ],
     "published": true,
-    "createdAt": "2024-02-10T10:00:00.000Z",
-    "updatedAt": "2024-02-10T10:00:00.000Z",
+    "createdAt": "2025-02-10T10:00:00.000Z",
+    "updatedAt": "2025-02-10T10:00:00.000Z",
     "readTime": 6
   },
   {
@@ -128,8 +128,8 @@
       "voice"
     ],
     "published": true,
-    "createdAt": "2024-03-05T10:00:00.000Z",
-    "updatedAt": "2024-03-05T10:00:00.000Z",
+    "createdAt": "2025-03-05T10:00:00.000Z",
+    "updatedAt": "2025-03-05T10:00:00.000Z",
     "readTime": 7
   }
 ]
