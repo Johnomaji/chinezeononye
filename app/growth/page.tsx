@@ -3,9 +3,11 @@ import Image from 'next/image'
 import PublicLayout from '@/components/PublicLayout'
 import ScrollAnimator from '@/components/ScrollAnimator'
 import GrowthGallery, { type GalleryPhoto } from '@/components/GrowthGallery'
+import SignatureCourses from '@/components/SignatureCourses'
 import UnstoppableYouRegister from '@/components/UnstoppableYouRegister'
 import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 import { pageMetadata } from '@/lib/seo'
+import { engagements } from '@/lib/trainings'
 
 export const metadata = pageMetadata({
   title: 'Growth & Transformation | Eden Chineze',
@@ -50,101 +52,6 @@ const levels = [
       'The same conviction extends to National development: Structured personal growth is not merely personal. It is a strategy for Organisational and National progress.',
       'This informs Eden’s in-depth training and consulting across MDAs; and her growing engagement in advisory, advocacy and policy conversations on how policies, systems and environments can intentionally develop and strengthen the institutions they serve.',
     ],
-  },
-]
-
-const courses: {
-  num: string
-  title: string
-  tagline: string
-  body: string[]
-  forYouIf?: string[]
-  closing?: string
-  format: string
-  // Falls back to defaultAccountability when a course doesn't word it differently.
-  accountability?: string
-}[] = [
-  {
-    num: '01',
-    title: 'The Unstoppable You',
-    tagline: 'The Unstoppable You is the Growing You',
-    body: [
-      'Your proven, practical pathway to wholesome personal transformation, personal power and a more enriched life.',
-      'More than a Course Experience, The Unstoppable You equips you with a practical formula for lifelong growth and transformation - empowering you to continually unlock your potential, take intentional action, and create the outcomes you desire across different areas of your life.',
-    ],
-    forYouIf: [
-      'feel stuck, stagnant or frustrated with your current reality.',
-      'know you are capable of more but struggle to translate your potential to progress.',
-      'desire greater clarity, confidence and direction.',
-      'are ready to take ownership of your growth and create meaningful, lasting change.',
-    ],
-    closing: 'Who you are becoming is foundational to everything you do, including your wealth creation.',
-    format: 'The Unstoppable You is a 2 - 3hrs 2 day interactive group Coaching Call.',
-  },
-  {
-    num: '02',
-    title: 'The Trophy Employee',
-    tagline: 'Developing The Individual. Elevating Workplace Performance',
-    body: [
-      'The Trophy Employee is a Signature professional development experience built on the conviction that Organisational excellence is strengthened by the personal growth levels of the employees who drive it.',
-      'Through a holistic, structured approach to individual development, the program engages the employee as a whole person, fostering the self-awareness, personal responsibility, mindset and capacity needed to thrive both personally and professionally.',
-      'By connecting personal growth with workplace expectations and Organisational objectives, the experience equips employees to move beyond performing assigned duties to wholesomely engaging meaningfully, taking ownership and contributing to sustained Organisational excellence.',
-    ],
-    format: 'The Trophy Employee is a 4-hour 2 day Organization wide or Group Coaching call.',
-  },
-  {
-    num: '03',
-    title: 'Wow Them - Win Them',
-    tagline: 'Where Personal Growth Translates into Service Excellence, Customer Loyalty and Revenue Growth',
-    body: [
-      'Wow Them - Win Them is a holistic Customer Service and support development experience designed to help organizations embed service excellence into their culture, strengthen customer relationships, retain their customer base and grow revenue.',
-      'Recognizing that exceptional customer engagement is influenced by the employee delivering the service, the experience goes beyond operational service skills to engage the employee as a whole person.',
-      'By integrating personal development with practical customer service strategies, the experience equips employees with empathy, professionalism, personal ownership and a genuine commitment to delivering value beyond just the task. This is because an employee cannot truly and lastingly give what he is not experiencing in his personal life.',
-      'The result is a workforce better equipped to deliver consistently excellent customer experiences, build lasting customer relationships, strengthen customer loyalty and contribute to sustainable business growth.',
-    ],
-    format: 'The Wow Them - Win Them is a 4-hour 2 day Organization wide or Group Coaching call.',
-  },
-  {
-    num: '04',
-    title: 'The Onboarding that Shapens & Sharpens',
-    tagline: 'Beyond Welcoming. Into Equipping. Towards Excellence.',
-    body: [
-      'The first formal contact with new employees is the best time to truly equip them towards excellence in the workplace. A time to equip them to position and align properly while serving at a higher scale.',
-      'The quality of an employee’s contribution is influenced by the quality of the individual behind the position. Let’s strategically partner with you on this. Get the foundation right and the stage to soar is set.',
-    ],
-    format: 'The Onboarding that Shapens & Sharpens is a 3-hour 2 day Course Experience.',
-    accountability:
-      'A one-hour accountability session follows 90 days after for employees to feedback on experience thus far.',
-  },
-]
-
-const defaultAccountability =
-  'A one-hour accountability session follows 90 days after strictly for participants to share feedback on growth thus far.'
-
-const engagements = [
-  {
-    title: 'Executive & Leadership Coaching',
-    desc: 'One-on-one partnership with leaders carrying real weight — clarifying identity, sharpening vision, and building the inner structure the role demands.',
-  },
-  {
-    title: 'Team & Organisational Training',
-    desc: 'Structured sessions that build shared language and capability across a team, so growth and transformation become a shared culture rather than individual efforts.',
-  },
-  {
-    title: 'Bespoke Growth Frameworks',
-    desc: 'Frameworks designed around the specific institution — its people, pressures, and goals.',
-  },
-  {
-    title: 'Institutional Advisory',
-    desc: 'Advisory and advocacy work on the policies, systems, and environments that shape whether people in an institution are developed or merely managed.',
-  },
-  {
-    title: 'Group Coaching Series',
-    desc: 'A sustained series rather than a single sitting, layering structured growth on identity and value using proven strategies and tools; with accountability in place.',
-  },
-  {
-    title: 'Keynotes & Masterclasses',
-    desc: 'The Unstoppable You, delivered to a room — as a keynote that shifts the air or an extended masterclass that sends people home with tools.',
   },
 ]
 
@@ -273,10 +180,14 @@ export default function GrowthPage() {
             <div className="text-white/50 text-lg leading-relaxed max-w-lg space-y-4">
               <p>This is Eden&rsquo;s forte.</p>
               <p>
-                She has come to recognize that no matter how audacious the goals of an Organization
-                or a Nation are, the full realization of those objectives depend on individuals
-                committed to their own continuous personal growth - a conviction that underpins her
-                work.
+                From her works, she&rsquo;s confirmed that structured personal growth is the
+                foundational key to true, lasting wholesome success in life at the levels of
+                individual, Organizational or National.
+              </p>
+              <p>
+                She has come to recognize that it takes individuals who are committed to their
+                continual personal growth to truly help an Organization, a Nation attain their
+                audacious goals.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 lg:ml-auto shrink-0">
@@ -415,60 +326,7 @@ export default function GrowthPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 pb-24">
-          {courses.map((course) => (
-            <details key={course.num} className="animate-on-scroll border-t border-charcoal/10 group/stage">
-              <summary className="flex gap-6 items-center py-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded">
-                <span className="font-playfair text-gold-600/50 group-hover/stage:text-gold-600 text-3xl font-bold shrink-0 w-14 leading-none transition-colors duration-300">
-                  {course.num}
-                </span>
-                <div className="flex-1">
-                  <h3 className="font-playfair text-2xl md:text-3xl font-bold text-charcoal group-hover/stage:text-gold-700 leading-snug transition-colors duration-300">
-                    {course.title}
-                  </h3>
-                  <p className="font-playfair italic text-gold-600 text-base md:text-lg mt-1">
-                    {course.tagline}
-                  </p>
-                </div>
-                <svg
-                  className="w-6 h-6 shrink-0 text-gold-600/60 group-hover/stage:text-gold-600 group-open/stage:rotate-180 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <div className="pl-20 pr-10 pb-10 text-charcoal/60 leading-relaxed max-w-3xl space-y-4">
-                {course.body.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-                {course.forYouIf && (
-                  <div className="pt-2">
-                    <p className="font-semibold text-charcoal mb-3">The Course is for you if you:</p>
-                    <ul className="space-y-2">
-                      {course.forYouIf.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gold-500 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {course.closing && (
-                  <p className="font-playfair italic text-charcoal text-lg pt-2">{course.closing}</p>
-                )}
-                <div className="mt-6 border-l-4 border-gold-500 bg-gold-500/10 rounded-r-xl p-6 space-y-3 text-charcoal/75">
-                  <p className="text-gold-700 text-xs tracking-[0.3em] uppercase font-semibold">Format &amp; Delivery</p>
-                  <p className="font-semibold text-charcoal">{course.format}</p>
-                  <p>{course.accountability ?? defaultAccountability}</p>
-                  <p>Session can be delivered physically, virtually or hybrid.</p>
-                </div>
-              </div>
-            </details>
-          ))}
-          <div className="border-t border-charcoal/10" />
+          <SignatureCourses />
 
           <div className="mt-12">
             <Link

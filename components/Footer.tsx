@@ -80,6 +80,7 @@ export default function Footer() {
               {[
                 { href: '/about', label: 'About Eden' },
                 { href: '/growth', label: 'Growth & Transformation' },
+                { href: '/trainings', label: 'Trainings' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/speaking', label: 'Speaking Topics' },
                 { href: '/boys', label: 'Boys / Boyspiration' },

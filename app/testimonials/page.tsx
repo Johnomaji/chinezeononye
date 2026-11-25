@@ -25,10 +25,18 @@ function Shimmer() {
   )
 }
 
-function SkeletonQuote({ lines = 4, wide = false }: { lines?: number; wide?: boolean }) {
+function SkeletonQuote({
+  lines = 4,
+  wide = false,
+  surface = 'bg-white',
+}: {
+  lines?: number
+  wide?: boolean
+  surface?: string
+}) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-charcoal/10 bg-white p-8 ${
+      className={`relative overflow-hidden rounded-2xl border border-charcoal/10 ${surface} p-8 ${
         wide ? 'lg:col-span-2' : ''
       }`}
     >
@@ -107,6 +115,54 @@ function PendingState() {
           <p className="text-charcoal/35 text-xs tracking-[0.3em] uppercase shrink-0">
             Real stories, coming soon
           </p>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-charcoal/10" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// Placeholder until the three Book Club testimonials are added.
+function BookClubSection() {
+  return (
+    <section className="py-28 bg-white relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none select-none absolute right-0 top-1/2 -translate-y-1/2 font-playfair font-bold text-charcoal leading-none"
+        style={{ fontSize: '18vw', opacity: 0.03 }}
+      >
+        READ
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14 animate-on-scroll">
+          <div className="lg:col-span-6">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-px bg-gold-500" />
+              <span className="text-gold-600 text-xs tracking-[0.35em] uppercase">Book Club</span>
+            </div>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-charcoal leading-tight">
+              From the<br />
+              <span className="text-gold-600">Book Club.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-6 lg:pt-6 flex items-end">
+            <p className="text-charcoal/55 text-lg leading-relaxed max-w-lg">
+              Voices from The Transforming Place, a two-year self development club through
+              literature (2022 – 2024).
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" aria-hidden>
+          <SkeletonQuote lines={5} surface="bg-cream" />
+          <SkeletonQuote lines={4} surface="bg-cream" />
+          <SkeletonQuote lines={5} surface="bg-cream" />
+        </div>
+
+        <div className="flex items-center gap-4 mt-12">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-charcoal/10" />
+          <p className="text-charcoal/35 text-xs tracking-[0.3em] uppercase shrink-0">Coming soon</p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-charcoal/10" />
         </div>
       </div>
@@ -349,6 +405,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
       )}
+
+      <BookClubSection />
 
       {/* ─── CTA ─── */}
       <section className="bg-[#0A0A0A] relative overflow-hidden">

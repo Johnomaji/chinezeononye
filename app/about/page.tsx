@@ -125,32 +125,44 @@ export default function AboutPage() {
             </blockquote>
             <div className="space-y-4 text-charcoal/70 leading-relaxed">
               <p>
-                Hello, I am Eden—a Transformation Strategist, Consultant, Speaker, and Author committed to driving sustainable impact across individual, organisational, and national development.
+                Hello, I am Eden—a Transformation Strategist, Management Consultant, Speaker, and Author committed to driving sustainable impact across Individual, Organisational, and National levels of development.
               </p>
               <p>
-                My own defining journey of growth began in 2021, deepening my conviction that structured personal growth is not merely personal—it is a powerful strategy for organisational and national development. Today, through structured and bespoke growth frameworks, I partner with leaders, teams, and institutions to unlock potential, strengthen capacity, and translate growth into meaningful, sustainable results.
+                I am the Founder and Chief Executive of <span className="font-semibold text-charcoal">12Seventy Consulting Ltd</span>. 12Seventy Consulting is established to help Organizations strengthen their people, systems and strategies for improved performance and sustainable growth.
               </p>
               <p>
-                This perspective also informs my growing engagement in advisory, advocacy, and policy conversations—exploring how policies, systems, and environments can move beyond simply managing people to intentionally developing people and strengthening institutions.
+                My own defining journey of growth began in 2021. Using the same model, I ran a self development club through literature for 2 years: 2022 - 2024 and confirmed varying degrees of transformation across lives of members. This deepened my conviction that structured personal growth is not merely personal—it is a powerful strategy for organisational and national development.
+              </p>
+              <p>
+                Today, through structured and bespoke growth frameworks, I partner with Leaders, Teams, and Institutions to unlock potential, strengthen capacity, translate growth and strategies into meaningful, sustainable results.
+              </p>
+              <p>
+                This perspective informs my growing engagement in management consultancy, advisory, advocacy, and policy conversations—exploring how policies, systems, and environments can move beyond simply managing people to intentionally developing people and strengthening institutions.
               </p>
               <p>
                 With close to two decades of experience in the Nigerian public sector, I bring practical leadership, institutional experience, and a deeply relational approach to my work. I connect with people where it matters most—at the heart—because I believe transformation is never merely transactional; it is deeply human.
               </p>
               <p>
-                Alongside my transformation and advisory work is a distinct and deeply personal mandate: <span className="text-gold-600 font-semibold">equipping the boy child</span>.
+                Alongside my transformation, consultancy and advisory work is a distinct and deeply personal mandate: <span className="text-gold-600 font-semibold">equipping the wholesome boy</span>.
               </p>
               <p>
                 Through <span className="text-gold-600 font-semibold">Boyspiration</span>
-                <span className="text-gold-600/70 align-super text-[0.7em] ml-px">&trade;</span>, targeted programmes, coaching, and strategic partnerships, I engage teenage boys and young men while championing the need to raise purpose-driven, emotionally grounded, well-rounded men and leaders for today and the future. I am blessed with three biological sons.
+                <span className="text-gold-600/70 align-super text-[0.7em] ml-px">&trade;</span>, targeted programmes, coaching, and strategic partnerships, I partner to equip wholesome teenage boys and young men while championing the need to raise purpose-driven, emotionally grounded, well-rounded men and leaders for today and the future. I am blessed with three biological sons.
               </p>
               <p>
-                Beyond direct engagement, having spoken across platforms, I seek to start and shape conversations around the policies, systems, and environments that influence how boys are raised, supported, and prepared for adulthood.
+                Beyond direct engagement, speaking across platforms, I seek to partner to shape conversations around the policies, systems, and environments that influence how boys are raised, supported, and prepared for adulthood.
               </p>
               <p>
                 This mandate is both professional and deeply personal. My conviction remains simple:
               </p>
               <p className="font-playfair text-xl font-bold text-charcoal">
-                Boys are becoming; they require intentional attention to guide them into their healthy wholesomeness as boys and men.
+                Boys are becoming; they require intentional attention to be guided into their healthy wholesomeness as boys and men.
+              </p>
+              <p>
+                It is the wholesomeness of the boy first, as an individual, before the expectations can truly magically, sit.
+              </p>
+              <p>
+                The healthy wholesome boy becomes the healthy wholesome man. The healthy wholesome man is the bedrock of the healthy, wholesome home. The healthy wholesome home is the bedrock of the healthy, wholesome society.
               </p>
               <p>
                 Across all I do, one thread remains constant:
@@ -165,8 +177,24 @@ export default function AboutPage() {
               <p>
                 I believe transformation begins within — but its impact should reach far beyond the individual.
               </p>
+              <div className="pt-2">
+                <p className="font-playfair text-xl font-bold text-charcoal mb-3">It’s one life.</p>
+                <ul className="space-y-2">
+                  {['Live present.', 'Live fully.', 'Live courageously.'].map((line) => (
+                    <li key={line} className="flex gap-3">
+                      <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gold-500 shrink-0" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="font-playfair italic text-lg text-charcoal pt-2">
+                I’m rooting for you.
+                <br />
+                I’m rooting for the boys.
+              </p>
               <p className="pt-2">
-                With love &amp; light,
+                With love &amp; light always,
                 <br />
                 <span className="font-playfair font-semibold text-charcoal">Eden Chineze Ononye.</span>
               </p>

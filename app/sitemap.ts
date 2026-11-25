@@ -8,6 +8,7 @@ const staticRoutes: { path: string; changeFrequency: 'daily' | 'weekly' | 'month
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/about', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/growth', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/trainings', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/speaking', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/boys', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.8 },

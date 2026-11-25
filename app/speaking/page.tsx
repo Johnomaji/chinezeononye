@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata = pageMetadata({
   title: 'Speaking | Eden Chineze',
-  description: 'Book Eden Chineze for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
+  description: 'Book Eden for keynotes, workshops, and panel discussions on education, leadership, mentorship, and personal development.',
   path: '/speaking',
 })
 
@@ -39,14 +39,14 @@ const topics = [
     audience: 'All audiences',
   },
   {
-    title: 'Equipping for Purpose-Driven Leadership',
-    desc: 'For executives, managers and boys who want to lead from a place of values and vision rather than just strategy. Integrates emotional intelligence, storytelling, and servant leadership principles.',
-    audience: 'Executives, Managers & Boys',
+    title: 'Purpose-Driven Leadership',
+    desc: 'For executives and managers who want to lead from a place of values and vision rather than just strategy. Integrates emotional intelligence, storytelling, and servant leadership principles.',
+    audience: 'Executives & Managers',
   },
   {
-    title: 'Raising The Wholesome Boy',
+    title: 'Equipping The Wholesome Boy',
     desc: 'A passionate call to action for parents, educators, and communities to intentionally invest in the boy child. Eden unpacks the emotional, spiritual, and identity needs of boys growing up today — and the practical steps to raise whole, grounded, purposeful young men.',
-    audience: 'Parents, Educators, Communities',
+    audience: 'Boys, Parents, Educators, Communities',
   },
 ]
 
@@ -112,13 +112,16 @@ export default function SpeakingPage() {
 
             <div className="animate-on-scroll">
               <h1
-                className="font-playfair font-bold text-white leading-[0.9] mb-10"
+                className="font-playfair font-bold text-white leading-[0.9] mb-6"
                 style={{ fontSize: 'clamp(3rem, 8.5vw, 7.5rem)' }}
               >
                 Words<br />
                 That <em className="not-italic text-gold-400">Move</em><br />
                 Rooms
               </h1>
+              <p className="font-playfair font-bold text-white/85 text-3xl md:text-4xl leading-tight mb-10">
+                Insights that <span className="text-gold-400">transform</span>
+              </p>
             </div>
 
             <div className="animate-on-scroll space-y-5 max-w-xl">
@@ -131,10 +134,6 @@ export default function SpeakingPage() {
                 the strategies and resources to birth even deeper levels of transformation.
               </p>
             </div>
-
-            <p className="animate-on-scroll font-playfair font-bold text-white/85 text-3xl md:text-4xl leading-tight mt-8">
-              Insights that <span className="text-gold-400">transform</span>
-            </p>
 
             <div className="flex flex-wrap gap-4 mt-10 animate-on-scroll">
               <Link

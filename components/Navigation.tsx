@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/growth', label: 'Growth' },
+  { href: '/trainings', label: 'Trainings' },
   { href: '/blog', label: 'Blog' },
   { href: '/speaking', label: 'Speaking' },
   { href: '/boys', label: 'Boys' },
@@ -49,7 +50,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -72,7 +73,7 @@ export default function Navigation() {
             href="/contact"
             className="px-5 py-2 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
           >
-            Book Eden Chineze
+            Book Eden
           </Link>
         </div>
 
@@ -92,7 +93,7 @@ export default function Navigation() {
       <div
         className={clsx(
           'md:hidden absolute top-full left-0 right-0 bg-charcoal shadow-lg shadow-black/30 transition-all duration-300 overflow-hidden',
-          menuOpen ? 'max-h-[32rem] border-t border-gold-500/20' : 'max-h-0'
+          menuOpen ? 'max-h-[36rem] border-t border-gold-500/20' : 'max-h-0'
         )}
       >
         <div className="px-6 py-4 flex flex-col gap-4">
@@ -114,7 +115,7 @@ export default function Navigation() {
             onClick={() => setMenuOpen(false)}
             className="px-5 py-2.5 bg-gold-gradient text-charcoal font-semibold text-sm rounded-full text-center mt-2"
           >
-            Book Eden Chineze
+            Book Eden
           </Link>
         </div>
       </div>
