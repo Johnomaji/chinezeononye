@@ -358,7 +358,8 @@ export default function SpeakingPage() {
               <span className="text-gold-600">stood on.</span>
             </h2>
             <p className="text-charcoal/55 leading-relaxed mb-10 max-w-md">
-              Eden has been on several platforms, including podcasts and stages; some of which include:
+              Eden has been on several platforms, including podcasts, stages and a number of FG MDAs;
+              some of which include:
             </p>
 
             <div>

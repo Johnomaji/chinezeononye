@@ -114,7 +114,8 @@ function PendingState() {
   )
 }
 
-// Messages from members of The Transforming Place book club, transcribed from WhatsApp.
+// Messages from members of The Transforming Place book club, transcribed from WhatsApp
+// and Facebook.
 // Each inner array is one message; each string is a paragraph.
 const BOOK_CLUB_QUOTES: string[][] = [
   [
@@ -123,13 +124,19 @@ const BOOK_CLUB_QUOTES: string[][] = [
   ],
   ['I’m glad I read through your status that day else I would’ve missed the opportunity.'],
   [
-    'Chinny, am so grateful that you responded to this call. Indeed I was greatly imparted on by these books. I have alot of experience and believe me I don’t even know where to start from. I love you sis and I pray for more grace upon your life and ours in Jesus Christ name Amen.',
+    'Chinny, am so grateful that you responded to this call. Indeed I was greatly imparted on by these books. I have a lot of experience and believe me I don’t even know where to start from. I love you sis and I pray for more grace upon your life and ours in Jesus Christ name Amen.',
     'I also wish to continue with you on this journey if it’s possible. Remain blessed Radiant sisters.',
   ],
   [
-    'We will meet at the next chapter. We are not done yet. Sis, its your resilience for me! Gosh, it’s crystal. I pray for the grace for everyone of us to keep being thirsty for knowledge. More grace sis.',
+    'We will meet at the next chapter. We are not done yet. Sis, it’s your resilience for me! Gosh, it’s crystal. I pray for the grace for every one of us to keep being thirsty for knowledge. More grace sis.',
   ],
-  ['We really need to be recording this section.', 'The light here mehhhh!'],
+  ['We really need to be recording this session.', 'The light here mehhhh!'],
+  [
+    'You may never know that your Ladies’ Book Club came into my life at a time when I had been hit below the belt by life’s challenges. The books we read, the safe space you created for us to express ourselves, the encouragement we shared, and the prayers we prayed together gave me strength. They renewed my hope, restored my faith, helped me forgive, and gave me the courage to dream again and keep moving forward. Through it all, God gave me wings to fly again, all because you chose to obey His prompting.',
+    'Thank you for creating that platform. I will forever be grateful to God and to you for that divine kairos moment in my life.',
+    'This is simply my way of saying thank you and encouraging you to keep going. You are changing lives and shaping destinies, even if many people may never be bold enough to tell you, whether publicly or privately.',
+    'I love you sincerely, Sis. 💞 Welcome back, and may God continue to strengthen and use you for His glory.',
+  ],
 ]
 
 function BookClubSection() {

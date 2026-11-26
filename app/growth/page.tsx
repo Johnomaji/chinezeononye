@@ -128,8 +128,11 @@ const gallery: GalleryPhoto[] = [
   },
 ]
 
+// Shown as conviction 01, highlighted the same way as on the Trainings page.
+const brandPromise = 'Equipped through every Experience with us, and Equipped for life.'
+
+// Numbered from 02 onwards, after the brand promise.
 const convictions = [
-  'Equip The Individual. Strengthen The System. Shape The Future.',
   'Transformation is never merely transactional; it is deeply human.',
   'Transformation begins within — but its impact should reach far beyond the individual.',
 ]
@@ -327,6 +330,24 @@ export default function GrowthPage() {
 
         <div className="max-w-7xl mx-auto px-6 pb-24">
           <SignatureCourses />
+
+          <div className="mt-12">
+            <Link
+              href="/speaking"
+              className="inline-flex items-center gap-2 text-lg font-semibold text-gold-600 hover:text-gold-700 transition-colors group/link"
+            >
+              See same delivered as a keynote or masterclass
+              <svg
+                className="w-5 h-5 group-hover/link:translate-x-0.5 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -357,33 +378,62 @@ export default function GrowthPage() {
 
       {/* ─── CONVICTIONS ─── */}
       <section className="bg-[#0A0A0A]">
-        {convictions.map((quote, i) => (
-          <div
-            key={i}
-            className={`animate-on-scroll border-b border-white/8 group hover:bg-white/[0.02] transition-colors duration-500 ${
-              i % 2 !== 0 ? 'bg-[#0D0D0D]' : ''
-            }`}
-          >
-            <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-              <div className={`flex items-center gap-8 ${i % 2 !== 0 ? 'flex-row-reverse' : ''}`}>
-                <div className="shrink-0">
-                  <span className="font-playfair text-gold-500/20 text-7xl font-bold group-hover:text-gold-500/30 transition-colors duration-300">
-                    {String(i + 1).padStart(2, '0')}
+        <div className="animate-on-scroll bg-gold-gradient">
+          <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+            <div className="flex items-center gap-8">
+              <div className="shrink-0">
+                <span className="font-playfair text-charcoal/25 text-7xl font-bold">01</span>
+              </div>
+              <div className="w-px h-16 bg-charcoal/25 shrink-0 hidden md:block" />
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-8 h-px bg-charcoal/40" />
+                  <span className="text-charcoal/70 text-xs tracking-[0.35em] uppercase font-semibold">
+                    The Brand Promise
                   </span>
                 </div>
-                <div className="w-px h-16 bg-gold-500/20 shrink-0 hidden md:block group-hover:bg-gold-500/50 transition-colors duration-300" />
-                <blockquote
-                  className={`font-playfair font-bold text-white/80 group-hover:text-white leading-tight transition-colors duration-300 ${
-                    i % 2 !== 0 ? 'md:text-right' : ''
-                  }`}
+                <p
+                  className="font-playfair font-bold text-charcoal leading-tight"
                   style={{ fontSize: 'clamp(1.4rem, 3.2vw, 2.6rem)' }}
                 >
-                  &ldquo;{quote}&rdquo;
-                </blockquote>
+                  {brandPromise}
+                </p>
               </div>
             </div>
           </div>
-        ))}
+        </div>
+
+        {convictions.map((quote, i) => {
+          const num = i + 2
+          const reversed = num % 2 === 0
+          return (
+            <div
+              key={quote}
+              className={`animate-on-scroll border-b border-white/8 group hover:bg-white/[0.02] transition-colors duration-500 ${
+                reversed ? 'bg-[#0D0D0D]' : ''
+              }`}
+            >
+              <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+                <div className={`flex items-center gap-8 ${reversed ? 'flex-row-reverse' : ''}`}>
+                  <div className="shrink-0">
+                    <span className="font-playfair text-gold-500/20 text-7xl font-bold group-hover:text-gold-500/30 transition-colors duration-300">
+                      {String(num).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="w-px h-16 bg-gold-500/20 shrink-0 hidden md:block group-hover:bg-gold-500/50 transition-colors duration-300" />
+                  <blockquote
+                    className={`font-playfair font-bold text-white/80 group-hover:text-white leading-tight transition-colors duration-300 ${
+                      reversed ? 'md:text-right' : ''
+                    }`}
+                    style={{ fontSize: 'clamp(1.4rem, 3.2vw, 2.6rem)' }}
+                  >
+                    &ldquo;{quote}&rdquo;
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          )
+        })}
       </section>
 
       {/* ─── WHO IT IS FOR / PORTRAIT ─── */}

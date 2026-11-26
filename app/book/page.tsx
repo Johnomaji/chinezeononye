@@ -107,7 +107,7 @@ export default function BookPage() {
                   className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(201,162,39,0.10)_50%,transparent_100%)] bg-[length:200%_100%] animate-shimmer"
                 />
                 <div className="relative h-full flex flex-col justify-between p-8 pl-10">
-                  <span className="text-gold-400/70 text-[10px] tracking-[0.35em] uppercase">Eden Chineze</span>
+                  <span className="text-gold-400/70 text-[10px] tracking-[0.35em] uppercase">Eden Chineze Ononye</span>
                   <div className="space-y-3">
                     <div className="h-2.5 w-4/5 rounded-full bg-white/15 animate-pulse" />
                     <div className="h-2.5 w-3/5 rounded-full bg-white/10 animate-pulse" />
