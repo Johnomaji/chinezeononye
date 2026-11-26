@@ -14,7 +14,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
     const body = await request.json()
-    const updated = updateTestimonial(params.id, body)
+    const updated = await updateTestimonial(params.id, body)
     if (!updated) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 })
     }
@@ -32,7 +32,7 @@ export async function DELETE(request: NextRequest, { params }: Params) {
     const payload = await verifyToken(token)
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
-    const deleted = deleteTestimonial(params.id)
+    const deleted = await deleteTestimonial(params.id)
     if (!deleted) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 })
     }

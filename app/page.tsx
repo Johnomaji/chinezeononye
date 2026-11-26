@@ -10,10 +10,10 @@ import { unstoppableYou, unstoppableYouDetails } from '@/lib/events'
 
 export const revalidate = 60
 
-export default function HomePage() {
-  const blogs = getBlogs().filter(b => b.published).slice(0, 3)
-  const testimonials =getTestimonials().filter(t => t.featured).slice(0, 3)
-  const courseTestimonial = getTestimonials().find(t => t.id === 'anon-unstoppable-you')
+export default async function HomePage() {
+  const blogs = (await getBlogs()).filter(b => b.published).slice(0, 3)
+  const testimonials = (await getTestimonials()).filter(t => t.featured).slice(0, 3)
+  const courseTestimonial = (await getTestimonials()).find(t => t.id === 'anon-unstoppable-you')
 
   return (
     <PublicLayout>

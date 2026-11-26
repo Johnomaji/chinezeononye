@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     const payload = await verifyToken(token)
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
-    const meta = getBlogMeta()
+    const meta = await getBlogMeta()
     return NextResponse.json(meta)
   } catch (err) {
     console.error('GET /api/blog/meta error:', err)
@@ -25,7 +25,7 @@ export async function PUT(request: NextRequest) {
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
     const body = await request.json()
-    const updated = updateBlogMeta({
+    const updated = await updateBlogMeta({
       categories: Array.isArray(body.categories) ? body.categories : [],
       tags: Array.isArray(body.tags) ? body.tags : [],
     })

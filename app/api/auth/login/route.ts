@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { signToken, verifyAdmin } from '@/lib/auth'
+import { adminLoginConfigured, signToken, verifyAdmin } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,6 +8,11 @@ export async function POST(request: NextRequest) {
 
     if (!username || !password) {
       return NextResponse.json({ error: 'Username and password are required' }, { status: 400 })
+    }
+
+    if (!adminLoginConfigured()) {
+      console.error('Login: ADMIN_USERNAME, ADMIN_PASSWORD or JWT_SECRET is not set')
+      return NextResponse.json({ error: 'Admin login is not set up on the server yet.' }, { status: 503 })
     }
 
     const valid = await verifyAdmin(username, password)

@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import path from 'path'
 import { promises as fs } from 'fs'
+import { BlobNotFoundError, del, head } from '@vercel/blob'
 import { verifyToken } from '@/lib/auth'
+import { MEDIA_PREFIX } from '@/lib/media'
+import { savesToBlob } from '@/lib/storage'
 
 export const runtime = 'nodejs'
 
@@ -31,6 +34,24 @@ export async function DELETE(request: NextRequest, { params }: { params: { name:
   }
 
   try {
+    if (savesToBlob()) {
+      // Only uploads in the Blob store can go: images in public/uploads ship with
+      // the site's code, which is read-only on Vercel.
+      try {
+        await head(MEDIA_PREFIX + name)
+      } catch (err) {
+        if (err instanceof BlobNotFoundError) {
+          return NextResponse.json(
+            { error: 'This image is part of the site’s code, so it can only be removed there.' },
+            { status: 400 }
+          )
+        }
+        throw err
+      }
+      await del(MEDIA_PREFIX + name)
+      return NextResponse.json({ success: true })
+    }
+
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads')
     const filePath = path.resolve(uploadsDir, name)
     if (!filePath.startsWith(path.resolve(uploadsDir))) {

@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     const payload = await verifyToken(token)
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
-    const blogs = getBlogs()
+    const blogs = await getBlogs()
     return NextResponse.json(blogs)
   } catch (err) {
     console.error('GET /api/blog error:', err)
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     }
 
     const now = new Date().toISOString()
-    const allBlogs = getBlogs()
+    const allBlogs = await getBlogs()
     const baseSlug = slugify(slug || title)
     const uniqueSlug = ensureUniqueSlug(baseSlug, allBlogs)
     const newPost: BlogPost = {
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
       readTime: Number(readTime) || 5,
     }
 
-    const created = createBlog(newPost)
+    const created = await createBlog(newPost)
     return NextResponse.json(created, { status: 201 })
   } catch (err) {
     console.error('POST /api/blog error:', err)

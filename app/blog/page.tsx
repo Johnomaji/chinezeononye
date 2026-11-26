@@ -14,12 +14,12 @@ export const metadata = pageMetadata({
 
 export const revalidate = 60
 
-export default function BlogPage({
+export default async function BlogPage({
   searchParams,
 }: {
   searchParams: { category?: string }
 }) {
-  const allPosts = getBlogs().filter(b => b.published)
+  const allPosts = (await getBlogs()).filter(b => b.published)
   const categories = ['All', ...Array.from(new Set(allPosts.map(p => p.category)))]
   const activeCategory = searchParams.category || 'All'
   const posts = activeCategory === 'All'

@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       read: false,
     }
 
-    saveMessage(newMessage)
+    await saveMessage(newMessage)
 
     return NextResponse.json({
       success: true,
@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
     if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
 
     const { getMessages } = await import('@/lib/data')
-    const messages = getMessages()
+    const messages = await getMessages()
     return NextResponse.json(messages)
   } catch (err) {
     console.error('GET /api/contact error:', err)

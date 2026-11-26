@@ -4,9 +4,13 @@ import { getTestimonials, createTestimonial } from '@/lib/data'
 import { verifyToken } from '@/lib/auth'
 import { Testimonial } from '@/lib/types'
 
+// Without this, Next serves the list as it was at build time and the admin panel
+// never sees its own changes.
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
-    const testimonials = getTestimonials()
+    const testimonials = await getTestimonials()
     return NextResponse.json(testimonials)
   } catch (err) {
     console.error('GET /api/testimonials error:', err)
@@ -40,7 +44,7 @@ export async function POST(request: NextRequest) {
       createdAt: new Date().toISOString(),
     }
 
-    const created = createTestimonial(newTestimonial)
+    const created = await createTestimonial(newTestimonial)
     return NextResponse.json(created, { status: 201 })
   } catch (err) {
     console.error('POST /api/testimonials error:', err)

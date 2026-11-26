@@ -3,11 +3,11 @@ import { getBlogs, getTestimonials, getMessages, getSettings } from '@/lib/data'
 
 export const dynamic = 'force-dynamic'
 
-export default function AdminDashboard() {
-  const blogs = getBlogs()
-  const testimonials = getTestimonials()
-  const messages = getMessages()
-  const settings = getSettings()
+export default async function AdminDashboard() {
+  const blogs = await getBlogs()
+  const testimonials = await getTestimonials()
+  const messages = await getMessages()
+  const settings = await getSettings()
 
   const publishedBlogs = blogs.filter(b => b.published).length
   const unreadMessages = messages.filter(m => !m.read).length

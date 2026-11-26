@@ -2,21 +2,19 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { jwtVerify } from 'jose'
 
-const SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'fallback-secret-change-in-production-32ch'
-)
-
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Admin route protection (except login page)
   if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
     const token = request.cookies.get('admin_token')?.value
-    if (!token) {
+    // No fallback secret: the repository is public (see lib/auth.ts).
+    const secret = process.env.JWT_SECRET
+    if (!token || !secret) {
       return NextResponse.redirect(new URL('/admin/login', request.url))
     }
     try {
-      await jwtVerify(token, SECRET)
+      await jwtVerify(token, new TextEncoder().encode(secret))
     } catch {
       const response = NextResponse.redirect(new URL('/admin/login', request.url))
       response.cookies.delete('admin_token')

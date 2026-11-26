@@ -23,7 +23,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
     if (typeof body.read !== 'boolean') {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 })
     }
-    const updated = updateMessage(params.id, { read: body.read })
+    const updated = await updateMessage(params.id, { read: body.read })
     if (!updated) {
       return NextResponse.json({ error: 'Message not found' }, { status: 404 })
     }
@@ -39,7 +39,7 @@ export async function DELETE(request: NextRequest, { params }: Params) {
   if (!auth.ok) return auth.response
 
   try {
-    const deleted = deleteMessage(params.id)
+    const deleted = await deleteMessage(params.id)
     if (!deleted) {
       return NextResponse.json({ error: 'Message not found' }, { status: 404 })
     }

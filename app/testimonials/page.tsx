@@ -268,8 +268,8 @@ function QuoteCard({ t }: { t: Testimonial }) {
   )
 }
 
-export default function TestimonialsPage() {
-  const all = getTestimonials()
+export default async function TestimonialsPage() {
+  const all = await getTestimonials()
   const featured = all.filter((t) => t.featured)
   const others = all.filter((t) => !t.featured)
   const hasAny = all.length > 0

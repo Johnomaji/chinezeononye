@@ -13,12 +13,12 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const blogs = getBlogs().filter(b => b.published)
+  const blogs = (await getBlogs()).filter(b => b.published)
   return blogs.map(b => ({ slug: b.slug }))
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = getBlogBySlug(params.slug)
+  const post = await getBlogBySlug(params.slug)
   if (!post) return {}
   return articleMetadata({
     title: `${post.title} | Eden Chineze Blog`,
@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: Props) {
 
 export const revalidate = 60
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getBlogBySlug(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const post = await getBlogBySlug(params.slug)
   if (!post || !post.published) notFound()
 
-  const allPosts = getBlogs().filter(b => b.published && b.id !== post.id)
+  const allPosts = (await getBlogs()).filter(b => b.published && b.id !== post.id)
   const related = allPosts.filter(b => b.category === post.category).slice(0, 3)
   const others = allPosts.filter(b => b.category !== post.category).slice(0, 3 - related.length)
   const relatedPosts = [...related, ...others]

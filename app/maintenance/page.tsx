@@ -5,8 +5,8 @@ export const metadata = {
   title: 'Under Maintenance | Eden Chineze',
 }
 
-export default function MaintenancePage() {
-  const settings = getSettings()
+export default async function MaintenancePage() {
+  const settings = await getSettings()
 
   return (
     <div className="min-h-screen bg-charcoal flex items-center justify-center relative overflow-hidden px-6">

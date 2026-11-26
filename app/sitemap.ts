@@ -17,7 +17,7 @@ const staticRoutes: { path: string; changeFrequency: 'daily' | 'weekly' | 'month
   { path: '/contact', changeFrequency: 'monthly', priority: 0.7 },
 ]
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
 
   const pages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }))
 
-  const posts: MetadataRoute.Sitemap = getBlogs()
+  const posts: MetadataRoute.Sitemap = (await getBlogs())
     .filter((post) => post.published)
     .map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
