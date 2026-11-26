@@ -327,24 +327,6 @@ export default function GrowthPage() {
 
         <div className="max-w-7xl mx-auto px-6 pb-24">
           <SignatureCourses />
-
-          <div className="mt-12">
-            <Link
-              href="/speaking"
-              className="inline-flex items-center gap-2 text-lg font-semibold text-gold-600 hover:text-gold-700 transition-colors group/link"
-            >
-              See it delivered as a keynote or masterclass
-              <svg
-                className="w-5 h-5 group-hover/link:translate-x-0.5 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
 

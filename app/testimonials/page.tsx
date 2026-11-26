@@ -25,18 +25,10 @@ function Shimmer() {
   )
 }
 
-function SkeletonQuote({
-  lines = 4,
-  wide = false,
-  surface = 'bg-white',
-}: {
-  lines?: number
-  wide?: boolean
-  surface?: string
-}) {
+function SkeletonQuote({ lines = 4, wide = false }: { lines?: number; wide?: boolean }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-charcoal/10 ${surface} p-8 ${
+      className={`relative overflow-hidden rounded-2xl border border-charcoal/10 bg-white p-8 ${
         wide ? 'lg:col-span-2' : ''
       }`}
     >
@@ -122,7 +114,24 @@ function PendingState() {
   )
 }
 
-// Placeholder until the three Book Club testimonials are added.
+// Messages from members of The Transforming Place book club, transcribed from WhatsApp.
+// Each inner array is one message; each string is a paragraph.
+const BOOK_CLUB_QUOTES: string[][] = [
+  [
+    'My amazing sister Chineze thank you for this platform it’s just an answer to its name in our lives, we transform, and change positively daily, we are light in our family, neighborhood and anywhere we are found.',
+    'I love it here.',
+  ],
+  ['I’m glad I read through your status that day else I would’ve missed the opportunity.'],
+  [
+    'Chinny, am so grateful that you responded to this call. Indeed I was greatly imparted on by these books. I have alot of experience and believe me I don’t even know where to start from. I love you sis and I pray for more grace upon your life and ours in Jesus Christ name Amen.',
+    'I also wish to continue with you on this journey if it’s possible. Remain blessed Radiant sisters.',
+  ],
+  [
+    'We will meet at the next chapter. We are not done yet. Sis, its your resilience for me! Gosh, it’s crystal. I pray for the grace for everyone of us to keep being thirsty for knowledge. More grace sis.',
+  ],
+  ['We really need to be recording this section.', 'The light here mehhhh!'],
+]
+
 function BookClubSection() {
   return (
     <section className="py-28 bg-white relative overflow-hidden">
@@ -154,16 +163,31 @@ function BookClubSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" aria-hidden>
-          <SkeletonQuote lines={5} surface="bg-cream" />
-          <SkeletonQuote lines={4} surface="bg-cream" />
-          <SkeletonQuote lines={5} surface="bg-cream" />
-        </div>
-
-        <div className="flex items-center gap-4 mt-12">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-charcoal/10" />
-          <p className="text-charcoal/35 text-xs tracking-[0.3em] uppercase shrink-0">Coming soon</p>
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-charcoal/10" />
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
+          {BOOK_CLUB_QUOTES.map((paragraphs, i) => (
+            <figure
+              key={i}
+              className="animate-on-scroll break-inside-avoid mb-6 bg-cream border border-charcoal/10 rounded-2xl p-8 hover:border-gold-500/40 transition-colors duration-300"
+            >
+              <span
+                aria-hidden
+                className="block font-playfair text-6xl leading-none text-gold-500/50 h-8 -mt-1"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="space-y-3 text-charcoal/75 text-lg leading-relaxed mt-4">
+                {paragraphs.map((p, j) => (
+                  <p key={j}>{p}</p>
+                ))}
+              </blockquote>
+              <figcaption className="flex items-center gap-3 mt-8 pt-6 border-t border-charcoal/10">
+                <div className="w-6 h-px bg-gold-500" />
+                <span className="text-charcoal/45 text-xs tracking-[0.25em] uppercase">
+                  Book Club Member
+                </span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -324,7 +348,6 @@ export default async function TestimonialsPage() {
             {hasAny && (
               <div className="flex gap-10 lg:ml-auto shrink-0">
                 {[
-                  { value: String(all.length), label: 'Voices' },
                   { value: avgRating, label: 'Average Rating' },
                 ].map((stat) => (
                   <div key={stat.label}>
@@ -339,19 +362,6 @@ export default async function TestimonialsPage() {
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="w-px h-14 bg-gradient-to-b from-gold-400/60 to-transparent" />
-        </div>
-      </section>
-
-      {/* ─── BANNER ─── */}
-      <section className="relative py-14 bg-gold-gradient overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-          <div className="w-1 h-14 bg-charcoal/30 rounded-full shrink-0 hidden md:block" />
-          <p className="font-playfair text-2xl md:text-4xl font-bold text-charcoal text-center md:text-left leading-snug">
-            &ldquo;The UNSTOPPABLE You is the GROWING You.&rdquo;
-          </p>
-          <div className="md:ml-auto shrink-0">
-            <span className="text-charcoal/50 text-sm tracking-widest uppercase">Eden Chineze</span>
-          </div>
         </div>
       </section>
 

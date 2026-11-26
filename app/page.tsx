@@ -252,10 +252,10 @@ export default async function HomePage() {
               A Life Dedicated to <span className="text-gold-600">Elevating Others</span>
             </h2>
             <p className="text-charcoal/60 leading-relaxed mb-6">
-              With over a decade of experience in education and personal development, Eden Chineze has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
+              With close to two decades in public service, about a decade in education and personal development, Eden has dedicated her life to the belief that every person carries within them an extraordinary capacity waiting to be unlocked.
             </p>
             <p className="text-charcoal/60 leading-relaxed mb-8">
-              From classrooms to conference halls, her message is consistent: your story has power, your purpose has value, and your potential is limitless.
+              From Classrooms to Conference halls, her message is consistent: your life has a higher call, your story has power, your purpose has value and your potential is limitless.
             </p>
             <Link
               href="/about"

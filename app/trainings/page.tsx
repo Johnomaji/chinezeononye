@@ -123,6 +123,20 @@ export default function TrainingsPage() {
         </div>
       </section>
 
+      {/* ─── BRAND PROMISE ─── */}
+      <section className="relative py-16 md:py-20 bg-gold-gradient overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 text-center animate-on-scroll">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-8 h-px bg-charcoal/40" />
+            <span className="text-charcoal/70 text-xs tracking-[0.35em] uppercase font-semibold">The Brand Promise</span>
+            <div className="w-8 h-px bg-charcoal/40" />
+          </div>
+          <p className="font-playfair text-3xl md:text-5xl font-bold text-charcoal leading-snug">
+            Equipped through every Experience with us, and Equipped for life.
+          </p>
+        </div>
+      </section>
+
       {/* ─── SIGNATURE COURSE EXPERIENCES ─── */}
       <section id="courses" className="bg-cream relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
