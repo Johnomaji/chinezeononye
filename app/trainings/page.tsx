@@ -15,6 +15,16 @@ export const metadata = pageMetadata({
 
 const TRAINING_ENQUIRY = '/contact?subject=Workshop+%2F+Training'
 
+const SHIFT_DECK = '/downloads/The-Shift-Webinar.pptx'
+
+const shiftTopics = [
+  'The Shift / Personal Pivot concept',
+  'You: a harmonious whole, and your becoming',
+  'How to identify your growth needs',
+  'Growth implementation strategies',
+  'Be. Do. Have.',
+]
+
 const steps = [
   {
     title: 'Start a Conversation',
@@ -172,6 +182,52 @@ export default function TrainingsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FREE RESOURCE: THE SHIFT WEBINAR ─── */}
+      <section id="resources" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-charcoal rounded-3xl p-8 md:p-14 animate-on-scroll">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-gold-500" />
+                <span className="text-gold-400 text-xs tracking-[0.35em] uppercase">Free Resource</span>
+              </div>
+              <h2 className="font-playfair text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+                The <span className="text-gold-400">Shift</span> Webinar.
+              </h2>
+              <p className="text-white/55 text-lg leading-relaxed max-w-xl">
+                Download the slides from The Shift Webinar of 28 November 2026. A change in mindset becomes lasting
+                only with a personal pivot, and this deck walks you through how to make it.
+              </p>
+
+              <a
+                href={SHIFT_DECK}
+                download
+                className="inline-flex items-center gap-3 mt-10 px-8 py-4 bg-gold-gradient text-charcoal font-bold rounded-full hover:shadow-2xl hover:shadow-gold-500/30 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+                </svg>
+                Download the Slides
+              </a>
+              <p className="text-white/35 text-xs mt-4 tracking-wide">PowerPoint (.pptx) · 11 slides · 0.8 MB</p>
+            </div>
+
+            <div className="lg:col-span-5">
+              <p className="text-gold-400 text-xs tracking-[0.35em] uppercase mb-5">Inside the Deck</p>
+              <ul>
+                {shiftTopics.map((topic, i) => (
+                  <li key={topic} className="flex gap-4 items-start border-t border-white/10 py-4">
+                    <span className="font-playfair text-gold-500/60 font-bold shrink-0 w-7">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="text-white/80">{topic}</span>
+                  </li>
+                ))}
+                <li className="border-t border-white/10" />
+              </ul>
+            </div>
           </div>
         </div>
       </section>
